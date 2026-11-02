@@ -1,0 +1,141 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: xianhua_xian
+  name: 西安話（仙話拼音）
+  version: "0.1-draft"
+  author:
+    - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
+    - 字音來源：osfans/MCPDict《西安》數據表（國際音標）
+  description: |
+    西安話（關中片）拼音輸入方案草稿。
+    音系：聲母 26（含零聲母）、韻母 40、聲調四類——陰平 21、陽平 24、上聲 53、去聲 44。
+    拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調數碼可打可省。
+    反查：Q 起頭用普通話拼音，X 起頭用筆畫。
+  dependencies:
+    - luna_pinyin
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [漢字, 西文]
+  - name: full_shape
+    states: [半角, 全角]
+  - name: ascii_punct
+    states: [句讀, 符號]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@luna_pinyin
+    - affix_segmentor@stroke
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+    - script_translator@luna_pinyin
+    - table_translator@stroke
+  filters:
+    - uniquifier
+    - reverse_lookup_filter@xian_reverse_lookup
+
+speller:
+  # 聲調數碼 1/2/3/4 算輸入碼的一部分，故 alphabet 收進 1234
+  alphabet: abcdefghijklmnopqrstuvwxyz1234
+  delimiter: " '"
+  algebra:
+    # ── 聲調可省：打 "ba" 同出 ba1/ba2/ba3/ba4；打 "ba1" 只出陰平 ──
+    #    規則逐音節生效，詞組要混打「ba1 da」不支持（要麼全打調，要麼全省）
+    - derive/(.)1(?=[' ]|$)/$1/
+    - derive/(.)2(?=[' ]|$)/$1/
+    - derive/(.)3(?=[' ]|$)/$1/
+    - derive/(.)4(?=[' ]|$)/$1/
+
+    # ── 簡拼（零聲母只放行撮呼 yuen=>yun、yuong=>yung，其餘不簡）──
+    #    不能寫成裸的 derive/uen/un/ 之類：那样 "yuong 容" 裏含 uong、"yuen 勻" 裏含 uen，會錯簡成 yung 以外的碼
+    - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])ien(?=\d?$)/$1in/       # 今 jien => jin
+    - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])ieng(?=\d?$)/$1ing/     # 明 mieng => ming
+    - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])iou(?=\d?$)/$1iu/        # 究 jiou => jiu
+    - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])uen(?=\d?$)/$1un/        # 孫 suen => sun
+    - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])uong(?=\d?$)/$1ung/      # 東 duong => dung
+    - derive/yuen(?=\d?$)/yun/                                                 # 勻 yuen => yun、軍 jyuen => jyun
+    - derive/yuong(?=\d?$)/yung/                                               # 容 yuong => yung、瓊 qyuong => qyung
+
+    # ── 撮呼 ü 的普通話式兼容寫法（默認關；等你定稿再開）──
+    # - derive/^([jqx])yu(?=\d?$)/$1u/
+    # - derive/^([jqx])yue(?=\d?$)/$1ue/
+    # - derive/^([jqx])yuo(?=\d?$)/$1uo/
+    # - derive/^([jqx])yuan(?=\d?$)/$1uan/
+    # - derive/^([jqx])yuen(?=\d?$)/$1un/
+    # - derive/^([jqx])yuong(?=\d?$)/$1ong/
+    # - derive/^([nl])yu(?=\d?$)/$1v/
+    # - derive/^([nl])yuen(?=\d?$)/$1vn/
+
+    # ── 聲母簡打（等詞庫做齊再開，避免單字層面同音爆掉）──
+    # - abbrev/^([a-z]).+$/$1/
+    # - abbrev/^(zh|ch|sh|bf|pf|ng).+$/$1/
+
+# 主翻譯器
+translator:
+  dictionary: xianhua_xian
+  prism: xianhua_xian
+  spelling_hints: 8           # 前 8 個候選標注音（含調碼）
+  contextual_suggestions: false
+  # 注釋裏保留調號，方便照字表核音；要「單字不顯示聲調」就放開下一行
+  # comment_format:
+  #   - xform/\d//
+
+# 副翻譯器 1：普通話拼音反查
+luna_pinyin:
+  tag: luna_pinyin
+  dictionary: luna_pinyin
+  prefix: "q"
+  tips: 〔普通話〕
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+# 副翻譯器 2：筆畫反查
+stroke:
+  tag: stroke
+  dictionary: stroke
+  prefix: "x"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+
+# 反查濾鏡：反查結果顯示西安話拼音
+xian_reverse_lookup:
+  tags: [luna_pinyin, stroke]
+  overwrite_comment: true
+  dictionary: xianhua_xian
+  comment_format:
+    - xform/\s/ /
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    luna_pinyin: "^q[a-z']*$"
+    stroke: "^x[hspnz]*$"

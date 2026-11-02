@@ -1,0 +1,19 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 西安話（關中片）輸入方案主詞典
+# 字音表由 MCPDict《西安》數據表（國際音標）轉寫而來，逐行可與原表 diff
+#
+---
+name: xianhua_xian
+version: "0.1-draft"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - xianhua.word
+
+...
+
+# 詞庫說明：本表暫未收詞組。
+# 生成原則是「詞中每個字在 xianhua.word 裏只有一個讀音」，多音字参与的詞先不収，
+# 等字音表校訂完再批量折算（同 wugniu 用 luna_pinyin.sogou / sougouciku 的思路）。

@@ -65,10 +65,15 @@ Rime 平台的西安話（關中片）輸入方案。字音取自 [osfans/MCPDic
 ## 三、文件
 
 ```
-xianhua_xian.schema.yaml      方案（音標字母表、簡拼演算、反查 Q/X）
+xianhua_xian.schema.yaml      方案（輸入字母表含調號、簡拼演算、反查 Q/X）
 xianhua_xian.dict.yaml        主詞典，導入 xianhua.word
-xianhua.word.dict.yaml        字音表 3647 條：字<TAB>全拼+調號
+xianhua.word.dict.yaml        字音表 3647 條：字<TAB>全拼+調號（腳本生成，勿手改）
+tools/ipa2pinyin.mjs          IPA → 西安話拼音轉寫腳本，源表更新後重跑即可
+tools/xianhua.ipa对照.tsv     逐音對照（IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字）1167 行
+tools/xianhua.详注.tsv        逐字詳注（含原表 {} 釋義、白讀標記）
 ```
+
+校表用法：改動轉寫規則只改 `tools/ipa2pinyin.mjs` 頂上那三張映射表（`MR` 聲母、`FR` 韻母、`ZR` 零聲母），在倉庫根目錄跑 `node tools/ipa2pinyin.mjs <MCPDict 西安.tsv>`，詞庫和兩張對照表一起重生，腳本會自報「未映射音節 / 同形衝突 / 音節數 / 多音字數」。
 
 字表統計：字音條目 3647、不同漢字 3344、多音字 275。詞庫嚴格按「一字一音一行」排，同一字重複出現佔多行（`着` 佔 5 行：bfuo2 / pfuo2 / zhao1 / zhao2 / zhe1；`卡` 佔 4 行），碼列內從不出現空格，免得被 Rime 當成多音節詞組。分調條目數 1/2/3/4 = 1148 / 825 / 639 / 1035。
 

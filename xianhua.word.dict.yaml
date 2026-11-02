@@ -3,8 +3,8 @@
 #
 # 西安話（關中片）字音表
 # 來源：osfans/MCPDict《西安》數據表（IPA → 西安話拼音全拼 + 調號 1/2/3/4）
-# 字音條目 3647 條，不同漢字 3344，多音字 275（一字一音一行）
-# 注音一律用全拼；簡拼（in/ing/iu/un/ung/yun/yong）只在方案 speller/algebra 裏衍生，不入本表
+# 本表由 tools/ipa2pinyin.mjs 生成，勿手改；要改轉寫規則請改腳本
+# 字音條目 3647 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: xianhua.word
 version: "0.1-draft"

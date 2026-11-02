@@ -6,7 +6,7 @@
 # 本表由 tools/ipa2pinyin.mjs 生成，勿手改；要改轉寫規則請改腳本
 # 字音條目 3647 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
-name: xianhua.word
+name: xinganhua.word
 version: "0.1-draft"
 sort: by_weight
 use_preset_vocabulary: true

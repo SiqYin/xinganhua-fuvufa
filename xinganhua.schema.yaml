@@ -2,8 +2,8 @@
 # encoding: utf-8
 
 schema:
-  schema_id: xianhua_xian
-  name: 西安話（仙話拼音）
+  schema_id: xinganhua
+  name: 西安話
   version: "0.1-draft"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
@@ -92,8 +92,8 @@ speller:
 
 # 主翻譯器
 translator:
-  dictionary: xianhua_xian
-  prism: xianhua_xian
+  dictionary: xinganhua
+  prism: xinganhua
   spelling_hints: 8           # 前 8 個候選標注音（含調碼）
   contextual_suggestions: false
   # 注釋裏保留調號，方便照字表核音；要「單字不顯示聲調」就放開下一行
@@ -124,7 +124,7 @@ stroke:
 xian_reverse_lookup:
   tags: [luna_pinyin, stroke]
   overwrite_comment: true
-  dictionary: xianhua_xian
+  dictionary: xinganhua
   comment_format:
     - xform/\s/ /
 

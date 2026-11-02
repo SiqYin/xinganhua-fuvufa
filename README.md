@@ -1,10 +1,10 @@
-# 西安話輸入方案 · 仙話拼音
+# 西安話輸入方案
 
 倉庫名 `xinganhua-fuvufa` 就是本方案拼寫的「西安話輸入法」：**西** xi1 **安** ngan1 **話** hua4 ｜ **輸** fu1 **入** vu1 **法** fa1。兩音節連寫會產生歧義時要加撇號——`xi1 ngan1` 不切分寫成 `xingan`，就能被重新切成 `xin`（心的簡拼）+ `gan`（干），所以正字法上是 **`xi'ngan`**；GitHub 倉庫名不允許撇號，遂落為 `xinganhua-fuvufa`。
 
-西安話（陝西方言·關中片）的 Rime 輸入方案。字音資料來自 [osfans/MCPDict《西安》數據表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（國際音標），按本方案逐條轉寫；方案架構參照 [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)。
+西安話（陝西方言·關中片）的 Rime 輸入方案，拼寫系統就是**西安話拼音**，不另立名目。字音資料來自 [osfans/MCPDict《西安》數據表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（國際音標），按本方案逐條轉寫；方案架構參照 [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)。
 
-方案代號 `xianhua_xian`，版本 `0.1-draft`：字音表已可校對，詞組庫尚未做。
+方案代號 `xinganhua`，版本 `0.1-draft`：字音表已可校對，詞組庫尚未做。
 
 | 項目 | 規模 |
 |---|---|
@@ -153,7 +153,7 @@
 | `yue`、`yuo`、`yuan`、`yu` | 不簡 | 本表未定簡寫式 |
 | 聲母只打首字母 | 暫不開放 | 單字層面同音太多，等詞庫做齊再啟 `abbrev` |
 
-放行條件在 `xianhua_xian.schema.yaml` 的 `speller/algebra` 裏用聲母錨點表達，不能圖省事寫成裸規則：`derive/uen/un/` 會把 `yuong`、`yuen` 这类零聲母全拼也咬穿，產出錯碼。改動之後請跑本倉庫的校驗腳本（見 §八）。
+放行條件在 `xinganhua.schema.yaml` 的 `speller/algebra` 裏用聲母錨點表達，不能圖省事寫成裸規則：`derive/uen/un/` 會把 `yuong`、`yuen` 这类零聲母全拼也咬穿，產出錯碼。改動之後請跑本倉庫的校驗腳本（見 §八）。
 
 ### 5.2 聲調可省
 
@@ -184,12 +184,12 @@
 ## 七、文件與安裝
 
 ```
-xianhua_xian.schema.yaml      方案：輸入字母表、簡拼演算、反查 Q/X
-xianhua_xian.dict.yaml        主詞典，導入 xianhua.word
-xianhua.word.dict.yaml        字音表 3647 條（腳本生成，勿手改）
-tools/ipa2pinyin.mjs          IPA → 仙話拼音轉寫腳本
-tools/xianhua.ipa對照.tsv     逐音對照：IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字
-tools/xianhua.詳注.tsv        逐字詳注，含源表 {} 釋義與白讀標記
+xinganhua.schema.yaml      方案：輸入字母表、簡拼演算、反查 Q/X
+xinganhua.dict.yaml        主詞典，導入 xinganhua.word
+xinganhua.word.dict.yaml        字音表 3647 條（腳本生成，勿手改）
+tools/ipa2pinyin.mjs          IPA → 西安話拼音轉寫腳本
+tools/xinganhua.ipa對照.tsv     逐音對照：IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字
+tools/xinganhua.詳注.tsv        逐字詳注，含源表 {} 釋義與白讀標記
 ```
 
 放進 Rime 用戶目錄（Windows `%APPDATA%\Rime`，macOS/Linux `~/.config/rime`），在 `default.custom.yaml` 加：
@@ -197,7 +197,7 @@ tools/xianhua.詳注.tsv        逐字詳注，含源表 {} 釋義與白讀標�
 ```yaml
 patch:
   schema_list:
-    - schema: xianhua_xian
+    - schema: xinganhua
     - schema: luna_pinyin
 ```
 

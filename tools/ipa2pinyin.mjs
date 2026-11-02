@@ -14,7 +14,17 @@ const ZR={'i':'yi','ia':'ya','iɛ':'ye','iai':'yai','iau':'yao','iã':'yan','i�
 const M={},F={},Z={}; for(const k in MR)M[n(k)]=MR[k]; for(const k in FR)F[n(k)]=FR[k]; for(const k in ZR)Z[n(k)]=ZR[k];
 const TR={'陰平21':'1','陽平24':'2','上聲53':'3','去聲44':'4'};
 
-function fld(f){const o=[];let d=0,c='';for(const ch of f){if(ch==='{'){d++;c+=ch;continue}if(ch==='}'){d--;c+=ch;continue}if(d===0&&',，'.includes(ch)){o.push(c.trim());c='';continue}c+=ch}o.push(c.trim());return o.filter(Boolean)}
+// 逗號在 {} 注釋內的不能作分隔；源表另有「餅{~~面}𰻞{~~面}」這種漏逗號的連寫，} 後緊接下一個字時也要切開
+function fld(f){const o=[];let d=0,c='',closed=false;
+  for(const ch of f){
+    if(ch==='{'){d++;closed=false;c+=ch;continue}
+    if(ch==='}'){d--;closed=true;c+=ch;continue}
+    if(d===0&&',，'.includes(ch)){o.push(c.trim());c='';closed=false;continue}
+    if(d===0&&closed&&!/\s/.test(ch)){o.push(c.trim());c=ch;closed=false;continue}
+    if(!/\s/.test(ch))closed=false;
+    c+=ch;
+  }
+  o.push(c.trim());return o.filter(Boolean)}
 
 const rows=[]; let unmapped=[];
 for(const p of lines){

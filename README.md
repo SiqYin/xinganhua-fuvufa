@@ -1,5 +1,7 @@
 # 西安話輸入方案 · 仙話拼音
 
+倉庫名 `xinganhua-fuvufa` 就是本方案拼寫的「西安話輸入法」：**西** xi1 **安** ngan1 **話** hua4 ｜ **輸** fu1 **入** vu1 **法** fa1。兩音節連寫會產生歧義時要加撇號——`xi1 ngan1` 不切分寫成 `xingan`，就能被重新切成 `xin`（心的簡拼）+ `gan`（干），所以正字法上是 **`xi'ngan`**；GitHub 倉庫名不允許撇號，遂落為 `xinganhua-fuvufa`。
+
 西安話（陝西方言·關中片）的 Rime 輸入方案。字音資料來自 [osfans/MCPDict《西安》數據表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（國際音標），按本方案逐條轉寫；方案架構參照 [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)。
 
 方案代號 `xianhua_xian`，版本 `0.1-draft`：字音表已可校對，詞組庫尚未做。

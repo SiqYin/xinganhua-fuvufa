@@ -32,7 +32,7 @@ console.log('同形冲突(不同IPA→同一拼写):',clash.length,clash.map(([k
 console.log('不含调音节',new Set(rows.map(r=>r.py.slice(0,-1))).size,'含调音节',new Set(rows.map(r=>r.py)).size);
 
 const A=rows.map(r=>[r.s,r.t,r.py,(r.i==='Ø'?'Ø':r.i),r.f0,[...new Set(fld(r.c).map(e=>e.split('{')[0].trim()).filter(x=>x&&x!=='□'))].join(' ')].join('\t'));
-fs.writeFileSync('tools/xianhua.ipa对照.tsv','#IPA音节\t调名\t西安话拼音(全拼)\t声母\t韵母\t辖字\n'+A.join('\n')+'\n');
+fs.writeFileSync('tools/xianhua.ipa對照.tsv','#IPA音节\t调名\t西安话拼音(全拼)\t声母\t韵母\t辖字\n'+A.join('\n')+'\n');
 
 const ent=new Map();
 for(const r of rows){ for(const e of fld(r.c)){ const h=e.split('{')[0].trim(); if(!h||h==='□')continue;
@@ -54,6 +54,6 @@ use_preset_vocabulary: true
 
 `;
 fs.writeFileSync('xianhua.word.dict.yaml',dictHdr+arr.map(o=>o.ch+'\t'+o.py).join('\n')+'\n');
-fs.writeFileSync('tools/xianhua.详注.tsv','#字\t西安话拼音(全拼+调号)\t原IPA[调名]\t原文件释注\n'+arr.map(o=>[o.ch,o.py,o.ipa+'['+o.t+']',o.note].filter(Boolean).join('\t')).join('\n')+'\n');
+fs.writeFileSync('tools/xianhua.詳注.tsv','#字\t西安话拼音(全拼+调号)\t原IPA[调名]\t原文件释注\n'+arr.map(o=>[o.ch,o.py,o.ipa+'['+o.t+']',o.note].filter(Boolean).join('\t')).join('\n')+'\n');
 const perChar=new Map(); for(const o of arr) perChar.set(o.ch,(perChar.get(o.ch)||0)+1);
 console.log('字音条目',arr.length,'不同字',perChar.size,'多音字',[...perChar.values()].filter(n=>n>1).length);

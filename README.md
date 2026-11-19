@@ -1,16 +1,19 @@
+**简体中文** ｜ [繁體中文](README.zh-Hant.md) ｜ [English](README.en.md) ｜ [日本語](README.ja.md)
+
 # 西安话输入法 · xinganhua-fuvufa
 
 > 用**西安话拼音**（全拼 + 调号 1/2/3/4）在 Rime 里打西安话。字音逐条来自 [osfans/MCPDict《西安》数据表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国际音标），转写零同形冲突。
 
-![西安话声母图](onsets.svg)
+![西安话声母图](figures/onsets.hans.svg)
 
-![西安话韵母图](rhymes.svg)
+![西安话韵母图](figures/rhymes.hans.svg)
 
 - **方案代码**：`xinganhua`（仓库名 `xinganhua-fuvufa` = 本方案拼写的「西安话输入法」：西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
 - **字表**：3,648 条字音 / 3,345 字头 / 275 个多音字；392 个不计调音节、1,158 个计调音节
 - **音系**：声母 26（含零声母）、韵母 40、四声（阴平 21、阳平 24、上声 53、去声 44）
 - **适用**：Rime 系输入法（小狼毫 Weasel / 鼠须管 Squirrel / Trime / fcitx-rime 等）
 - **正文用简体**；表格里的例字保持词库的繁体字形（鵝、軍、豬、來、溫……），因为那是要能对上词库的数据
+- **四种语言**：简体 / 繁体 / English / 日本語，顶部的链接可直接切换；四版内容一致，以简体版为准
 
 ---
 
@@ -37,7 +40,7 @@
 
 西安话（陕西方言·关中片）的拼音输入方案。拼写系统就是**西安话拼音**，不另立名目：一个音节写成「声母 + 韵母 + 调号」，例如 `ba1 巴`、`bfeng4 中`、`jyuen1 軍`。
 
-![音节结构图](syllable.svg)
+![音节结构图](figures/syllable.hans.svg)
 
 字表 3,648 条字音全部由脚本从 MCPDict 的国际音标逐条转写而来，转写后 392 个音节的拼写**两两不同（零同形冲突）**，也就是说这套罗马字是可逆的：拿拼音能原样还原成音标。
 
@@ -72,7 +75,7 @@
 
 ## 四、声调
 
-![西安话声调图](tones.svg)
+![西安话声调图](figures/tones.hans.svg)
 
 调号紧跟在音节后，不另加空格。入声已归并到这四个调里，归派与普通话不同：`立 li1`（阴平，普通话去声）、`白 bei2`（阳平，普通话阳平）、`藥 yuo1`（阴平，普通话去声）、`六 liou1`（阴平，普通话去声）、`十 shi2`（阳平，普通话阳平）、`大 duo4`（去声，普通话去声）。
 
@@ -215,10 +218,12 @@
 xinganhua.schema.yaml          方案：输入字母表、简拼演算、反查 Q/X
 xinganhua.dict.yaml            主词典，导入 xinganhua.word
 xinganhua.word.dict.yaml       字音表 3,648 条（脚本生成，勿手改）
-onsets.svg / rhymes.svg        声母图 / 韵母图（脚本生成）
-tones.svg / syllable.svg       声调图 / 音节结构图（脚本生成）
+figures/onsets.hans.svg        声母图（另有 .hant / .en / .ja 三版）
+figures/rhymes.hans.svg        韵母图（同上）
+figures/tones.hans.svg         声调图（同上）
+figures/syllable.hans.svg      音节结构图（同上）
 tools/ipa2pinyin.mjs           IPA → 西安话拼音转写脚本
-tools/make-figures.mjs         四张 SVG 图的生成脚本
+tools/make-figures.mjs         四张图 × 四种语言的生成脚本
 tools/xinganhua.ipa對照.tsv    逐音对照：IPA / 调名 / 拼音 / 声母 / 韵母 / 辖字
 tools/xinganhua.詳注.tsv       逐字详注，含源表 {} 释义与白读标记
 ```
@@ -257,7 +262,7 @@ tools/xinganhua.詳注.tsv       逐字详注，含源表 {} 释义与白读标�
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-词库与两张对照表一起重生，脚本自报：未映射音节、同形冲突、不含调/含调音节数、字音条目与多音字数。四张图用 `node tools/make-figures.mjs` 重生。algebra 的简拼衍生码另可写个模拟器逐条跑 schema 里的规则，检查歧义（开发时用过，未随仓库发布，需要可以再补进来）。
+词库与两张对照表一起重生，脚本自报：未映射音节、同形冲突、不含调/含调音节数、字音条目与多音字数。四张图用 `node tools/make-figures.mjs` 重生，一次写出 `figures/` 下 16 个文件（四张图 × 简 / 繁 / 英 / 日）。algebra 的简拼衍生码另可写个模拟器逐条跑 schema 里的规则，检查歧义（开发时用过，未随仓库发布，需要可以再补进来）。
 
 ---
 
@@ -284,10 +289,10 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 十四、授权
 
-方案配置（`xinganhua.schema.yaml`、四张 SVG、本说明）可自由使用、修改、再分发。字音数据来自 MCPDict《西安》数据表，版权与授权请遵循原项目说明。
+方案配置（`xinganhua.schema.yaml`、`figures/` 下的四语配图、本说明）可自由使用、修改、再分发。字音数据来自 MCPDict《西安》数据表，版权与授权请遵循原项目说明。
 
 ---
 
 ## 声明
 
-本 README 的全部内容由 Qoder 平台下的 Qwen 模型撰写输出。
+简体版为源文；繁体版由 OpenCC 从简体转出，英文与日文版为对应译本。四版内容一致，如有出入以简体版为准。本文由 AI 辅助撰写与翻译。

@@ -73,7 +73,7 @@ The urban table (3,648 readings) was transliterated from MCPDict's IPA by script
 
 ## 3. Finals
 
-38 finals shared by the two varieties (14 open / 9 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40. Zero-initial spellings are the same in both:
+38 finals shared by the two varieties (15 open / 8 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40 (16 / 9 / 9 / 6). Zero-initial spellings are the same in both:
 
 | Class | Zero-initial rule | Examples |
 |---|---|---|
@@ -212,9 +212,11 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 
 The conditions are expressed with initial anchors in `speller/algebra` of `chengqyu.schema.yaml`; do not take the shortcut of a bare rule: `derive/uen/un/` would also bite zero-initial full spellings such as `yuong` and `yuen`, producing wrong codes. `nanjiao.schema.yaml` uses the same rules minus the `bf`/`pf` anchors.
 
-### 8.2 Tones are optional
+### 8.2 Tones are not typed
 
-`alphabet` includes `1234`; the tone digit is part of the input code, and algebra also generates toneless variants. For multi-syllable input, either type every tone or omit all of them — mixing (`ba1 da`) is not supported.
+**No digits in the input code.** `alphabet` holds the 26 letters only, and `speller/algebra` uses `xform/\d//` to strip the tone digit from every dictionary reading. The tone survives only in the comment (the reading shown beside a candidate) and in the dictionary itself; it never takes part in typing.
+
+The reason is simple: in Rime the keys `1`–`9` select candidates, so a tone digit used as an input code would collide with them. Homophones all come up together (`ba` yields ba1/ba2/ba3/ba4) and are ordered by frequency and context.
 
 ### 8.3 Ambiguity check for abbreviations
 

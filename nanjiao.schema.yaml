@@ -4,15 +4,16 @@
 schema:
   schema_id: nanjiao
   name: 西安話南郊音
-  version: "0.1.1"
+  version: "1.0.2"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：南郊音字表（據《西安南郊音.xlsx》逐字標注折出）
   description: |
-    西安話南郊音（關中片）拼音輸入方案草稿。
+    西安話南郊音（關中片）拼音輸入方案。
     音系：聲母 24（無 bf、pf）、韻母 38（無 uu、iai）、聲調四類——陰平 21、陽平 24、上聲 53、去聲 44。
     同倉庫另有西安話城區音方案 chengqyu（聲母 26、韻母 40），兩套並行。
-    拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調數碼可打可省。
+    拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調不輸入，故輸入碼不含數字。
+    詞庫字頭為繁體（同 Rime 社區慣例），默認輸出繁體；切到「簡體」才按繁→簡表轉出。
     反查：Q 起頭用普通話拼音，X 起頭用筆畫。
   dependencies:
     - luna_pinyin
@@ -26,6 +27,10 @@ switches:
     states: [半角, 全角]
   - name: ascii_punct
     states: [句讀, 符號]
+  # 詞庫字頭存繁體，默認原樣輸出；第二檔打開 simplification，由 simplifier 走 Rime 自帶的 t2s.json 轉簡體
+  - options: [noop, simplification]
+    states: [繁體, 简体]
+    reset: 0
 
 engine:
   processors:
@@ -52,20 +57,17 @@ engine:
     - script_translator@luna_pinyin
     - table_translator@stroke
   filters:
+    - simplifier
     - uniquifier
     - reverse_lookup_filter@nanjiao_reverse_lookup
 
 speller:
-  # 聲調數碼 1/2/3/4 算輸入碼的一部分，故 alphabet 收進 1234
-  alphabet: abcdefghijklmnopqrstuvwxyz1234
+  # 聲調不入碼：1/2/3/4 是選詞鍵，若也當輸入碼會撞上；alphabet 只留字母
+  alphabet: abcdefghijklmnopqrstuvwxyz
   delimiter: " '"
   algebra:
-    # ── 聲調可省：打 "ba" 同出 ba1/ba2/ba3/ba4；打 "ba1" 只出陰平 ──
-    #    規則逐音節生效，詞組要混打「ba1 da」不支持（要麼全打調，要麼全省）
-    - derive/(.)1(?=[' ]|$)/$1/
-    - derive/(.)2(?=[' ]|$)/$1/
-    - derive/(.)3(?=[' ]|$)/$1/
-    - derive/(.)4(?=[' ]|$)/$1/
+    # 聲調數碼去掉，不參與輸入
+    - xform/\d//
 
     # ── 簡拼（零聲母只放行撮呼 yuen=>yun、yuong=>yung，其餘不簡）──
     #    不能寫成裸的 derive/uen/un/ 之類：那样 "yuong 容" 裏含 uong、"yuen 勻" 裏含 uen，會錯簡成 yung 以外的碼

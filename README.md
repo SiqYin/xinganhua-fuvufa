@@ -1,5 +1,7 @@
 **简体中文** ｜ [繁體中文](README.zh-Hant.md) ｜ [English](README.en.md) ｜ [日本語](README.ja.md)
 
+> **安卓直装版**：[android-xinganhua](https://github.com/SiqYin/android-xinganhua) —— 小企鹅输入法（Fcitx5 for Android）的西安话直装包：装上本体与 Rime 插件就能在手机上打西安话，不必自己导入方案。
+
 # 西安话输入法 · xinganhua-fuvufa
 
 > 用**西安话拼音**（全拼 + 调号 1/2/3/4）在 Rime 里打西安话。字音逐条来自 [osfans/MCPDict《西安》数据表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国际音标），转写零同形冲突。

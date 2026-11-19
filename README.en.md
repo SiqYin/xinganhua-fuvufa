@@ -1,5 +1,7 @@
 [简体中文](README.md) ｜ [繁體中文](README.zh-Hant.md) ｜ **English** ｜ [日本語](README.ja.md)
 
+> **Android build**: [android-xinganhua](https://github.com/SiqYin/android-xinganhua) — the Xi'an dialect as an install-and-go package for Fcitx5 for Android: install the app and the Rime plugin, and type on your phone with no scheme files to import.
+
 # Xi'an Dialect Input Method · xinganhua-fuvufa
 
 > Type Xi'an dialect in Rime with **Xi'an pinyin** (full spelling + tone digit 1/2/3/4). Every reading comes from the [osfans/MCPDict Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv) (IPA), transliterated with zero homograph conflicts.

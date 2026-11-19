@@ -1,6 +1,8 @@
 [简体中文](README.md) ｜ [繁體中文](README.zh-Hant.md) ｜ [English](README.en.md) ｜ **日本語**
 
-# 西安方言輸入法 · xinganhua-fuvufa
+> **Android 直装版**：[android-xinganhua](https://github.com/SiqYin/android-xinganhua) —— Fcitx5 for Android（小企鹅输入法）に西安方言を組み込んだ直装パッケージ。本体と Rime プラグインを入れれば、方案を自分で読み込まずにスマートフォンで打てます。
+
+# 西安方言入力法 · xinganhua-fuvufa
 
 > **西安方言ピンイン**（全拼＋声調番号 1/2/3/4）で Rime に西安方言を打ち込むための方案です。字音は [osfans/MCPDict「西安」データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国際音声記号）から一字ずつ転写したもので、同形衝突はありません。
 
@@ -8,7 +10,7 @@
 
 ![西安方言の韻母図](figures/rhymes.ja.svg)
 
-- **方案コード**：`xinganhua`（リポジトリ名 `xinganhua-fuvufa` は本方案の綴りで「西安話輸入法」：西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
+- **方案コード**：`xinganhua`（リポジトリ名 `xinganhua-fuvufa` は本方案の綴りで「西安話入力法」：西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
 - **字表**：字音 3,648 件 / 字頭 3,345 字 / 多音字 275 字。声調なし音節 392、声調つき音節 1,158
 - **音韻**：声母 26（零声母を含む）、韻母 40、四声（陰平 21、陽平 24、上声 53、去声 44）
 - **対応**：Rime 系入力（Weasel / Squirrel / Trime / fcitx-rime など）

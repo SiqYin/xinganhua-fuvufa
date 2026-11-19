@@ -4,7 +4,7 @@
 schema:
   schema_id: nanjiao
   name: 西安話南郊音
-  version: "0.1-draft"
+  version: "0.1.1"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：南郊音字表（據《西安南郊音.xlsx》逐字標注折出）

@@ -4,7 +4,7 @@
 schema:
   schema_id: chengqyu
   name: 西安話城區音
-  version: "0.1-draft"
+  version: "0.1.1"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：osfans/MCPDict《西安》數據表（國際音標）

@@ -10,7 +10,7 @@
 
 - **方案コード**：`xinganhua`（リポジトリ名 `xinganhua-fuvufa` は本方案の綴りで「西安話輸入法」：西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
 - **字表**：字音 3,648 件 / 字頭 3,345 字 / 多音字 275 字。声調なし音節 392、声調つき音節 1,158
-- **音韻**：声母 26（ゼロ声母を含む）、韻母 40、四声（陰平 21、陽平 24、上声 53、去声 44）
+- **音韻**：声母 26（零声母を含む）、韻母 40、四声（陰平 21、陽平 24、上声 53、去声 44）
 - **対応**：Rime 系入力（Weasel / Squirrel / Trime / fcitx-rime など）
 - **例字は字表の繁体字のまま**（鵝、軍、豬、來、溫 …）。データと突き合わせる必要があるためです
 - **四言語**：簡体中文 / 繁體中文 / English / 日本語。上のリンクで切り替えられます。内容は四版とも同じで、簡体版を正とします
@@ -52,11 +52,11 @@
 
 ## 2. 声母
 
-声母は 26 個（子音 25 個＋ゼロ声母）。冒頭の声母図を参照してください。分布上の規則は次のとおりです（共時的分布のみを述べ、音類の考証はしません）。
+声母は 26 個（子音 25 個＋零声母）。冒頭の声母図を参照してください。分布上の規則は次のとおりです（共時的分布のみを述べ、音類の考証はしません）。
 
 - `z c s`（ʦ ʦʰ s）は `ɿ` と洪音の韻母にのみ付き、細音（i・y で始まるもの）には必ず `j q x`（ʨ ʨʰ ɕ）を用います。普通話も同じで、z c s の後に i・y で始まる韻母は来ません。
 - `bf pf`（pf pfʰ）は合口・洪音の韻母の前にのみ現れます：`bfu` 豬、`bfuo` 捉、`bfan` 磚、`pfang` 窗。
-- `r`（ʐ）は洪音韻母 7 つだけと結びつきます：`re` 熱、`rao` 饒、`ren` 人、`rou` 揉、`ran` 然、`rang` 瓤、`reng` 扔。日 而 兒 耳 二 は r- ではなく、ゼロ声母の `er` で読みます。
+- `r`（ʐ）は洪音韻母 7 つだけと結びつきます：`re` 熱、`rao` 饒、`ren` 人、`rou` 揉、`ran` 然、`rang` 瓤、`reng` 扔。日 而 兒 耳 二 は r- ではなく、零声母の `er` で読みます。
 - `ng`（ŋ）は洪音とのみ結びつきます：`nge` 我、`ngan` 安、`ngen` 恩、`ngang` 昂、`ngai` 哀、`ngei` 額、`ngao` 熬、`ngou` 歐。
 - `v` は `f` と対立します：`ven` 文 ⟂ `fen` 分、`va` 襪 ⟂ `fa` 法。
 
@@ -66,9 +66,9 @@
 
 ## 3. 韻母
 
-韻母は 40 個（開 15 / 斉 10 / 合 9 / 撮 6）。冒頭の韻母図を参照してください。ゼロ声母の書き方は次のとおりです。
+韻母は 40 個（開 15 / 斉 10 / 合 9 / 撮 6）。冒頭の韻母図を参照してください。零声母の書き方は次のとおりです。
 
-| 呼 | ゼロ声母の規則 | 例 |
+| 呼 | 零声母の規則 | 例 |
 |---|---|---|
 | 開口呼 | 字母を加えない | `a` 阿 a1、`er` 日 er1、`ai`、`ao`、`an`、`ei`、`en`、`ou`、`ang`、`eng` |
 | 斉歯呼 | `i` を `y` に | `i→yi` 衣、`ia→ya` 丫、`ie→ye` 也、`ian→yan` 煙、`ien→yen` 音、`ieng→yeng` 英、`iou→you` 有、`iang→yang` 央 |
@@ -108,7 +108,7 @@
 
 **① まったく同じ（そのまま打てる）**
 
-声母 `b p m f d t n l g k h z c s zh ch sh r j q x` は字も音も普通話と一致します（無気／有気の関係も同じ）。韻母 `a i u e er ai ei ao ou ia ie iao ian iang ua uo uai uan uang` の綴りも同じです。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。ゼロ声母の y/w の規則も普通話とまったく同じです。
+声母 `b p m f d t n l g k h z c s zh ch sh r j q x` は字も音も普通話と一致します（無気／有気の関係も同じ）。韻母 `a i u e er ai ei ao ou ia ie iao ian iang ua uo uai uan uang` の綴りも同じです。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。零声母の y/w の規則も普通話とまったく同じです。
 
 **② 綴りは同じで音価が異なる**
 
@@ -122,8 +122,8 @@
 | ing | ieng | 明 mieng2 | 同上 |
 | iu | iou | 牛 niou2 | 同上 |
 | ui | uei | 回 huei2 | 省略しない |
-| un | uen | 溫 wen1 | ゼロ声母では普通話と同じ wen |
-| ong | uong | 東 duong1 | ゼロ声母は wong 翁 |
+| un | uen | 溫 wen1 | 零声母では普通話と同じ wen |
+| ong | uong | 東 duong1 | 零声母は wong 翁 |
 | iong | yuong | 容 yuong2 | 撮口呼は y を伴う |
 | ü / üe / üan / ün | yu / yue / yuan / yuen | 魚 yu2、月 yue1、元 yuan2、軍 jyuen1 | つねに y を伴い、声母の後でも省略しない |
 
@@ -168,7 +168,7 @@
 | 日 | rì | `er1` | | 大 | dà | `da4` |
 
 - 声調番号は省略できます：`ba` で四声すべての候補、`ba1` で陰平のみ。
-- よく使う簡拼：`in / ing / iu / un / ung / yun / yung` はそれぞれ `ien / ieng / iou / uen / uong / yuen / yuong` に対応します（ゼロ声母の `you` 有、`wen` 溫 は省略しません）。
+- よく使う簡拼：`in / ing / iu / un / ung / yun / yung` はそれぞれ `ien / ieng / iou / uen / uong / yuen / yuong` に対応します（零声母の `you` 有、`wen` 溫 は省略しません）。
 - 逆引き：`q` ＋普通話ピンイン、`x` ＋画数。候補の注記に西安方言の読みが出ます。
 
 ---
@@ -186,8 +186,8 @@
 | `iou` | `iu` | 前に声母がある場合のみ | `jiou` 究 → jiu、`niou` 牛 → niu |
 | `uen` | `un` | 前に声母がある場合のみ | `suen` 孫 → sun、`duen` 墩 → dun |
 | `uong` | `ung` | 前に声母がある場合のみ | `duong` 冬 → dung、`huong` 烘 → hung |
-| `yuen` | `yun` | ゼロ声母も可 | `yuen` 勻 → yun、`jyuen` 軍 → jyun |
-| `yuong` | `yung` | ゼロ声母も可 | `yuong` 容 → yung、`qyuong` 瓊 → qyung |
+| `yuen` | `yun` | 零声母も可 | `yuen` 勻 → yun、`jyuen` 軍 → jyun |
+| `yuong` | `yung` | 零声母も可 | `yuong` 容 → yung、`qyuong` 瓊 → qyung |
 
 **許されない省略**（衝突するか、方案にないコードになる）：
 
@@ -195,12 +195,12 @@
 |---|---|---|
 | `you` 有 → `yu` | ✗ | `魚 yu` と同形 |
 | `wen` 溫 → `wn` / `wun` | ✗ | 方案にこのような音節分割はない |
-| `yen` 音、`yeng` 英 → `in`、`ing` | ✗ | ゼロ声母は省略しない。`in` は `ien` のみを指す |
+| `yen` 音、`yeng` 英 → `in`、`ing` | ✗ | 零声母は省略しない。`in` は `ien` のみを指す |
 | `wong` 翁 → `ung` | ✗ | 同上。`wong` は全拼のまま |
 | `yue`、`yuo`、`yuan`、`yu` | 省略なし | 本表では略式を定めていない |
 | 声母の頭文字だけ | 未開放 | 単字では同音が多すぎる。辞書が整ってから `abbrev` を有効化 |
 
-許容条件は `xinganhua.schema.yaml` の `speller/algebra` で声母のアンカーを用いて表現します。手を抜いて裸の規則にはできません：`derive/uen/un/` は `yuong`、`yuen` のようなゼロ声母の全拼まで巻き込んで、誤ったコードを生みます。
+許容条件は `xinganhua.schema.yaml` の `speller/algebra` で声母のアンカーを用いて表現します。手を抜いて裸の規則にはできません：`derive/uen/un/` は `yuong`、`yuen` のような零声母の全拼まで巻き込んで、誤ったコードを生みます。
 
 ### 8.2 声調は省略できる
 
@@ -278,7 +278,7 @@ tools/xinganhua.詳注.tsv       字ごとの詳注。原表の {} 釈義と白�
 
 ## 11. 検証と再生成
 
-転写規則はすべて `tools/ipa2pinyin.mjs` 冒頭の 3 つの対応表（`MR` 声母、`FR` 韻母、`ZR` ゼロ声母）に集約されています。編集したらリポジトリのルートで実行します：
+転写規則はすべて `tools/ipa2pinyin.mjs` 冒頭の 3 つの対応表（`MR` 声母、`FR` 韻母、`ZR` 零声母）に集約されています。編集したらリポジトリのルートで実行します：
 
 ```sh
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
@@ -293,7 +293,7 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ## 12. 未決と今後
 
 1. **撮口呼の `y` を残すか**：現行は `jyu/qyuo/xyuen/nyu/lyu`。普通話式の `ju/qu/xu/nü/lü` との互換規則は schema のコメントに用意済みです。
-2. **ゼロ声母の `yen/yeng`**：機械的に `i→y` とした結果です。普通話式の `yin/ying` は簡拼 `in/ing` と衝突するため採用していません。
+2. **零声母の `yen/yeng`**：機械的に `i→y` とした結果です。普通話式の `yin/ying` は簡拼 `in/ing` と衝突するため採用していません。
 3. **語彙（熟語）辞書**：「語中の各字は 1 読み」として一括で折り畳み、多音字の項目は手で音を選びます。ここまで進めて初めて文単位の入力が現実になります。
 4. **字頻の重み**：現在は `use_preset_vocabulary` で普通話の語頻度を借りており、暫定的です。
 5. **文法モデル**：`.gram` は未作成、`contextual_suggestions` は無効のままです。

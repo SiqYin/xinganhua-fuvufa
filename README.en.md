@@ -16,7 +16,6 @@
 - **Works with**: Rime-family IMEs (Weasel, Squirrel, Trime, fcitx-rime, …)
 - **Examples keep the dictionary's traditional glyphs** (鵝, 軍, 豬, 來, 溫 …), because they have to match the data
 - **Four languages**: Simplified Chinese / Traditional Chinese / English / 日本語 — switch with the links above; all four say the same thing, and the Simplified version is authoritative
-- **Urban and southern-suburb varieties**: this scheme follows the **urban** variety (inside the city wall). The southern suburbs (Gaoxin, Xiaozhai, Qujiang) speak a **southern-suburb** variety with 24 initials (no `bf`, `pf`) and 38 finals (no `uu`, `iai`), though the same four tones. The lookup site [xinganhua-ziyencaxin](https://github.com/SiqYin/xinganhua-ziyencaxin) now shows both readings side by side for every character
 
 ---
 

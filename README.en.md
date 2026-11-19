@@ -4,18 +4,23 @@
 
 # Xi'an Dialect Input Method · xinganhua-fuvufa
 
-> Type Xi'an dialect in Rime with **Xi'an pinyin** (full spelling + tone digit 1/2/3/4). Every reading comes from the [osfans/MCPDict Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv) (IPA), transliterated with zero homograph conflicts.
+> Type Xi'an dialect in Rime with **Xi'an pinyin** (full spelling + tone digit 1/2/3/4). Two schemas, one per variety: `chengqyu` for the urban accent, `nanjiao` for the southern-suburb accent. The urban readings come from the [osfans/MCPDict Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv) (IPA); the southern ones are folded from the per-character annotations in 西安南郊音.xlsx.
 
-![Xi'an initials](figures/onsets.en.svg)
+![Xi'an initials (urban 26; no bf, pf in the southern suburb)](figures/onsets.en.svg)
 
-![Xi'an finals](figures/rhymes.en.svg)
+![Xi'an finals (urban 40; no uu, iai in the southern suburb)](figures/rhymes.en.svg)
 
-- **Schema code**: `xinganhua` (the repository name `xinganhua-fuvufa` is "Xi'an dialect input method" in this very spelling: 西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1)
-- **Character table**: 3,648 readings / 3,345 characters / 275 polyphonic characters; 392 toneless syllables, 1,158 toned syllables
-- **Phonology**: 26 initials (including the zero initial), 40 finals, 4 tones (Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44)
+- **Schema code**: `chengqyu` (urban Xi'an) and `nanjiao` (southern-suburb Xi'an); the repository name `xinganhua-fuvufa` is the old spelling of "Xi'an dialect input method" (西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1)
+- **Character table**: urban 3,648 readings, southern 3,578; 3,345 characters
+- **Phonology**: 24 initials, 38 finals and 4 tones shared (Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44); the urban variety adds `bf`, `pf` (initials) and `uu`, `iai` (finals) — 26 / 40 in total
 - **Works with**: Rime-family IMEs (Weasel, Squirrel, Trime, fcitx-rime, …)
 - **Examples keep the dictionary's traditional glyphs** (鵝, 軍, 豬, 來, 溫 …), because they have to match the data
 - **Four languages**: Simplified Chinese / Traditional Chinese / English / 日本語 — switch with the links above; all four say the same thing, and the Simplified version is authoritative
+
+| Schema | Name | Initials | Finals | Dictionary |
+|---|---|---|---|---|
+| `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 40 (incl. `uu`, `iai`) | `chengqyu.word.dict.yaml`, 3,648 |
+| `nanjiao` | Southern-suburb Xi'an | 24 | 38 | `nanjiao.word.dict.yaml`, 3,578 |
 
 ---
 
@@ -46,7 +51,7 @@ A pinyin input scheme for the Xi'an dialect (Guanzhong group, Shaanxi). The spel
 
 ![Syllable structure](figures/syllable.en.svg)
 
-All 3,648 readings were transliterated from MCPDict's IPA by script. After transliteration the 392 syllables are **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
+The urban table (3,648 readings) was transliterated from MCPDict's IPA by script; the southern table (3,578) was folded from the per-character annotations in 西安南郊音.xlsx. After transliteration the 392 urban and 386 southern syllables are each **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
 
 ---
 
@@ -54,10 +59,10 @@ All 3,648 readings were transliterated from MCPDict's IPA by script. After trans
 
 ## 2. Initials
 
-26 initials (25 consonants plus the zero initial), shown in the figure at the top. The hard distributional rules (synchronic only, no historical reconstruction):
+24 initials shared by the two varieties (23 consonants plus the zero initial); the urban variety adds `bf`, `pf`, making 26. The hard distributional rules (synchronic only, no historical reconstruction) hold for both; those mentioning `bf`, `pf` concern the urban variety only:
 
 - `z c s` (ʦ ʦʰ s) take only `ɿ` and broad finals; narrow finals (starting with i or y) always take `j q x` (ʨ ʨʰ ɕ). Mandarin behaves the same way: z c s are never followed by i- or y- finals.
-- `bf pf` (pf pfʰ) appear only before u-medial or broad finals: `bfu` 豬, `bfuo` 捉, `bfan` 磚, `pfang` 窗.
+- `bf pf` (pf pfʰ) appear only before u-medial or broad finals: `bfu` 豬, `bfuo` 捉, `bfan` 磚, `pfang` 窗. The southern suburb has no such initials: they are read z and c with a u medial added — `zu` 豬, `zuo` 捉, `zuan` 磚, `cuang` 窗.
 - `r` (ʐ) combines with just 7 broad finals: `re` 熱, `rao` 饒, `ren` 人, `rou` 揉, `ran` 然, `rang` 瓤, `reng` 扔; 日 而 兒 耳 二 are not r- but the zero initial `er`.
 - `ng` (ŋ) takes broad finals only: `nge` 我, `ngan` 安, `ngen` 恩, `ngang` 昂, `ngai` 哀, `ngei` 額, `ngao` 熬, `ngou` 歐.
 - `v` contrasts with `f`: `ven` 文 ⟂ `fen` 分, `va` 襪 ⟂ `fa` 法.
@@ -68,7 +73,7 @@ All 3,648 readings were transliterated from MCPDict's IPA by script. After trans
 
 ## 3. Finals
 
-40 finals (15 open / 10 i-medial / 9 u-medial / 6 ü-medial), shown in the figure at the top. Zero-initial spellings:
+38 finals shared by the two varieties (14 open / 9 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40. Zero-initial spellings are the same in both:
 
 | Class | Zero-initial rule | Examples |
 |---|---|---|
@@ -78,6 +83,8 @@ All 3,648 readings were transliterated from MCPDict's IPA by script. After trans
 | ü-medial | write `yu-` as is | `yu` 魚, `yue` 月, `yuo` 樂, `yuan` 冤, `yuen` 勻, `yuong` 容 |
 
 The ü-series always keeps `y`, even after an initial: `jyu` 居, `qyuo` 卻, `xyuen` 熏, `nyu` 女, `lyu` 律.
+
+The urban `uu` (`guu` 胳) is `e` (`ge`) in the southern suburb, and `iai` (`jiai` 皆) is `ie` (`jie`).
 
 ---
 
@@ -129,24 +136,24 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 | iong | yuong | 容 yuong2 | ü-medial keeps y |
 | ü / üe / üan / ün | yu / yue / yuan / yuen | 魚 yu2, 月 yue1, 元 yuan2, 軍 jyuen1 | always with y, even after an initial |
 
-**④ Extra sounds in Xi'an**
+**④ Extras in the urban variety (absent from the southern suburb)**
 
-- Initials: `bf pf` (豬 bfu1, 窗 pfang1), `v` (文 ven2), `ng` (安 ngan1)
-- Finals: `uu` (胳 guu1), `o` (only in `vo`: 若 vo1), `iai` (皆 jiai1), `yuo` (樂 yuo1)
+- Initials: `bf pf` (豬 bfu1, 窗 pfang1), `v` (文 ven2), `ng` (安 ngan1). bf and pf are z and c in the south: 豬 zu1, 窗 cuang1.
+- Finals: `uu` (胳 guu1), `o` (only in `vo`: 若 vo1), `iai` (皆 jiai1), `yuo` (樂 yuo1). uu and iai are e and ie in the south: 胳 ge1, 皆 jie1.
 
 **⑤ Characters whose initial does not match (memorise examples, not rules)**
 
-| Mandarin | Xi'an pinyin | Character |
-|---|---|---|
-| shuǐ | fei3 | 水 |
-| shū | fu1 | 書 |
-| shuō | she1 | 說 |
-| shān / shì | san1 / si4 | 山 / 是 |
-| zhū / chū | bfu1 / pfu1 | 豬 / 出 |
-| zhōng / chūn | bfeng4 / pfen1 | 中 / 春 |
-| wén | ven2 | 文 |
-| é / ān | nge2 / ngan1 | 鵝 / 安 |
-| rì | er1 | 日 |
+| Mandarin | Urban | Southern | Character |
+|---|---|---|---|
+| shuǐ | fei3 | suei3 | 水 |
+| shū | fu1 | su1 | 書 |
+| shuō | she1 | she1 | 說 |
+| shān / shì | san1 / si4 | san1 / si4 | 山 / 是 |
+| zhū / chū | bfu1 / pfu1 | zu1 / cu1 | 豬 / 出 |
+| zhōng / chūn | bfeng4 / pfen1 | zuong4 / cuen1 | 中 / 春 |
+| wén | ven2 | ven2 | 文 |
+| é / ān | nge2 / ngan1 | nge2 / ngan1 | 鵝 / 安 |
+| rì | er1 | er1 | 日 |
 
 **⑥ Same digit position, completely different pitch**: Mandarin ā á ǎ à map to 1 2 3 4 here, but the Xi'an values are 21 / 24 / 53 / 44 (see the tone figure). Speakers simply use their local pitch; no conversion is needed.
 
@@ -169,6 +176,7 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 | 家 | jiā | `jia1` | | 立 | lì | `li1` |
 | 日 | rì | `er1` | | 大 | dà | `da4` |
 
+- The table shows urban codes; `水 fei3` is `suei3` in the south and `中 bfeng4` is `zuong4`, all other characters are identical.
 - The tone digit is optional: `ba` offers all four tones, while `ba1` gives only Yinping.
 - Common abbreviations: `in / ing / iu / un / ung / yun / yung` stand for `ien / ieng / iou / uen / uong / yuen / yuong` (zero-initial `you` 有 and `wen` 溫 are not shortened).
 - Reverse lookup: `q` + Mandarin pinyin, or `x` + strokes; the candidate comment shows the Xi'an reading.
@@ -202,7 +210,7 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 | `yue`, `yuo`, `yuan`, `yu` | no short form | none defined in this table |
 | Initial-letter-only typing | not yet | too many single-character homophones; will wait for a fuller dictionary and `abbrev` |
 
-The conditions are expressed with initial anchors in `speller/algebra` of `xinganhua.schema.yaml`; do not take the shortcut of a bare rule: `derive/uen/un/` would also bite zero-initial full spellings such as `yuong` and `yuen`, producing wrong codes.
+The conditions are expressed with initial anchors in `speller/algebra` of `chengqyu.schema.yaml`; do not take the shortcut of a bare rule: `derive/uen/un/` would also bite zero-initial full spellings such as `yuong` and `yuen`, producing wrong codes. `nanjiao.schema.yaml` uses the same rules minus the `bf`/`pf` anchors.
 
 ### 8.2 Tones are optional
 
@@ -220,7 +228,7 @@ Running all algebra rules over the 392 syllables yields 48 abbreviated codes (to
 
 | Item | Count |
 |---|---|
-| Readings | 3,648 (one reading per line) |
+| Readings | urban 3,648 ／ southern 3,578 (one reading per line) |
 | Distinct characters | 3,345 |
 | Polyphonic characters | 275 (`着` has 5 lines, `卡` 4, `側` 3, …) |
 | Readings per tone | 1/2/3/4 = 1,148 / 826 / 639 / 1,035 |
@@ -237,17 +245,21 @@ Running all algebra rules over the 392 syllables yields 48 abbreviated codes (to
 ## 10. Files and installation
 
 ```
-xinganhua.schema.yaml          schema: alphabet, abbreviation algebra, Q/X reverse lookup
-xinganhua.dict.yaml            main dictionary, imports xinganhua.word
-xinganhua.word.dict.yaml       3,648 readings (generated; do not edit by hand)
+chengqyu.schema.yaml           urban schema: alphabet, abbreviation algebra, Q/X reverse lookup
+chengqyu.dict.yaml             urban main dictionary, imports chengqyu.word
+chengqyu.word.dict.yaml        urban readings, 3,648 (generated; do not edit by hand)
+nanjiao.schema.yaml            southern-suburb schema (24 initials, 38 finals)
+nanjiao.dict.yaml              southern main dictionary, imports nanjiao.word
+nanjiao.word.dict.yaml         southern readings, 3,578 (generated; do not edit by hand)
 figures/onsets.hans.svg        initials figure (also .hant / .en / .ja)
 figures/rhymes.hans.svg        finals figure (likewise)
 figures/tones.hans.svg         tones figure (likewise)
 figures/syllable.hans.svg      syllable-structure figure (likewise)
-tools/ipa2pinyin.mjs           IPA → Xi'an pinyin transliterator
+tools/ipa2pinyin.mjs           IPA → urban pinyin transliterator
+tools/make_nanjiao_dict.py     southern table → nanjiao.word.dict.yaml
 tools/make-figures.mjs         generates the four figures in all four languages
-tools/xinganhua.ipa對照.tsv    per-sound table: IPA / tone name / pinyin / initial / final / characters
-tools/xinganhua.詳注.tsv       per-character notes, including the source table's {} glosses
+tools/chengqyu.ipa對照.tsv    urban per-sound table: IPA / tone name / pinyin / initial / final / characters
+tools/chengqyu.詳注.tsv       urban per-character notes, including the source table's {} glosses
 ```
 
 (The two table files keep their traditional-character filenames, matching the files actually in the repository.)
@@ -258,9 +270,12 @@ tools/xinganhua.詳注.tsv       per-character notes, including the source table
    - Linux: `~/.config/ibus/rime` or `~/.local/share/fcitx5/rime`
 
    ```
-   xinganhua.schema.yaml
-   xinganhua.dict.yaml
-   xinganhua.word.dict.yaml
+   chengqyu.schema.yaml
+   chengqyu.dict.yaml
+   chengqyu.word.dict.yaml
+   nanjiao.schema.yaml
+   nanjiao.dict.yaml
+   nanjiao.word.dict.yaml
    ```
 
 2. Enable the schema in `default.custom.yaml`:
@@ -268,7 +283,8 @@ tools/xinganhua.詳注.tsv       per-character notes, including the source table
    ```yaml
    patch:
      schema_list:
-       - schema: xinganhua
+       - schema: chengqyu
+       - schema: nanjiao
        # append any other schemas below as usual
    ```
 
@@ -286,7 +302,7 @@ All transliteration rules live in three mapping tables at the top of `tools/ipa2
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-The dictionary and both cross-reference tables are regenerated together, and the script reports unmapped syllables, homograph conflicts, toneless/toned syllable counts, and the number of readings and polyphonic characters. Regenerate the figures with `node tools/make-figures.mjs`, which writes all 16 files under `figures/` (four figures × hans / hant / en / ja) in one go. The abbreviated codes derived by algebra can also be checked with a small simulator that runs the schema rules line by line (used during development, not shipped; it can be added back if needed).
+The dictionary and both cross-reference tables are regenerated together, and the script reports unmapped syllables, homograph conflicts, toneless/toned syllable counts, and the number of readings and polyphonic characters. After editing the southern table, run `python tools/make_nanjiao_dict.py` to rebuild `nanjiao.word.dict.yaml`. Regenerate the figures with `node tools/make-figures.mjs`, which writes all 16 files under `figures/` (four figures × hans / hant / en / ja) in one go. The abbreviated codes derived by algebra can also be checked with a small simulator that runs the schema rules line by line (used during development, not shipped; it can be added back if needed).
 
 ---
 
@@ -307,11 +323,12 @@ The dictionary and both cross-reference tables are regenerated together, and the
 
 ## 13. Data and credits
 
-- [osfans/MCPDict](https://github.com/osfans/MCPDict) (`tools/tables/data/西安.tsv`) — reading data, IPA
+- [osfans/MCPDict](https://github.com/osfans/MCPDict) (`tools/tables/data/西安.tsv`) — urban reading data, IPA
+- the per-character annotations in 西安南郊音.xlsx — source of the southern readings, folded into `nanjiao.word.dict.yaml`
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu) (雪萤) — schema architecture, dictionary layout, reverse-lookup style
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy) (雪萤) — layout and figure conventions this README follows
 
-**Verified**: all 3,648 readings match the source table character by character; the 392 syllables are pairwise distinct; 0 cross-syllable ambiguities among abbreviated codes.
+**Verified**: all 3,648 urban readings match the source table character by character and the 392 syllables are pairwise distinct; the southern table has 3,578 readings and 386 syllables with the same property; 0 cross-syllable ambiguities among abbreviated codes.
 
 ---
 
@@ -319,7 +336,7 @@ The dictionary and both cross-reference tables are regenerated together, and the
 
 ## 14. License
 
-The schema configuration (`xinganhua.schema.yaml`), the four-language figures under `figures/`, and this document may be used, modified and redistributed freely. The reading data comes from MCPDict's Xi'an table; see that project for its terms.
+The schema configuration (`chengqyu.schema.yaml`, `nanjiao.schema.yaml`), the four-language figures under `figures/`, and this document may be used, modified and redistributed freely. The urban reading data comes from MCPDict's Xi'an table; see that project for its terms.
 
 ---
 

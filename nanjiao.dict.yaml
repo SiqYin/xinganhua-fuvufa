@@ -1,0 +1,19 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 西安話南郊音（關中片）輸入方案主詞典
+# 字音表據《西安南郊音.xlsx》的逐字標注、套西安話音標折出
+#
+---
+name: nanjiao
+version: "0.1-draft"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - nanjiao.word
+
+...
+
+# 詞庫說明：本表暫未收詞組。
+# 生成原則是「詞中每個字在 nanjiao.word 裏只有一個讀音」，多音字参与的詞先不収，
+# 等字音表校訂完再批量折算（同 wugniu 用 luna_pinyin.sogou / sougouciku 的思路）。

@@ -4,18 +4,23 @@
 
 # 西安話輸入法 · xinganhua-fuvufa
 
-> 用**西安話拼音**（全拼 + 調號 1/2/3/4）在 Rime 裏打西安話。字音逐條來自 [osfans/MCPDict《西安》數據表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（國際音標），轉寫零同形衝突。
+> 用**西安話拼音**（全拼 + 調號 1/2/3/4）在 Rime 裏打西安話。**城區音、南郊音各一套方案**：`chengqyu` 與 `nanjiao`。城區音字音逐條來自 [osfans/MCPDict《西安》數據表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（國際音標），南郊音據《西安南郊音.xlsx》的逐字標註折出。
 
-![西安話聲母圖](figures/onsets.hant.svg)
+![西安話聲母圖（城區音 26；南郊音無 bf、pf）](figures/onsets.hant.svg)
 
-![西安話韻母圖](figures/rhymes.hant.svg)
+![西安話韻母圖（城區音 40；南郊音無 uu、iai）](figures/rhymes.hant.svg)
 
-- **方案代碼**：`xinganhua`（倉庫名 `xinganhua-fuvufa` = 本方案拼寫的「西安話輸入法」：西 xi1 安 ngan1 話 hua4 ｜ 輸 fu1 入 vu1 法 fa1）
-- **字表**：3,648 條字音 / 3,345 字頭 / 275 個多音字；392 個不計調音節、1,158 個計調音節
-- **音系**：聲母 26（含零聲母）、韻母 40、四聲（陰平 21、陽平 24、上聲 53、去聲 44）
+- **方案代碼**：`chengqyu`（西安話城區音）、`nanjiao`（西安話南郊音）；倉庫名 `xinganhua-fuvufa` 是「西安話輸入法」的舊拼寫（西 xi1 安 ngan1 話 hua4 ｜ 輸 fu1 入 vu1 法 fa1）
+- **字表**：城區音 3,648 條、南郊音 3,578 條；3,345 字頭
+- **音系**：兩套共用 24 聲母、38 韻母、四聲（陰平 21、陽平 24、上聲 53、去聲 44）；城區音另有 `bf`、`pf` 兩個聲母與 `uu`、`iai` 兩個韻母（26 / 40）
 - **適用**：Rime 系輸入法（小狼毫 Weasel / 鼠須管 Squirrel / Trime / fcitx-rime 等）
-- **正文用繁體**（由簡體版轉出）；表格裏的例字保持詞庫的繁體字形（鵝、軍、豬、來、溫……），因爲那是要能對上詞庫的數據
+- **正文用簡體**；表格裏的例字保持詞庫的繁體字形（鵝、軍、豬、來、溫……），因爲那是要能對上詞庫的數據
 - **四種語言**：簡體 / 繁體 / English / 日本語，頂部的鏈接可直接切換；四版內容一致，以簡體版爲準
+
+| 方案 | 名稱 | 聲母 | 韻母 | 字表 |
+|---|---|---|---|---|
+| `chengqyu` | 西安話城區音 | 26（含 `bf`、`pf`） | 40（含 `uu`、`iai`） | `chengqyu.word.dict.yaml`，3,648 條 |
+| `nanjiao` | 西安話南郊音 | 24 | 38 | `nanjiao.word.dict.yaml`，3,578 條 |
 
 ---
 
@@ -40,20 +45,20 @@
 
 ## 一、這個方案是什麼
 
-西安話（陝西方言·關中片）的拼音輸入方案。拼寫系統就是**西安話拼音**，不另立名目：一個音節寫成「聲母 + 韻母 + 調號」，例如 `ba1 巴`、`bfeng4 中`、`jyuen1 軍`。
+西安話（陝西方言·關中片）的拼音輸入方案，分**城區音**與**南郊音**兩套，共用一套拼寫：一個音節寫成「聲母 + 韻母 + 調號」，例如 `ba1 巴`、`jyuen1 軍`；`bfeng4 中` 是城區音，南郊音作 `zuong4`。
 
 ![音節結構圖](figures/syllable.hant.svg)
 
-字表 3,648 條字音全部由腳本從 MCPDict 的國際音標逐條轉寫而來，轉寫後 392 個音節的拼寫**兩兩不同（零同形衝突）**，也就是說這套羅馬字是可逆的：拿拼音能原樣還原成音標。
+城區音 3,648 條字音由腳本從 MCPDict 的國際音標逐條轉寫而來，轉寫後 392 個音節的拼寫**兩兩不同（零同形衝突）**；南郊音 3,578 條同法折自南郊音字表，386 個音節同樣零衝突。也就是說這套羅馬字是可逆的：拿拼音能原樣還原成音標。
 
 ---
 
 ## 二、聲母
 
-26 個聲母（25 個輔音 + 零聲母），見文首的聲母圖。分佈上的幾條硬規則（只描述本表的共時分佈，不做音類考證）：
+兩套共用 **24 個聲母**（23 個輔音 + 零聲母）；城區音另有 `bf`、`pf` 兩個，共 26 個。下面幾條分佈規則兩套都成立，涉及 `bf`、`pf` 的只指城區音：
 
 - `z c s`（ʦ ʦʰ s）只接 `ɿ` 和洪音韻母；細音（i、y 起頭）一律 `j q x`（ʨ ʨʰ ɕ）。這一點跟普通話一樣：z c s 後面本來也不會跟 i、y 打頭的韻母。
-- `bf pf`（pf pfʰ）只出現在合口/洪音韻母前：`bfu 豬`、`bfuo 捉`、`bfan 磚`、`pfang 窗`。
+- `bf pf`（pf pfʰ）只出現在合口/洪音韻母前：`bfu 豬`、`bfuo 捉`、`bfan 磚`、`pfang 窗`。南郊音沒有這兩個聲母，讀 z／c，韻母同時增生 u 介音：`zu 豬`、`zuo 捉`、`zuan 磚`、`cuang 窗`。
 - `r`（ʐ）只配 7 個洪音韻母：`re 熱`、`rao 饒`、`ren 人`、`rou 揉`、`ran 然`、`rang 瓤`、`reng 扔`；「日 而 兒 耳 二」不讀 r-，讀零聲母 `er`。
 - `ng`（ŋ）只配洪音：`nge 我`、`ngan 安`、`ngen 恩`、`ngang 昂`、`ngai 哀`、`ngei 額`、`ngao 熬`、`ngou 歐`。
 - `v` 與 `f` 對立：`ven 文` ⟂ `fen 分`、`va 襪` ⟂ `fa 法`。
@@ -62,7 +67,7 @@
 
 ## 三、韻母
 
-40 個韻母（開 15 / 齊 10 / 合 9 / 撮 6），見文首的韻母圖。零聲母的寫法：
+兩套共用 **38 個韻母**（開 14 / 齊 9 / 合 9 / 撮 6）；城區音另有 `uu`、`iai` 兩個，共 40 個。零聲母寫法兩套相同：
 
 | 呼 | 零聲母規則 | 例 |
 |---|---|---|
@@ -72,6 +77,8 @@
 | 撮呼 | 照寫 `yu-` | `yu 魚`、`yue 月`、`yuo 樂`、`yuan 冤`、`yuen 勻`、`yuong 容` |
 
 撮呼一律帶 `y`，聲母后也不省：`jyu 居`、`qyuo 卻`、`xyuen 燻`、`nyu 女`、`lyu 律`。
+
+城區音的 `uu`（`guu 胳`）在南郊音讀 `e`（`ge`），`iai`（`jiai 皆`）讀 `ie`（`jie`）。
 
 ---
 
@@ -117,24 +124,24 @@
 | iong | yuong | 容 yuong2 | 撮呼帶 y |
 | ü / üe / üan / ün | yu / yue / yuan / yuen | 魚 yu2、月 yue1、元 yuan2、軍 jyuen1 | 一律帶 y，聲母后也不省 |
 
-**④ 西安話多出來的**
+**④ 城區音多出來的（南郊音沒有）**
 
-- 聲母：`bf pf`（豬 bfu1、窗 pfang1）、`v`（文 ven2）、`ng`（安 ngan1）
-- 韻母：`uu`（胳 guu1）、`o`（只在 `vo`：若 vo1）、`iai`（皆 jiai1）、`yuo`（樂 yuo1）
+- 聲母：`bf pf`（豬 bfu1、窗 pfang1）、`v`（文 ven2）、`ng`（安 ngan1）。其中 bf、pf 南郊音讀 z、c：豬 zu1、窗 cuang1。
+- 韻母：`uu`（胳 guu1）、`o`（只在 `vo`：若 vo1）、`iai`（皆 jiai1）、`yuo`（樂 yuo1）。其中 uu、iai 南郊音讀 e、ie：胳 ge1、皆 jie1。
 
 **⑤ 聲母對不上的字（記例不記規則）**
 
-| 普通話 | 西安話拼音 | 例 |
-|---|---|---|
-| shuǐ | fei3 | 水 |
-| shū | fu1 | 書 |
-| shuō | she1 | 說 |
-| shān / shì | san1 / si4 | 山 / 是 |
-| zhū / chū | bfu1 / pfu1 | 豬 / 出 |
-| zhōng / chūn | bfeng4 / pfen1 | 中 / 春 |
-| wén | ven2 | 文 |
-| é / ān | nge2 / ngan1 | 鵝 / 安 |
-| rì | er1 | 日 |
+| 普通話 | 城區音 | 南郊音 | 例 |
+|---|---|---|---|
+| shuǐ | fei3 | suei3 | 水 |
+| shū | fu1 | su1 | 書 |
+| shuō | she1 | she1 | 說 |
+| shān / shì | san1 / si4 | san1 / si4 | 山 / 是 |
+| zhū / chū | bfu1 / pfu1 | zu1 / cu1 | 豬 / 出 |
+| zhōng / chūn | bfeng4 / pfen1 | zuong4 / cuen1 | 中 / 春 |
+| wén | ven2 | ven2 | 文 |
+| é / ān | nge2 / ngan1 | nge2 / ngan1 | 鵝 / 安 |
+| rì | er1 | er1 | 日 |
 
 **⑥ 調號位置一樣、調值完全不同**：普通話的 ā á ǎ à 對應本方案的 1 2 3 4，但西安話是 21 / 24 / 53 / 44（見聲調圖）。母語者按本地調值念即可，不需要換算。
 
@@ -155,6 +162,7 @@
 | 家 | jiā | `jia1` | | 立 | lì | `li1` |
 | 日 | rì | `er1` | | 大 | dà | `da4` |
 
+- 表中是城區音碼；`水 fei3` 南郊作 `suei3`、`中 bfeng4` 作 `zuong4`，其餘字兩套同碼。
 - 調號可省：打 `ba` 出四個調的候選，打 `ba1` 只出陰平。
 - 常用簡拼：`in / ing / iu / un / ung / yun / yung` 分別對應 `ien / ieng / iou / uen / uong / yuen / yuong`（零聲母的 `you 有`、`wen 溫` 不簡）。
 - 反查：`q` + 普通話拼音、`x` + 筆畫，候選註釋會顯示西安話讀音。
@@ -186,7 +194,7 @@
 | `yue`、`yuo`、`yuan`、`yu` | 不簡 | 本表未定簡寫式 |
 | 聲母只打首字母 | 暫不開放 | 單字層面同音太多，等詞庫做齊再啓 `abbrev` |
 
-放行條件在 `xinganhua.schema.yaml` 的 `speller/algebra` 裏用聲母錨點表達，不能圖省事寫成裸規則：`derive/uen/un/` 會把 `yuong`、`yuen` 這類零聲母全拼也咬穿，產出錯碼。
+放行條件在 `chengqyu.schema.yaml` 的 `speller/algebra` 裏用聲母錨點表達，不能圖省事寫成裸規則：`derive/uen/un/` 會把 `yuong`、`yuen` 這類零聲母全拼也咬穿，產出錯碼。`nanjiao.schema.yaml` 規則相同，只是聲母錨點裏沒有 `bf`、`pf`。
 
 ### 8.2 聲調可省
 
@@ -202,7 +210,7 @@
 
 | 項 | 數 |
 |---|---|
-| 字音條目 | 3,648（一字一音一行） |
+| 字音條目 | 城區音 3,648 ／ 南郊音 3,578（一字一音一行） |
 | 不同漢字 | 3,345 |
 | 多音字 | 275（`着` 佔 5 行、`卡` 佔 4 行、`側` 佔 3 行……） |
 | 分調條目 | 1/2/3/4 = 1,148 / 826 / 639 / 1,035 |
@@ -217,17 +225,21 @@
 ## 十、文件與安裝
 
 ```
-xinganhua.schema.yaml          方案：輸入字母表、簡拼演算、反查 Q/X
-xinganhua.dict.yaml            主詞典，導入 xinganhua.word
-xinganhua.word.dict.yaml       字音表 3,648 條（腳本生成，勿手改）
-figures/onsets.hant.svg        聲母圖（另有 .hans / .en / .ja 三版）
+chengqyu.schema.yaml           西安話城區音方案：字母表、簡拼演算、反查 Q/X
+chengqyu.dict.yaml             城區音主詞典，導入 chengqyu.word
+chengqyu.word.dict.yaml        城區音字音表 3,648 條（腳本生成，勿手改）
+nanjiao.schema.yaml            西安話南郊音方案（聲母 24、韻母 38）
+nanjiao.dict.yaml              南郊音主詞典，導入 nanjiao.word
+nanjiao.word.dict.yaml         南郊音字音表 3,578 條（腳本生成，勿手改）
+figures/onsets.hant.svg        聲母圖（另有 .hant / .en / .ja 三版）
 figures/rhymes.hant.svg        韻母圖（同上）
 figures/tones.hant.svg         聲調圖（同上）
 figures/syllable.hant.svg      音節結構圖（同上）
-tools/ipa2pinyin.mjs           IPA → 西安話拼音轉寫腳本
+tools/ipa2pinyin.mjs           IPA → 城區音拼音轉寫腳本
+tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
 tools/make-figures.mjs         四張圖 × 四種語言的生成腳本
-tools/xinganhua.ipa對照.tsv    逐音對照：IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字
-tools/xinganhua.詳注.tsv       逐字詳註，含源表 {} 釋義與白讀標記
+tools/chengqyu.ipa對照.tsv    城區音逐音對照：IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字
+tools/chengqyu.詳注.tsv       城區音逐字詳註，含源表 {} 釋義與白讀標記
 ```
 
 （兩張對照表的文件名沿用繁體寫法，與倉庫裏實際文件名一致。）
@@ -238,9 +250,12 @@ tools/xinganhua.詳注.tsv       逐字詳註，含源表 {} 釋義與白讀標�
    - Linux：`~/.config/ibus/rime` 或 `~/.local/share/fcitx5/rime`
 
    ```
-   xinganhua.schema.yaml
-   xinganhua.dict.yaml
-   xinganhua.word.dict.yaml
+   chengqyu.schema.yaml
+   chengqyu.dict.yaml
+   chengqyu.word.dict.yaml
+   nanjiao.schema.yaml
+   nanjiao.dict.yaml
+   nanjiao.word.dict.yaml
    ```
 
 2. 在 `default.custom.yaml` 裏掛上方案：
@@ -248,7 +263,8 @@ tools/xinganhua.詳注.tsv       逐字詳註，含源表 {} 釋義與白讀標�
    ```yaml
    patch:
      schema_list:
-       - schema: xinganhua
+       - schema: chengqyu
+       - schema: nanjiao
        # 其他方案照樣往下追加即可
    ```
 
@@ -264,7 +280,7 @@ tools/xinganhua.詳注.tsv       逐字詳註，含源表 {} 釋義與白讀標�
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-詞庫與兩張對照表一起重生，腳本自報：未映射音節、同形衝突、不含調/含調音節數、字音條目與多音字數。四張圖用 `node tools/make-figures.mjs` 重生，一次寫出 `figures/` 下 16 個文件（四張圖 × 簡 / 繁 / 英 / 日）。algebra 的簡拼衍生碼另可寫個模擬器逐條跑 schema 裏的規則，檢查歧義（開發時用過，未隨倉庫發佈，需要可以再補進來）。
+詞庫與兩張對照表一起重生，腳本自報：未映射音節、同形衝突、不含調/含調音節數、字音條目與多音字數。南郊音字表改過之後跑 `python tools/make_nanjiao_dict.py` 重生 `nanjiao.word.dict.yaml`。四張圖用 `node tools/make-figures.mjs` 重生，一次寫出 `figures/` 下 16 個文件（四張圖 × 簡 / 繁 / 英 / 日）。algebra 的簡拼衍生碼另可寫個模擬器逐條跑 schema 裏的規則，檢查歧義（開發時用過，未隨倉庫發佈，需要可以再補進來）。
 
 ---
 
@@ -281,17 +297,18 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 十三、數據與致謝
 
-- [osfans/MCPDict](https://github.com/osfans/MCPDict)（`tools/tables/data/西安.tsv`）——字音數據源，國際音標
+- [osfans/MCPDict](https://github.com/osfans/MCPDict)（`tools/tables/data/西安.tsv`）——城區音字音數據源，國際音標
+- 《西安南郊音.xlsx》逐字標註——南郊音字音來源，折出後見 `nanjiao.word.dict.yaml`
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪螢）——方案架構、詞典組織方式與反查寫法
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy)（雪螢）——本 README 的排版與配圖方式參照
 
-**驗證**：字表 3,648 條與原表逐字比對無一缺失；392 個音節拼寫兩兩不同；algebra 簡拼衍生碼跨音節歧義 0。
+**驗證**：城區音字表 3,648 條與原表逐字比對無一缺失，392 個音節拼寫兩兩不同；南郊音字表 3,578 條，386 個音節同樣零衝突；algebra 簡拼衍生碼跨音節歧義 0。
 
 ---
 
 ## 十四、授權
 
-方案配置（`xinganhua.schema.yaml`、`figures/` 下的四語配圖、本說明）可自由使用、修改、再分發。字音數據來自 MCPDict《西安》數據表，版權與授權請遵循原項目說明。
+方案配置（`chengqyu.schema.yaml`、`nanjiao.schema.yaml`、`figures/` 下的四語配圖、本說明）可自由使用、修改、再分發。城區音字音數據來自 MCPDict《西安》數據表，版權與授權請遵循原項目說明。
 
 ---
 

@@ -1,12 +1,12 @@
 # Rime dictionary
 # encoding: utf-8
 #
-# 西安話（關中片）字音表
+# 西安話城區音（關中片）字音表
 # 來源：osfans/MCPDict《西安》數據表（IPA → 西安話拼音全拼 + 調號 1/2/3/4）
 # 本表由 tools/ipa2pinyin.mjs 生成，勿手改；要改轉寫規則請改腳本
 # 字音條目 3648 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
-name: xinganhua.word
+name: chengqyu.word
 version: "0.1-draft"
 sort: by_weight
 use_preset_vocabulary: true

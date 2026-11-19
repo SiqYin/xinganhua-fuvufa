@@ -4,18 +4,23 @@
 
 # 西安方言入力法 · xinganhua-fuvufa
 
-> **西安方言ピンイン**（全拼＋声調番号 1/2/3/4）で Rime に西安方言を打ち込むための方案です。字音は [osfans/MCPDict「西安」データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国際音声記号）から一字ずつ転写したもので、同形衝突はありません。
+> **西安方言ピンイン**（全拼＋声調番号 1/2/3/4）で Rime に西安方言を打ち込む方案です。**城区音・南郊音それぞれ一套**：`chengqyu` と `nanjiao`。城区音の字音は [osfans/MCPDict「西安」データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国際音声記号）から一字ずつ転写し、南郊音は『西安南郊音.xlsx』の逐字標注から折り出しています。
 
-![西安方言の声母図](figures/onsets.ja.svg)
+![西安方言の声母図（城区音 26；南郊音は bf・pf なし）](figures/onsets.ja.svg)
 
-![西安方言の韻母図](figures/rhymes.ja.svg)
+![西安方言の韻母図（城区音 40；南郊音は uu・iai なし）](figures/rhymes.ja.svg)
 
-- **方案コード**：`xinganhua`（リポジトリ名 `xinganhua-fuvufa` は本方案の綴りで「西安話入力法」：西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
-- **字表**：字音 3,648 件 / 字頭 3,345 字 / 多音字 275 字。声調なし音節 392、声調つき音節 1,158
-- **音韻**：声母 26（零声母を含む）、韻母 40、四声（陰平 21、陽平 24、上声 53、去声 44）
+- **方案コード**：`chengqyu`（西安方言城区音）、`nanjiao`（西安方言南郊音）。リポジトリ名 `xinganhua-fuvufa` は「西安話入力法」の旧綴り（西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
+- **字表**：城区音 3,648 件、南郊音 3,578 件；字頭 3,345 字
+- **音韻**：両系統に共通する声母 24・韻母 38・四声（陰平 21、陽平 24、上声 53、去声 44）。城区音だけ `bf`・`pf` 二声母と `uu`・`iai` 二韻母が加わる（26 / 40）
 - **対応**：Rime 系入力（Weasel / Squirrel / Trime / fcitx-rime など）
 - **例字は字表の繁体字のまま**（鵝、軍、豬、來、溫 …）。データと突き合わせる必要があるためです
 - **四言語**：簡体中文 / 繁體中文 / English / 日本語。上のリンクで切り替えられます。内容は四版とも同じで、簡体版を正とします
+
+| 方案 | 名称 | 声母 | 韻母 | 字表 |
+|---|---|---|---|---|
+| `chengqyu` | 西安方言城区音 | 26（`bf`・`pf` を含む） | 40（`uu`・`iai` を含む） | `chengqyu.word.dict.yaml`、3,648 件 |
+| `nanjiao` | 西安方言南郊音 | 24 | 38 | `nanjiao.word.dict.yaml`、3,578 件 |
 
 ---
 
@@ -46,7 +51,7 @@
 
 ![音節の構造](figures/syllable.ja.svg)
 
-字音 3,648 件はすべて、MCPDict の国際音声記号からスクリプトで一字ずつ転写したものです。転写後の 392 音節は**綴りが互いに重複しません（同形衝突ゼロ）**。つまりこのローマ字表記は可逆で、綴りから元の音声記号をそのまま復元できます。
+城区音 3,648 件は MCPDict の国際音声記号からスクリプトで一字ずつ転写し、南郊音 3,578 件は『西安南郊音.xlsx』の逐字標注から折り出しました。転写後の城区音 392・南郊音 386 の音節はそれぞれ**綴りが互いに重複しません（同形衝突ゼロ）**。つまりこのローマ字表記は可逆で、綴りから元の音声記号をそのまま復元できます。
 
 ---
 
@@ -54,10 +59,10 @@
 
 ## 2. 声母
 
-声母は 26 個（子音 25 個＋零声母）。冒頭の声母図を参照してください。分布上の規則は次のとおりです（共時的分布のみを述べ、音類の考証はしません）。
+両系統に共通する声母は **24 個**（子音 23 個＋零声母）。城区音はこれに `bf`・`pf` を加えて 26 個になります。次の分布規則は両系統に当てはまりますが、`bf`・`pf` に関する記述は城区音のみのものです：
 
 - `z c s`（ʦ ʦʰ s）は `ɿ` と洪音の韻母にのみ付き、細音（i・y で始まるもの）には必ず `j q x`（ʨ ʨʰ ɕ）を用います。普通話も同じで、z c s の後に i・y で始まる韻母は来ません。
-- `bf pf`（pf pfʰ）は合口・洪音の韻母の前にのみ現れます：`bfu` 豬、`bfuo` 捉、`bfan` 磚、`pfang` 窗。
+- `bf pf`（pf pfʰ）は合口・洪音の韻母の前にのみ現れます：`bfu` 豬、`bfuo` 捉、`bfan` 磚、`pfang` 窗。南郊音にはこの二声母がなく、z・c に韻母の u 介音が加わります：`zu` 豬、`zuo` 捉、`zuan` 磚、`cuang` 窗。
 - `r`（ʐ）は洪音韻母 7 つだけと結びつきます：`re` 熱、`rao` 饒、`ren` 人、`rou` 揉、`ran` 然、`rang` 瓤、`reng` 扔。日 而 兒 耳 二 は r- ではなく、零声母の `er` で読みます。
 - `ng`（ŋ）は洪音とのみ結びつきます：`nge` 我、`ngan` 安、`ngen` 恩、`ngang` 昂、`ngai` 哀、`ngei` 額、`ngao` 熬、`ngou` 歐。
 - `v` は `f` と対立します：`ven` 文 ⟂ `fen` 分、`va` 襪 ⟂ `fa` 法。
@@ -68,7 +73,7 @@
 
 ## 3. 韻母
 
-韻母は 40 個（開 15 / 斉 10 / 合 9 / 撮 6）。冒頭の韻母図を参照してください。零声母の書き方は次のとおりです。
+両系統に共通する韻母は **38 個**（開 14 / 斉 9 / 合 9 / 撮 6）。城区音はこれに `uu`・`iai` を加えて 40 個になります。零声母の書き方は両系統で同じです：
 
 | 呼 | 零声母の規則 | 例 |
 |---|---|---|
@@ -78,6 +83,8 @@
 | 撮口呼 | `yu-` のまま | `yu` 魚、`yue` 月、`yuo` 樂、`yuan` 冤、`yuen` 勻、`yuong` 容 |
 
 撮口呼はつねに `y` を伴い、声母の後でも省略しません：`jyu` 居、`qyuo` 卻、`xyuen` 熏、`nyu` 女、`lyu` 律。
+
+城区音の `uu`（`guu` 胳）は南郊音では `e`（`ge`）、`iai`（`jiai` 皆）は `ie`（`jie`）です。
 
 ---
 
@@ -129,24 +136,24 @@
 | iong | yuong | 容 yuong2 | 撮口呼は y を伴う |
 | ü / üe / üan / ün | yu / yue / yuan / yuen | 魚 yu2、月 yue1、元 yuan2、軍 jyuen1 | つねに y を伴い、声母の後でも省略しない |
 
-**④ 西安方言にしかないもの**
+**④ 城区音だけにあるもの（南郊音にはない）**
 
-- 声母：`bf pf`（豬 bfu1、窗 pfang1）、`v`（文 ven2）、`ng`（安 ngan1）
-- 韻母：`uu`（胳 guu1）、`o`（`vo` のみ：若 vo1）、`iai`（皆 jiai1）、`yuo`（樂 yuo1）
+- 声母：`bf pf`（豬 bfu1、窗 pfang1）、`v`（文 ven2）、`ng`（安 ngan1）。bf・pf は南郊音で z・c：豬 zu1、窗 cuang1。
+- 韻母：`uu`（胳 guu1）、`o`（`vo` のみ：若 vo1）、`iai`（皆 jiai1）、`yuo`（樂 yuo1）。uu・iai は南郊音で e・ie：胳 ge1、皆 jie1。
 
 **⑤ 声母が対応しない字（規則ではなく例で覚える）**
 
-| 普通話 | 西安方言ピンイン | 字 |
-|---|---|---|
-| shuǐ | fei3 | 水 |
-| shū | fu1 | 書 |
-| shuō | she1 | 說 |
-| shān / shì | san1 / si4 | 山 / 是 |
-| zhū / chū | bfu1 / pfu1 | 豬 / 出 |
-| zhōng / chūn | bfeng4 / pfen1 | 中 / 春 |
-| wén | ven2 | 文 |
-| é / ān | nge2 / ngan1 | 鵝 / 安 |
-| rì | er1 | 日 |
+| 普通話 | 城区音 | 南郊音 | 字 |
+|---|---|---|---|
+| shuǐ | fei3 | suei3 | 水 |
+| shū | fu1 | su1 | 書 |
+| shuō | she1 | she1 | 說 |
+| shān / shì | san1 / si4 | san1 / si4 | 山 / 是 |
+| zhū / chū | bfu1 / pfu1 | zu1 / cu1 | 豬 / 出 |
+| zhōng / chūn | bfeng4 / pfen1 | zuong4 / cuen1 | 中 / 春 |
+| wén | ven2 | ven2 | 文 |
+| é / ān | nge2 / ngan1 | nge2 / ngan1 | 鵝 / 安 |
+| rì | er1 | er1 | 日 |
 
 **⑥ 声調番号の位置は同じで、調値はまったく異なる**：普通話の ā á ǎ à は本方案の 1 2 3 4 に対応しますが、西安方言の調値は 21 / 24 / 53 / 44 です（声調図を参照）。話者は地元の調値でそのまま読めばよく、換算は不要です。
 
@@ -170,6 +177,7 @@
 | 日 | rì | `er1` | | 大 | dà | `da4` |
 
 - 声調番号は省略できます：`ba` で四声すべての候補、`ba1` で陰平のみ。
+- 表は城区音のコードです。`水 fei3` は南郊音で `suei3`、`中 bfeng4` は `zuong4`、それ以外の字は両系統で同じです。
 - よく使う簡拼：`in / ing / iu / un / ung / yun / yung` はそれぞれ `ien / ieng / iou / uen / uong / yuen / yuong` に対応します（零声母の `you` 有、`wen` 溫 は省略しません）。
 - 逆引き：`q` ＋普通話ピンイン、`x` ＋画数。候補の注記に西安方言の読みが出ます。
 
@@ -202,7 +210,7 @@
 | `yue`、`yuo`、`yuan`、`yu` | 省略なし | 本表では略式を定めていない |
 | 声母の頭文字だけ | 未開放 | 単字では同音が多すぎる。辞書が整ってから `abbrev` を有効化 |
 
-許容条件は `xinganhua.schema.yaml` の `speller/algebra` で声母のアンカーを用いて表現します。手を抜いて裸の規則にはできません：`derive/uen/un/` は `yuong`、`yuen` のような零声母の全拼まで巻き込んで、誤ったコードを生みます。
+許容条件は `chengqyu.schema.yaml` の `speller/algebra` で声母のアンカーを用いて表現します。手を抜いて裸の規則にはできません：`derive/uen/un/` は `yuong`、`yuen` のような零声母の全拼まで巻き込んで、誤ったコードを生みます。`nanjiao.schema.yaml` も同じ規則で、アンカーから `bf`・`pf` を外しただけです。
 
 ### 8.2 声調は省略できる
 
@@ -220,7 +228,7 @@ algebra の全規則を 392 音節に適用すると、簡拼コード（声調�
 
 | 項目 | 数 |
 |---|---|
-| 字音項目 | 3,648（一字一音一行） |
+| 字音項目 | 城区音 3,648 ／ 南郊音 3,578（一字一音一行） |
 | 異なる漢字 | 3,345 |
 | 多音字 | 275（`着` は 5 行、`卡` は 4 行、`側` は 3 行 …） |
 | 声調別項目 | 1/2/3/4 = 1,148 / 826 / 639 / 1,035 |
@@ -237,17 +245,21 @@ algebra の全規則を 392 音節に適用すると、簡拼コード（声調�
 ## 10. ファイルと導入
 
 ```
-xinganhua.schema.yaml          方案：字母表、簡拼の演算、逆引き Q/X
-xinganhua.dict.yaml            主辞書。xinganhua.word を読み込む
-xinganhua.word.dict.yaml       字音表 3,648 件（スクリプト生成。手で編集しない）
+chengqyu.schema.yaml           西安方言城区音方案：字母表、簡拼の演算、逆引き Q/X
+chengqyu.dict.yaml             城区音の主辞書。chengqyu.word を読み込む
+chengqyu.word.dict.yaml        城区音字音表 3,648 件（スクリプト生成。手で編集しない）
+nanjiao.schema.yaml            西安方言南郊音方案（声母 24、韻母 38）
+nanjiao.dict.yaml              南郊音の主辞書。nanjiao.word を読み込む
+nanjiao.word.dict.yaml         南郊音字音表 3,578 件（スクリプト生成。手で編集しない）
 figures/onsets.hans.svg        声母図（.hant / .en / .ja 版もあり）
 figures/rhymes.hans.svg        韻母図（同上）
 figures/tones.hans.svg         声調図（同上）
 figures/syllable.hans.svg      音節構造図（同上）
 tools/ipa2pinyin.mjs           IPA → 西安方言ピンインの転写スクリプト
+tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
 tools/make-figures.mjs         四枚の図を四言語ぶん生成するスクリプト
-tools/xinganhua.ipa對照.tsv    音ごとの対照表：IPA / 調名 / ピンイン / 声母 / 韻母 / 所属字
-tools/xinganhua.詳注.tsv       字ごとの詳注。原表の {} 釈義と白読の印を含む
+tools/chengqyu.ipa對照.tsv    城区音の対照表：IPA / 調名 / ピンイン / 声母 / 韻母 / 所属字
+tools/chengqyu.詳注.tsv       城区音の詳注。原表の {} 釈義と白読の印を含む
 ```
 
 （対照表 2 つのファイル名は繁体字のままで、リポジトリ内の実際の名前と一致しています。）
@@ -258,9 +270,12 @@ tools/xinganhua.詳注.tsv       字ごとの詳注。原表の {} 釈義と白�
    - Linux：`~/.config/ibus/rime` または `~/.local/share/fcitx5/rime`
 
    ```
-   xinganhua.schema.yaml
-   xinganhua.dict.yaml
-   xinganhua.word.dict.yaml
+   chengqyu.schema.yaml
+   chengqyu.dict.yaml
+   chengqyu.word.dict.yaml
+   nanjiao.schema.yaml
+   nanjiao.dict.yaml
+   nanjiao.word.dict.yaml
    ```
 
 2. `default.custom.yaml` で方案を有効にします：
@@ -268,7 +283,8 @@ tools/xinganhua.詳注.tsv       字ごとの詳注。原表の {} 釈義と白�
    ```yaml
    patch:
      schema_list:
-       - schema: xinganhua
+       - schema: chengqyu
+       - schema: nanjiao
        # 他の方案はそのまま下に追加すればよい
    ```
 
@@ -307,11 +323,12 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 13. データと謝辞
 
-- [osfans/MCPDict](https://github.com/osfans/MCPDict)（`tools/tables/data/西安.tsv`）——字音データの出所、国際音声記号
+- [osfans/MCPDict](https://github.com/osfans/MCPDict)（`tools/tables/data/西安.tsv`）——城区音の字音データの出所、国際音声記号
+- 『西安南郊音.xlsx』の逐字標注——南郊音の字音の出所。`nanjiao.word.dict.yaml` に折り出し
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪萤）——方案の骨組み、辞書の構成、逆引きの書き方
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy)（雪萤）——本 README の組版と図の作り方の参照元
 
-**検証**：字表 3,648 件は原表と一字ずつ照合して欠落なし。392 音節の綴りは互いに重複せず、簡拼コードの音節をまたぐ曖昧性は 0。
+**検証**：城区音 3,648 件は原表と一字ずつ照合して欠落なし、392 音節の綴りは互いに重複せず。南郊音 3,578 件・386 音節も同様。簡拼コードの音節をまたぐ曖昧性は 0。
 
 ---
 
@@ -319,7 +336,7 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 14. ライセンス
 
-方案の設定（`xinganhua.schema.yaml`）、`figures/` 下の四言語の図、および本文は、自由に使用・改変・再配布できます。字音データは MCPDict「西安」データ表に由来するため、版権と許諾は原プロジェクトの説明に従ってください。
+方案の設定（`chengqyu.schema.yaml`、`nanjiao.schema.yaml`）、`figures/` 下の四言語の図、および本文は、自由に使用・改変・再配布できます。城区音の字音データは MCPDict「西安」データ表に由来するため、版権と許諾は原プロジェクトの説明に従ってください。
 
 ---
 

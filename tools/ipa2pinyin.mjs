@@ -42,7 +42,7 @@ console.log('同形冲突(不同IPA→同一拼写):',clash.length,clash.map(([k
 console.log('不含调音节',new Set(rows.map(r=>r.py.slice(0,-1))).size,'含调音节',new Set(rows.map(r=>r.py)).size);
 
 const A=rows.map(r=>[r.s,r.t,r.py,(r.i==='Ø'?'Ø':r.i),r.f0,[...new Set(fld(r.c).map(e=>e.split('{')[0].trim()).filter(x=>x&&x!=='□'))].join(' ')].join('\t'));
-fs.writeFileSync('tools/xinganhua.ipa對照.tsv','#IPA音节\t调名\t西安话拼音(全拼)\t声母\t韵母\t辖字\n'+A.join('\n')+'\n');
+fs.writeFileSync('tools/chengqyu.ipa對照.tsv','#IPA音节\t调名\t西安话拼音(全拼)\t声母\t韵母\t辖字\n'+A.join('\n')+'\n');
 
 const ent=new Map();
 for(const r of rows){ for(const e of fld(r.c)){ const h=e.split('{')[0].trim(); if(!h||h==='□')continue;
@@ -51,19 +51,19 @@ const arr=[...ent.values()].sort((a,b)=>a.py!==b.py?(a.py<b.py?-1:1):(a.ch<b.ch?
 const dictHdr = `# Rime dictionary
 # encoding: utf-8
 #
-# 西安話（關中片）字音表
+# 西安話城區音（關中片）字音表
 # 來源：osfans/MCPDict《西安》數據表（IPA → 西安話拼音全拼 + 調號 1/2/3/4）
 # 本表由 tools/ipa2pinyin.mjs 生成，勿手改；要改轉寫規則請改腳本
 # 字音條目 ${arr.length} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
-name: xinganhua.word
+name: chengqyu.word
 version: "0.1-draft"
 sort: by_weight
 use_preset_vocabulary: true
 ...
 
 `;
-fs.writeFileSync('xinganhua.word.dict.yaml',dictHdr+arr.map(o=>o.ch+'\t'+o.py).join('\n')+'\n');
-fs.writeFileSync('tools/xinganhua.詳注.tsv','#字\t西安话拼音(全拼+调号)\t原IPA[调名]\t原文件释注\n'+arr.map(o=>[o.ch,o.py,o.ipa+'['+o.t+']',o.note].filter(Boolean).join('\t')).join('\n')+'\n');
+fs.writeFileSync('chengqyu.word.dict.yaml',dictHdr+arr.map(o=>o.ch+'\t'+o.py).join('\n')+'\n');
+fs.writeFileSync('tools/chengqyu.詳注.tsv','#字\t西安话拼音(全拼+调号)\t原IPA[调名]\t原文件释注\n'+arr.map(o=>[o.ch,o.py,o.ipa+'['+o.t+']',o.note].filter(Boolean).join('\t')).join('\n')+'\n');
 const perChar=new Map(); for(const o of arr) perChar.set(o.ch,(perChar.get(o.ch)||0)+1);
 console.log('字音条目',arr.length,'不同字',perChar.size,'多音字',[...perChar.values()].filter(n=>n>1).length);

@@ -125,7 +125,7 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 
 **③ Spelled differently (relearn these)**
 
-| Mandarin | Xi'an pinyin | Example | Note |
+| Mandarin | Xi'an pinyin (same in both) | Example | Note |
 |---|---|---|---|
 | in | ien | 心 xien1 | Full spelling is not shortened; `in` works as an input abbreviation |
 | ing | ieng | 明 mieng2 | same |
@@ -179,7 +179,7 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 - The table shows urban codes; `水 fei3` is `suei3` in the south and `中 bfeng4` is `zuong4`, all other characters are identical.
 - The tone digit is optional: `ba` offers all four tones, while `ba1` gives only Yinping.
 - Common abbreviations: `in / ing / iu / un / ung / yun / yung` stand for `ien / ieng / iou / uen / uong / yuen / yuong` (zero-initial `you` 有 and `wen` 溫 are not shortened).
-- Reverse lookup: `q` + Mandarin pinyin, or `x` + strokes; the candidate comment shows the Xi'an reading.
+- Reverse lookup: `q` + Mandarin pinyin, or `x` + strokes; the candidate comment shows the Xi'an readings (urban and southern).
 
 ---
 

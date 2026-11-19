@@ -19,6 +19,9 @@ const FONT = {
 
 const C = {
   ink: '#1b2a3a', sub: '#6b7b8c', line: '#c9d4de',
+  cq: { f: '#faf1ee', s: '#9f363a', dash: true },   // 城区音特有
+  blue: '#2f5d8c',                                   // 南郊音读音
+  red: '#9f363a',                                    // 城区音读音
   same: { f: '#f2f7ff', s: '#8fb6e4' },      // 与普通话同字母同音
   new: { f: '#fff1e0', s: '#e0973c' },       // 普通话没有的声母
   diff: { f: '#fffbe6', s: '#dcc05a' },      // 字母与普通话拼写不同
@@ -56,8 +59,8 @@ function wrap(s, maxW, size) {
 // 例字一律用词库的繁体字形，不随界面语言变；只翻译标签与说明。
 const STR = {
   hans: {
-    oTitle: '西安话声母 26 个（含零声母）',
-    oSub: '格内三行：拼写 · 国际音标 · 例字（例字用词库的繁体字形）',
+    oTitle: '西安话声母：城区音 26 个、南郊音 24 个（含零声母）',
+    oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
     oLeg1: '与普通话同字母同音',
     oLeg2: '普通话没有的声母',
     oRows: ['双唇', '唇齿', '舌尖中', '舌尖前', '舌面前', '舌尖后', '舌根', '零声母'],
@@ -65,16 +68,18 @@ const STR = {
     oFoot: [
       'z c s 只接 ɿ 和洪音韵母，细音一律 j q x；r 只配 7 个洪音韵母；ng 只配洪音。',
       '「日 而 兒 耳 二」不读 r-，读零声母 er。',
+      'bf、pf 为城区音特有：南郊音读 z、c，韵母同时增生 u 介音（中 zuong4、窗 cuang1）；其余声母两音相同。',
     ],
-    rTitle: '西安话韵母 40 个（开 15 / 齐 10 / 合 9 / 撮 6）',
-    rSub: '格内三行：拼写 · 国际音标 · 例字；例字多为零声母形式',
+    rTitle: '西安话韵母：城区音 40 个、南郊音 38 个（开 15 / 齐 10 / 合 9 / 撮 6 为城区音计数）',
+    rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
     rLeg: ['与普通话同形同值', '字母同、实为鼻化元音', '拼写与普通话不同', '普通话没有的韵母'],
     rGroups: ['开呼 15', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
       '鼻音韵母 an en ang eng（及各呼变体）在西安话里是鼻化元音，不是普通话那样收 -n / -ng。',
       'uong / yuong 对应普通话的 ong / iong；撮呼一律带 y，声母后也不省（jyuen 軍、nyu 女）。',
+      '城区音的 uu、iai 在南郊音读 e、ie（胳 guu1→ge1、皆 jiai1→jie1）；其余韵母两音相同。',
     ],
-    tTitle: '西安话四声（五度标记法）',
+    tTitle: '西安话四声：城区音、南郊音相同（五度标记法）',
     tSub: '竖轴 5 最高、1 最低；调号 1/2/3/4 写在音节末尾',
     tNames: ['阴平', '阳平', '上声', '去声'],
     tTag: '调号 {n} · {ex}',
@@ -82,13 +87,14 @@ const STR = {
       '入声已归并到这四调，归派与普通话不同：立 li1（阴平）、白 bei2（阳平）、藥 yuo1（阴平）、大 duo4（去声）。',
       '四个调号数字与普通话的 ā á ǎ à 位置一一对应，但音高走向完全不同，母语者按本地调值念即可。',
     ],
-    sTitle: '音节结构：声母 + 韵母 + 调号',
+    sTitle: '音节结构：声母 + 韵母 + 调号（城区音、南郊音写法相同）',
     sSub: '韵母含介音；零声母不写字母，齐呼改 y、合呼改 w、撮呼照写 yu-',
     sHead: ['声母', '韵母', '调号', '例字'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
-      ['bfeng4', ['bf', 'eng', '4'], '中'],
+      ['bfeng4', ['bf', 'eng', '4'], '中（城区音）'],
+      ['zuong4', ['z', 'uong', '4'], '中（南郊音）'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿（零声母）'],
       ['you1', ['—', 'you', '1'], '有（零声母 iɤu → you）'],
@@ -106,8 +112,8 @@ const STR = {
   },
 
   en: {
-    oTitle: 'Xi’an initials: 26 (incl. the zero initial)',
-    oSub: 'Each cell: spelling · IPA · example (example glyphs are traditional, as in the word list)',
+    oTitle: 'Xi’an initials: urban 26 · southern 24',
+    oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, blue = southern',
     oLeg1: 'Same letter and sound as Mandarin',
     oLeg2: 'Not found in Mandarin',
     oRows: ['Bilabial', 'Labiodental', 'Alveolar', 'Dental', 'Alveolo-palatal', 'Retroflex', 'Velar', 'Zero initial'],
@@ -115,16 +121,18 @@ const STR = {
     oFoot: [
       'z c s take only ɿ and broad finals; narrow (i / y) finals always take j q x. bf pf occur only before u-medial or broad finals; r takes 7 broad finals; ng takes broad finals only.',
       '日 而 兒 耳 二 are not read r-; they take the zero initial er.',
+      'bf and pf are urban-only: the southern suburb reads z and c with a u medial (中 zuong4, 窗 cuang1); the other initials are the same in both.',
     ],
-    rTitle: 'Xi’an finals: 40 (open 15 · i-medial 10 · u-medial 9 · ü-medial 6)',
-    rSub: 'Each cell: spelling · IPA · example; most examples are zero-initial forms',
+    rTitle: 'Xi’an finals: urban 40 · southern 38',
+    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = urban-only',
     rLeg: ['Same form and value as Mandarin', 'Same letters, nasalised vowel', 'Spelled differently', 'Not found in Mandarin'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'The nasal finals an en ang eng (and their variants in the other classes) are nasalised vowels, with no -n / -ng coda as in Mandarin.',
       'uong / yuong match Mandarin ong / iong; the ü-series always keeps y, even after an initial (jyuen 軍, nyu 女).',
+      'The urban uu and iai are e and ie in the southern suburb (胳 guu1→ge1, 皆 jiai1→jie1); the other finals are the same in both.',
     ],
-    tTitle: 'The four Xi’an tones (five-level pitch scale)',
+    tTitle: 'The four Xi’an tones, identical in both varieties (five-level pitch scale)',
     tSub: 'Vertical axis: 5 is highest, 1 is lowest; the tone number 1/2/3/4 follows the syllable',
     tNames: ['Yinping', 'Yangping', 'Shangsheng', 'Qusheng'],
     tTag: 'Tone {n} · {ex}',
@@ -132,13 +140,14 @@ const STR = {
       'The entering tone has merged into these four, with a different split from Mandarin: 立 li1 (Yinping), 白 bei2 (Yangping), 藥 yuo1 (Yinping), 大 duo4 (Qusheng).',
       'Tone numbers 1–4 line up with Mandarin ā á ǎ à, but the pitch contours are entirely different; speakers simply use the local values.',
     ],
-    sTitle: 'Syllable structure: initial + final + tone',
+    sTitle: 'Syllable structure: initial + final + tone (the same spelling in both varieties)',
     sSub: 'The final includes the medial; the zero initial writes no letter — i becomes y, u becomes w, ü stays yu-',
     sHead: ['Initial', 'Final', 'Tone', 'Character'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
-      ['bfeng4', ['bf', 'eng', '4'], '中'],
+      ['bfeng4', ['bf', 'eng', '4'], '中 (urban)'],
+      ['zuong4', ['z', 'uong', '4'], '中 (southern)'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿 (zero initial)'],
       ['you1', ['—', 'you', '1'], '有 (zero initial iɤu → you)'],
@@ -156,8 +165,8 @@ const STR = {
   },
 
   ja: {
-    oTitle: '西安方言の声母 26（零声母を含む）',
-    oSub: '各枠は上から 綴り・国際音声記号・例字（例字は字表の繁体字）',
+    oTitle: '西安方言の声母：城区音 26、南郊音 24（零声母を含む）',
+    oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
     oLeg1: '普通話と字も音も同じ',
     oLeg2: '普通話にない声母',
     oRows: ['両唇', '唇歯', '舌尖中', '舌尖前', '舌面前', '舌尖後', '舌根', '零声母'],
@@ -165,16 +174,18 @@ const STR = {
     oFoot: [
       'z c s は ɿ と洪音の韻母にのみ付き、細音は必ず j q x。bf pf は合口・洪音の前にのみ現れ、r は洪音韻母 7 つと、ng は洪音とのみ結びつきます。',
       '「日 而 兒 耳 二」は r- ではなく、零声母 er で読みます。',
+      'bf・pf は城区音特有です。南郊音では z・c となり、韻母に u 介音が加わります（中 zuong4、窗 cuang1）。その他の声母は両系統で同じです。',
     ],
-    rTitle: '西安方言の韻母 40（開 15 / 斉 10 / 合 9 / 撮 6）',
-    rSub: '各枠は上から 綴り・国際音声記号・例字（例字は多くが零声母形）',
+    rTitle: '西安方言の韻母：城区音 40、南郊音 38（開 15 / 斉 10 / 合 9 / 撮 6 は城区音の数え方）',
+    rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
     rLeg: ['普通話と形も値も同じ', '字は同じで鼻母音', '綴りが普通話と異なる', '普通話にない韻母'],
     rGroups: ['開口呼 15', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
       '鼻音韻母 an・en・ang・eng（および各呼の変種）は西安方言では鼻母音で、普通話のように -n / -ng で閉じません。',
       'uong / yuong は普通話の ong / iong に対応します。撮口呼はつねに y を伴い、声母の後でも省略しません（jyuen 軍、nyu 女）。',
+      '城区音の uu・iai は南郊音で e・ie（胳 guu1→ge1、皆 jiai1→jie1）。その他の韻母は両系統で同じです。',
     ],
-    tTitle: '西安方言の四声（五度式音調表記）',
+    tTitle: '西安方言の四声：城区音・南郊音とも同じ（五度式音調表記）',
     tSub: '縦軸は 5 が最高、1 が最低。声調番号 1/2/3/4 は音節の末尾に書きます',
     tNames: ['陰平', '陽平', '上声', '去声'],
     tTag: '声調 {n} · {ex}',
@@ -182,13 +193,14 @@ const STR = {
       '入声はすでにこの四声に統合され、配分は普通話と異なります：立 li1（陰平）、白 bei2（陽平）、藥 yuo1（陰平）、大 duo4（去声）。',
       '声調番号 1〜4 は普通話の ā á ǎ à と位置が対応しますが、音の高低はまったく異なります。話者は地元の調値で読めば十分です。',
     ],
-    sTitle: '音節の構造：声母＋韻母＋声調番号',
+    sTitle: '音節の構造：声母＋韻母＋声調番号（城区音・南郊音とも同じ書き方）',
     sSub: '韻母は介音を含む。零声母は字母を書かず、斉呼は y、合呼は w、撮呼は yu- のまま',
     sHead: ['声母', '韻母', '声調番号', '例字'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
-      ['bfeng4', ['bf', 'eng', '4'], '中'],
+      ['bfeng4', ['bf', 'eng', '4'], '中（城区音）'],
+      ['zuong4', ['z', 'uong', '4'], '中（南郊音）'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿（零声母）'],
       ['you1', ['—', 'you', '1'], '有（零声母 iɤu → you）'],
@@ -216,6 +228,7 @@ const S2T = {
   声: '聲', 记: '記', 竖: '豎', 轴: '軸', 调: '調', 号: '號', 节: '節', 阴: '陰', 阳: '陽',
   归: '歸', 并: '併', 这: '這', 数: '數', 构: '構', 边: '邊', 两: '兩', 连: '連', 会: '會',
   错: '錯', 时: '時', 简: '簡', 须: '須', 仓: '倉', 样: '樣', 结: '結',
+  区: '區', 虚: '虛', 线: '線', 红: '紅', 蓝: '藍', 计: '計', 猪: '豬',
 };
 const s2t = s => [...s].map(ch => S2T[ch] || ch).join('');
 const conv = o => Array.isArray(o) ? o.map(conv) : (typeof o === 'object' && o ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, conv(v)])) : (typeof o === 'string' ? s2t(o) : o));
@@ -232,10 +245,17 @@ ${body}
 const text = (x, y, s, { size = 13, fill = C.ink, weight = 'normal', anchor = 'start' } = {}) =>
   `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" font-weight="${weight}" text-anchor="${anchor}">${esc(s)}</text>`;
 
+// 例字两读：城区音（红）／南郊音（蓝）；两音相同则只写一个
+const dualEx = (x, y, a, b, size) => b
+  ? `<text x="${x}" y="${y}" font-size="${size}"><tspan fill="${C.red}">${esc(a)}</tspan><tspan fill="#8a8a8a"> / </tspan><tspan fill="${C.blue}">${esc(b)}</tspan></text>`
+  : text(x, y, a, { size });
+
+const dashAttr = kind => kind === 'cq' ? ' stroke-dasharray="4 3"' : '';
+
 // ── 1. 声母图 ────────────────────────────────────────────────
 const ON = [
   ['双唇', [['b', 'p', '巴 ba1', 'same'], ['p', 'pʰ', '朋 peng2', 'same'], ['m', 'm', '明 mieng2', 'same']]],
-  ['唇齿', [['f', 'f', '夫 fu1', 'same'], ['v', 'v', '文 ven2', 'new'], ['bf', 'pf', '中 bfeng4', 'new'], ['pf', 'pfʰ', '窗 pfang1', 'new']]],
+  ['唇齿', [['f', 'f', '夫 fu1', 'same'], ['v', 'v', '文 ven2', 'new'], ['bf', 'pf', '中 bfeng4', 'cq', 'zuong4'], ['pf', 'pfʰ', '窗 pfang1', 'cq', 'cuang1']]],
   ['舌尖中', [['d', 't', '的 di1', 'same'], ['t', 'tʰ', '他 ta1', 'same'], ['n', 'n', '你 ni3', 'same'], ['l', 'l', '立 li1', 'same']]],
   ['舌尖前', [['z', 'ʦ', '字 zi4', 'same'], ['c', 'ʦʰ', '茶 ca2', 'same'], ['s', 's', '山 san1', 'same']]],
   ['舌面前', [['j', 'ʨ', '家 jia1', 'same'], ['q', 'ʨʰ', '妻 qi1', 'same'], ['x', 'ɕ', '西 xi1', 'same']]],
@@ -259,12 +279,12 @@ function figOnsets(T, lang, font) {
   ON.forEach(([label, cells], i) => {
     const y = 78 + i * ROWH;
     b += text(PAD, y + 34, T.oRows[i], { size: lang === 'en' ? 12 : 13, weight: 'bold', fill: C.sub });
-    cells.forEach(([lat, ipa, ex, kind], j) => {
-      const x = LX + j * CW, col = C[kind];
-      b += `<rect x="${x}" y="${y}" width="${CW - 10}" height="${CH}" rx="6" fill="${col.f}" stroke="${col.s}"/>`;
+    cells.forEach(([lat, ipa, ex, kind, njEx], j) => {
+      const x = LX + j * CW, col = C[kind] || C.new;
+      b += `<rect x="${x}" y="${y}" width="${CW - 10}" height="${CH}" rx="6" fill="${col.f}" stroke="${col.s}"${dashAttr(kind)}/>`;
       b += text(x + 12, y + 22, lat === '（不标）' ? T.oZero : lat, { size: lat === '（不标）' ? 12 : 17, weight: 'bold' });
       b += text(x + 12, y + 38, `[${ipa}]`, { size: 12, fill: C.sub });
-      b += text(x + 12, y + 53, ex, { size: 11.5 });
+      b += dualEx(x + 12, y + 53, ex, njEx, 11.5);
     });
   });
   fl.forEach((s, i) => { b += text(PAD, gridBottom + 40 + i * 19, s, { size: 12, fill: C.sub }); });
@@ -275,15 +295,15 @@ function figOnsets(T, lang, font) {
 // ── 2. 韵母图 ────────────────────────────────────────────────
 const RH = [
   ['开呼', [
-    ['a', 'a', '巴 ba1', 'same'], ['o', 'o', '若 vo1', 'diff'], ['er', 'ɚ', '兒 er2', 'same'],
-    ['e', 'ɤ', '鵝 nge2', 'same'], ['uu', 'ɯ', '胳 guu1', 'new'], ['i', 'ɿ', '字 zi4', 'same'],
+    ['a', 'a', '巴 ba1', 'same'], ['o', 'o', '若 vo1', 'diff', 'ruo1'], ['er', 'ɚ', '兒 er2', 'same'],
+    ['e', 'ɤ', '鵝 nge2', 'same'], ['uu', 'ɯ', '胳 guu1', 'cq', 'ge1'], ['i', 'ɿ', '字 zi4', 'same'],
     ['i', 'ʅ', '吃 chi1', 'same'], ['ai', 'ai', '菜 cai4', 'same'],
-    ['ao', 'au', '到 dao4', 'same'], ['an', 'ã', '山 san1', 'nasal'], ['ei', 'ei', '水 fei3', 'same'],
+    ['ao', 'au', '到 dao4', 'same'], ['an', 'ã', '山 san1', 'nasal'], ['ei', 'ei', '水 fei3', 'same', 'suei3'],
     ['en', 'ẽ', '人 ren2', 'nasal'], ['ou', 'ɤu', '狗 gou3', 'same'], ['ang', 'ɑɣ̃', '上 shang4', 'nasal'],
-    ['eng', 'əɣ̃', '中 bfeng4', 'nasal']]],
+    ['eng', 'əɣ̃', '中 bfeng4', 'nasal', 'zuong4']]],
   ['齐呼', [
     ['i', 'i', '衣 yi1', 'same'], ['ia', 'ia', '家 jia1', 'same'], ['ie', 'iɛ', '姐 jie3', 'same'],
-    ['iai', 'iai', '皆 jiai1', 'new'], ['iao', 'iau', '小 xiao3', 'same'], ['ian', 'iã', '煙 yan1', 'nasal'],
+    ['iai', 'iai', '皆 jiai1', 'cq', 'jie1'], ['iao', 'iau', '小 xiao3', 'same'], ['ian', 'iã', '煙 yan1', 'nasal'],
     ['ien', 'iẽ', '音 yen1', 'diff'], ['ieng', 'iɣ̃', '英 yeng1', 'diff'], ['iou', 'iɤu', '有 you1', 'diff'],
     ['iang', 'iɑɣ̃', '央 yang1', 'nasal']]],
   ['合呼', [
@@ -324,12 +344,12 @@ function figRhymes(T, lang, font) {
   RH.forEach(([label, cells], gi) => {
     const lines = Math.ceil(cells.length / PER);
     b += text(PAD, y + 30, T.rGroups[gi], { size: lang === 'en' ? 11.5 : 13, weight: 'bold', fill: C.sub });
-    cells.forEach(([lat, ipa, ex, kind], i) => {
-      const cx = LX + (i % PER) * CW, cy = y + Math.floor(i / PER) * (CH + 10), col = C[kind];
-      b += `<rect x="${cx}" y="${cy}" width="${CW - 8}" height="${CH}" rx="6" fill="${col.f}" stroke="${col.s}"/>`;
+    cells.forEach(([lat, ipa, ex, kind, njEx], i) => {
+      const cx = LX + (i % PER) * CW, cy = y + Math.floor(i / PER) * (CH + 10), col = C[kind] || C.new;
+      b += `<rect x="${cx}" y="${cy}" width="${CW - 8}" height="${CH}" rx="6" fill="${col.f}" stroke="${col.s}"${dashAttr(kind)}/>`;
       b += text(cx + 9, cy + 19, lat, { size: 14, weight: 'bold' });
       b += text(cx + 9, cy + 34, `[${ipa}]`, { size: 11, fill: C.sub });
-      b += text(cx + 9, cy + 48, ex, { size: 10.5 });
+      b += dualEx(cx + 9, cy + 48, ex, njEx, 10.5);
     });
     y += lines * (CH + 10);
   });

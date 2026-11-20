@@ -19,8 +19,8 @@ const FONT = {
 
 const C = {
   ink: '#1b2a3a', sub: '#6b7b8c', line: '#c9d4de',
-  cq: { f: '#faf1ee', s: '#9f363a', dash: true },   // 城区音特有
-  nj: { f: '#eef4fb', s: '#2f5d8c' },                // 南郊音特有
+  cq: { f: '#fff1e0', s: '#9f363a', dash: true },   // 城区音特有（普通话也没有）
+  nj: { f: '#fff1e0', s: '#7b5fc0', dash: true },    // 南郊音特有（普通话也没有，紫）
   blue: '#2f5d8c',                                   // 南郊音读音
   red: '#9f363a',                                    // 城区音读音
   same: { f: '#f2f7ff', s: '#8fb6e4' },      // 与普通话同字母同音
@@ -64,7 +64,8 @@ const STR = {
     oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
     oLeg1: '与普通话同字母同音',
     oLeg2: '普通话没有的声母',
-    oLegN: '南郊音特有',
+    oLegN: '南郊音特有（紫虚线）',
+    oLegCq: '城区音特有（红虚线）',
     oRows: ['双唇', '唇齿', '舌尖中', '舌尖前', '舌面前', '舌尖后', '舌根', '零声母'],
     oZero: '（不标）',
     oFoot: [
@@ -75,7 +76,7 @@ const STR = {
     ],
     rTitle: '西安话韵母：城区音 40 个、南郊音 39 个（开 15 / 齐 10 / 合 9 / 撮 6 为城区音计数）',
     rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
-    rLeg: ['与普通话同形同值', '字母同、实为鼻化元音', '拼写与普通话不同', '普通话没有的韵母', '南郊音特有'],
+    rLeg: ['与普通话同形同值', '字母同、实为鼻化元音', '拼写与普通话不同', '普通话没有的韵母', '城区音特有（红虚线）', '南郊音特有（紫虚线）'],
     rGroups: ['开呼 15', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
       '鼻音韵母 an en ang eng（及各呼变体）在西安话里是鼻化元音，不是普通话那样收 -n / -ng。',
@@ -120,7 +121,8 @@ const STR = {
     oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, blue = southern',
     oLeg1: 'Same letter and sound as Mandarin',
     oLeg2: 'Not found in Mandarin',
-    oLegN: 'Southern suburb only',
+    oLegN: 'Southern-only (purple dashed)',
+    oLegCq: 'Urban-only (red dashed)',
     oRows: ['Bilabial', 'Labiodental', 'Alveolar', 'Dental', 'Alveolo-palatal', 'Retroflex', 'Velar', 'Zero initial'],
     oZero: '(none)',
     oFoot: [
@@ -131,7 +133,7 @@ const STR = {
     ],
     rTitle: 'Xi’an finals: urban 40 · southern 39',
     rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = one variety only',
-    rLeg: ['Same form and value as Mandarin', 'Same letters, nasalised vowel', 'Spelled differently', 'Not found in Mandarin', 'Southern suburb only'],
+    rLeg: ['Same form and value as Mandarin', 'Same letters, nasalised vowel', 'Spelled differently', 'Not found in Mandarin', 'Urban-only (red dashed)', 'Southern-only (purple dashed)'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'The nasal finals an en ang eng (and their variants in the other classes) are nasalised vowels, with no -n / -ng coda as in Mandarin.',
@@ -176,7 +178,8 @@ const STR = {
     oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
     oLeg1: '普通話と字も音も同じ',
     oLeg2: '普通話にない声母',
-    oLegN: '南郊音のみ',
+    oLegN: '南郊音のみ（紫破線）',
+    oLegCq: '城区音のみ（赤破線）',
     oRows: ['両唇', '唇歯', '舌尖中', '舌尖前', '舌面前', '舌尖後', '舌根', '零声母'],
     oZero: '（表記なし）',
     oFoot: [
@@ -187,7 +190,7 @@ const STR = {
     ],
     rTitle: '西安方言の韻母：城区音 40、南郊音 39（開 15 / 斉 10 / 合 9 / 撮 6 は城区音の数え方）',
     rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
-    rLeg: ['普通話と形も値も同じ', '字は同じで鼻母音', '綴りが普通話と異なる', '普通話にない韻母', '南郊音のみ'],
+    rLeg: ['普通話と形も値も同じ', '字は同じで鼻母音', '綴りが普通話と異なる', '普通話にない韻母', '城区音のみ（赤破線）', '南郊音のみ（紫破線）'],
     rGroups: ['開口呼 15', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
       '鼻音韻母 an・en・ang・eng（および各呼の変種）は西安方言では鼻母音で、普通話のように -n / -ng で閉じません。',
@@ -272,14 +275,14 @@ const ON = [
   ['舌面前', [['j', 'ʨ', '家 jia1', 'same'], ['q', 'ʨʰ', '妻 qi1', 'same'], ['x', 'ɕ', '西 xi1', 'same']]],
   ['舌尖后', [['zh', 'tʂ', '站 zan4', 'same'], ['ch', 'tʂʰ', '吃 chi1', 'same'], ['sh', 'ʂ', '上 shang4', 'same'], ['r', 'ʐ', '人 ren2', 'same']]],
   ['舌根', [['g', 'k', '狗 gou3', 'same'], ['k', 'kʰ', '口 kou3', 'same'], ['h', 'x', '花 hua1', 'same'], ['ng', 'ŋ', '安 ngan1', 'new']]],
-  ['零声母', [['（不标）', 'Ø', '衣 yi1 / 阿 a1', 'new']]],
+  ['零声母', [['（不标）', 'Ø', '衣 yi1 / 阿 a1', 'same']]],
 ];
 
 function figOnsets(T, lang, font) {
   const CW = 150, CH = 58, PAD = 18, ROWH = CH + 8;
   const LX = lang === 'en' ? 122 : lang === 'ja' ? 92 : 86;
   const w = LX + 4 * CW + PAD * 2;
-  const gridBottom = 78 + ON.length * ROWH;
+  const gridBottom = 104 + ON.length * ROWH;
   const fl = T.oFoot.flatMap(s => wrap(s, w - PAD * 2, 12));
   const h = gridBottom + 40 + (fl.length - 1) * 19 + 16;
 
@@ -287,9 +290,10 @@ function figOnsets(T, lang, font) {
   b += text(PAD, 52, T.oSub, { size: 12, fill: C.sub });
   b += `<rect x="${w - 250}" y="20" width="14" height="14" fill="${C.same.f}" stroke="${C.same.s}"/>` + text(w - 230, 32, T.oLeg1, { size: 11 });
   b += `<rect x="${w - 250}" y="42" width="14" height="14" fill="${C.new.f}" stroke="${C.new.s}"/>` + text(w - 230, 54, T.oLeg2, { size: 11 });
-  b += `<rect x="${w - 250}" y="64" width="14" height="14" fill="${C.nj.f}" stroke="${C.nj.s}" stroke-dasharray="4 3"/>` + text(w - 230, 76, T.oLegN, { size: 11 });
+  b += `<rect x="${w - 250}" y="64" width="14" height="14" fill="${C.cq.f}" stroke="${C.cq.s}" stroke-dasharray="4 3"/>` + text(w - 230, 76, T.oLegCq, { size: 11 });
+  b += `<rect x="${w - 250}" y="86" width="14" height="14" fill="${C.nj.f}" stroke="${C.nj.s}" stroke-dasharray="4 3"/>` + text(w - 230, 98, T.oLegN, { size: 11 });
   ON.forEach(([label, cells], i) => {
-    const y = 78 + i * ROWH;
+    const y = 104 + i * ROWH;
     b += text(PAD, y + 34, T.oRows[i], { size: lang === 'en' ? 12 : 13, weight: 'bold', fill: C.sub });
     cells.forEach(([lat, ipa, ex, kind, njEx], j) => {
       const x = LX + j * CW, col = C[kind] || C.new;
@@ -333,7 +337,7 @@ function figRhymes(T, lang, font) {
   const LX = lang === 'en' ? 84 : 70;
   const maxLines = RH.reduce((a, [, c]) => a + Math.ceil(c.length / PER), 0);
   const w = LX + PER * CW + PAD * 2;
-  const leg = [['same', T.rLeg[0]], ['nasal', T.rLeg[1]], ['diff', T.rLeg[2]], ['new', T.rLeg[3]], ['nj', T.rLeg[4]]];
+  const leg = [['same', T.rLeg[0]], ['nasal', T.rLeg[1]], ['diff', T.rLeg[2]], ['new', T.rLeg[3]], ['cq', T.rLeg[4]], ['nj', T.rLeg[5]]];
   // 图例按行自动流排：英文较长，会占两行，网格跟着下移
   let lx = PAD, ly = 66, legRows = 1;
   const legend = [];
@@ -351,7 +355,7 @@ function figRhymes(T, lang, font) {
   let b = text(PAD, 30, T.rTitle, { size: 17, weight: 'bold' });
   b += text(PAD, 52, T.rSub, { size: 12, fill: C.sub });
   legend.forEach(([k, s, x, y]) => {
-    b += `<rect x="${x}" y="${y}" width="13" height="13" fill="${C[k].f}" stroke="${C[k].s}"/>` + text(x + 19, y + 11, s, { size: 11 });
+    b += `<rect x="${x}" y="${y}" width="13" height="13" fill="${C[k].f}" stroke="${C[k].s}"${dashAttr(k)}/>` + text(x + 19, y + 11, s, { size: 11 });
   });
   let y = gridTop;
   RH.forEach(([label, cells], gi) => {

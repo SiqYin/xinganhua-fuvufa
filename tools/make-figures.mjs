@@ -19,16 +19,17 @@ const FONT = {
 };
 
 const C = {
-  ink: '#1b2a3a', sub: '#6b7b8c', line: '#c9d4de',
-  cq: { f: '#fff1e0', s: '#9f363a', dash: true },   // 城区音特有（普通话也没有）
-  nj: { f: '#fff1e0', s: '#7b5fc0', dash: true },    // 南郊音特有（普通话也没有，紫虚线）
-  blue: '#7b5fc0',                                   // 南郊音读音（紫）
-  red: '#9f363a',                                    // 城区音读音
-  same: { f: '#f2f7ff', s: '#8fb6e4' },      // 与普通话同字母同音
-  new: { f: '#fff1e0', s: '#e0973c' },       // 普通话没有的声母
-  diff: { f: '#fffbe6', s: '#dcc05a' },      // （备用）
-  plain: { f: '#f2f7ff', s: '#8fb6e4' },     // 韵母普通格
-  nasal: { f: '#eaf7ea', s: '#7fbf7f' },     // 字母相同但音值是鼻化元音
+  ink: '#1b2a3a', sub: '#6b7b8c', line: '#d8cec6',
+  paper: '#FBF7F4',                                  // 与站点浮窗一致的暖米底
+  cq: { f: '#f7e6e2', s: '#9f363a', dash: true },   // 城区音特有（红虚线）
+  nj: { f: '#e6eef6', s: '#2f5d8c', dash: true },    // 南郊音特有（蓝虚线）
+  blue: '#2f5d8c',                                   // 南郊音读音（蓝）
+  red: '#9f363a',                                    // 城区音读音（红）
+  same: { f: '#f1ece7', s: '#bfb2a6' },      // 与普通话同字母同音
+  new: { f: '#f7e6e2', s: '#9f363a' },       // 普通话没有的声母
+  diff: { f: '#faf0d2', s: '#d0b45a' },      // 连读变调等提示块
+  plain: { f: '#f1ece7', s: '#bfb2a6' },     // 韵母普通格
+  nasal: { f: '#e8f0e4', s: '#8aa886' },     // 字母相同但音值是鼻化元音
 };
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -63,10 +64,10 @@ function wrap(s, maxW, size) {
 const STR = {
   hans: {
     oTitle: '西安话声母：城区音 26 个、南郊音 25 个（含零声母）',
-    oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、紫字南郊音',
+    oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
     oLeg1: '与普通话同字母同音',
     oLeg2: '普通话没有的声母',
-    oLegN: '南郊音特有（紫虚线）',
+    oLegN: '南郊音特有（蓝虚线）',
     oLegCq: '城区音特有（红虚线）',
     oRows: ['双唇', '唇齿', '舌尖中', '舌尖前', '舌面前', '舌尖后', '舌根', '零声母'],
     oZero: '（不标）',
@@ -77,8 +78,8 @@ const STR = {
       'rh（z）为南郊音特有：城区音读 v（入 vu1→rhu1、軟 van3→rhuan3、潤 ven4→rhuen4）；其余声母两音相同。',
     ],
     rTitle: '西安话韵母：城区音 40 个、南郊音 39 个（开 15 / 齐 10 / 合 9 / 撮 6 为城区音计数）',
-    rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、紫字南郊音',
-    rLeg: ['城区音特有（红虚线）', '南郊音特有（紫虚线）'],
+    rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
+    rLeg: ['城区音特有（红虚线）', '南郊音特有（蓝虚线）'],
     rGroups: ['开呼 15', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
       'an en ang eng（及各呼变体）读鼻化元音：ã ẽ ɑɣ̃ əɣ̃，不带 -n / -ng 韵尾。',
@@ -125,16 +126,32 @@ const STR = {
     ],
     aTitle: '西安话简拼对照：8 条缩写规则（输入端专用）',
     aSub: '格内：全拼 → 简拼；只用于键盘输入，词库与注音仍写全拼',
+    vTitle: '南郊音的变体：z c s rh 遇 u 的翘舌变体，shu 还有 f 变体',
+    vSub: '每条南郊读音下另列变体（四声相同）；变体只在城区音读 bf、pf、f、v 的字上加注',
+    vHead: ['字', '南郊音', '变体', '城区音'],
+    vRows: [
+      ['出', 'cu1', 'chu1', 'pfu1'],
+      ['住', 'zu4', 'zhu4', 'bfu4'],
+      ['書', 'su1', 'shu1 · fu1', 'fu1'],
+      ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
+      ['入', 'rhu1', 'ru1', 'vu1'],
+      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+    ],
+    vFoot: [
+      '南郊音 z、c、s、rh 四组声母与 u 相接时，分别存在 zhu、chu、shu、ru 的对应翘舌变体；',
+      '其中 sh 与 u 相拼（shu）另有 f 声母变体，如 水 suei3 → shuei3、fei3。',
+      '变体与基本读音同调；字表与输入法均保留两读，卡片上以「变体」标出。',
+    ],
     aZero: '零声母',
     aFoot: [],
   },
 
   en: {
     oTitle: 'Xi’an initials: urban 26 · southern 25',
-    oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, purple = southern',
+    oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, blue = southern',
     oLeg1: 'Same letter and sound as Mandarin',
     oLeg2: 'Not found in Mandarin',
-    oLegN: 'Southern-only (purple dashed)',
+    oLegN: 'Southern-only (blue dashed)',
     oLegCq: 'Urban-only (red dashed)',
     oRows: ['Bilabial', 'Labiodental', 'Alveolar', 'Dental', 'Alveolo-palatal', 'Retroflex', 'Velar', 'Zero initial'],
     oZero: '(none)',
@@ -145,8 +162,8 @@ const STR = {
       'rh (z) is southern-only: the urban reading has v (入 vu1→rhu1, 軟 van3→rhuan3, 潤 ven4→rhuen4); the other initials are the same in both.',
     ],
     rTitle: 'Xi’an finals: urban 40 · southern 39',
-    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, purple = southern, dashed = urban-only',
-    rLeg: ['Urban-only (red dashed)', 'Southern-only (purple dashed)'],
+    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = urban-only',
+    rLeg: ['Urban-only (red dashed)', 'Southern-only (blue dashed)'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'an en ang eng (and their variants in the other classes) are nasalised vowels — ã ẽ ɑɣ̃ əɣ̃ — with no -n / -ng coda.',
@@ -193,16 +210,32 @@ const STR = {
     ],
     aTitle: 'Input-side short forms: the 8 abbreviations',
     aSub: 'In each cell: full spelling → short form; for keyboard input only — the dictionary and notation keep the full spelling',
+    vTitle: 'Southern-suburb variants: zh ch sh r before u, plus f for shu',
+    vSub: 'Variants share the base tone; added only where the urban reading has bf, pf, f or v',
+    vHead: ['Char', 'Southern', 'Variant', 'Urban'],
+    vRows: [
+      ['出', 'cu1', 'chu1', 'pfu1'],
+      ['住', 'zu4', 'zhu4', 'bfu4'],
+      ['書', 'su1', 'shu1 · fu1', 'fu1'],
+      ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
+      ['入', 'rhu1', 'ru1', 'vu1'],
+      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+    ],
+    vFoot: [
+      'Where the southern initials z, c, s and rh combine with u, the retroflex zh, ch, sh and r are also possible;',
+      'and where sh combines with u (shu) there is in addition an f variant, e.g. 水 suei3 → shuei3, fei3.',
+      'Variants keep the tone of the base reading; both are kept in the table and the input scheme, and marked “variant” on the cards.',
+    ],
     aZero: 'zero initial',
     aFoot: [],
   },
 
   ja: {
     oTitle: '西安方言の声母：城区音 26、南郊音 25（零声母を含む）',
-    oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、紫字＝南郊音',
+    oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
     oLeg1: '普通話と字も音も同じ',
     oLeg2: '普通話にない声母',
-    oLegN: '南郊音のみ（紫破線）',
+    oLegN: '南郊音のみ（青破線）',
     oLegCq: '城区音のみ（赤破線）',
     oRows: ['両唇', '唇歯', '舌尖中', '舌尖前', '舌面前', '舌尖後', '舌根', '零声母'],
     oZero: '（表記なし）',
@@ -213,8 +246,8 @@ const STR = {
       'rh（z）は南郊音特有です。城区音では v で読みます（入 vu1→rhu1、軟 van3→rhuan3、潤 ven4→rhuen4）。その他の声母は両系統で同じです。',
     ],
     rTitle: '西安方言の韻母：城区音 40、南郊音 39（開 15 / 斉 10 / 合 9 / 撮 6 は城区音の数え方）',
-    rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、紫字＝南郊音',
-    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（紫破線）'],
+    rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
+    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（青破線）'],
     rGroups: ['開口呼 15', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
       'an・en・ang・eng（および各呼の変種）は鼻母音です：ã ẽ ɑɣ̃ əɣ̃。-n / -ng の韻尾を伴いません。',
@@ -261,6 +294,22 @@ const STR = {
     ],
     aTitle: '入力側の略式綴り：8 つのルール',
     aSub: '各枠は 全拼 → 略拼。キーボード入力専用で、辞書と表記は全拼のまま',
+    vTitle: '南郊音の変体：z c s rh が u と結合するときのそり舌変体、shu には f 変体も',
+    vSub: '各南郊音の下に変体も並べます（声調は同じ）。変体は城区音が bf・pf・f・v と読む字にのみ付けます',
+    vHead: ['字', '南郊音', '変体', '城区音'],
+    vRows: [
+      ['出', 'cu1', 'chu1', 'pfu1'],
+      ['住', 'zu4', 'zhu4', 'bfu4'],
+      ['書', 'su1', 'shu1 · fu1', 'fu1'],
+      ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
+      ['入', 'rhu1', 'ru1', 'vu1'],
+      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+    ],
+    vFoot: [
+      '南郊音の z・c・s・rh の四組の声母が u と結合するとき、zh・ch・sh・r のそり舌の変体もあります。',
+      'また sh と u が結合する場合（shu）には f の変体もあり、例：水 suei3 → shuei3、fei3。',
+      '変体は基本の読みと同じ声調です。字表と入力方案はいずれも両方を残し、カードでは「変体」と表示します。',
+    ],
     aZero: '零声母',
     aFoot: [],
   },
@@ -286,7 +335,7 @@ STR.hant = conv(STR.hans);
 
 // ── 画布 ────────────────────────────────────────────────────
 const svg = (w, h, body, font) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" font-family="${font}">
-<rect width="${w}" height="${h}" fill="#ffffff"/>
+<rect width="${w}" height="${h}" fill="${C.paper}"/>
 ${body}
 </svg>
 `;
@@ -530,6 +579,50 @@ function figAbbrev(T, lang, font) {
   return `abbrev.${lang}.svg ${w}x${h}（脚注 ${fl.length} 行）`;
 }
 
+// ── 6. 南郊音变体图 ──────────────────────────────────────────
+function figVariant(T, lang, font) {
+  const PAD = 24, TOP = 88, RH = 44;
+  const CW = [68, 150, 218, 132];
+  const w = PAD * 2 + CW.reduce((a, c) => a + c, 0);
+  const rows = T.vRows.length;
+  const tabBottom = TOP + rows * RH;
+  const fl = T.vFoot.flatMap(s => wrap(s, w - PAD * 2, 12));
+  const h = tabBottom + 22 + fl.length * 19 + 16;
+
+  let b = text(PAD, 30, T.vTitle, { size: 17, weight: 'bold' });
+  b += text(PAD, 52, T.vSub, { size: 12, fill: C.sub });
+
+  // 表头
+  let x = PAD;
+  T.vHead.forEach((hd, i) => {
+    b += text(x + 6, TOP - 10, hd, { size: 12, fill: C.sub, weight: 'bold' });
+    x += CW[i];
+  });
+
+  // 行
+  T.vRows.forEach((row, r) => {
+    const y = TOP + r * RH;
+    if (r % 2 === 0) b += `<rect x="${PAD}" y="${y}" width="${w - PAD * 2}" height="${RH}" fill="#f4ece6"/>`;
+    let cx = PAD;
+    // 字
+    b += text(cx + 6, y + 28, row[0], { size: 19, weight: 'bold' });
+    cx += CW[0];
+    // 南郊音（蓝，基本读音）
+    b += text(cx + 6, y + 28, row[1], { size: 15, fill: C.blue });
+    cx += CW[1];
+    // 变体（红字蓝框感：用蓝底浅块 + 蓝字，表示「变体」属南郊音）
+    b += `<rect x="${cx - 2}" y="${y + 8}" width="${CW[2] - 12}" height="${RH - 16}" rx="5" fill="${C.nj.f}" stroke="${C.nj.s}" stroke-dasharray="4 3"/>`;
+    b += text(cx + 8, y + 28, row[2], { size: 15, fill: C.nj.s, weight: 'bold' });
+    cx += CW[2];
+    // 城区音（红）
+    b += text(cx + 6, y + 28, row[3], { size: 15, fill: C.red });
+  });
+
+  fl.forEach((s, i) => { b += text(PAD, tabBottom + 22 + i * 19, s, { size: 12, fill: C.sub }); });
+  fs.writeFileSync(`figures/variant.${lang}.svg`, svg(w, h, b, font));
+  return `variant.${lang}.svg ${w}x${h}（${rows} 行 + 脚注 ${fl.length} 行）`;
+}
+
 // ── 跑 ──────────────────────────────────────────────────────
 fs.mkdirSync('figures', { recursive: true });
 const want = process.argv[2] || 'all';
@@ -540,4 +633,5 @@ for (const lang of LANGS) {
   console.log(figTones(STR[lang], lang, FONT[lang]));
   console.log(figSyllable(STR[lang], lang, FONT[lang]));
   console.log(figAbbrev(STR[lang], lang, FONT[lang]));
+  console.log(figVariant(STR[lang], lang, FONT[lang]));
 }

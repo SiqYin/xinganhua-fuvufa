@@ -11,7 +11,7 @@
 ![西安话韵母图（城区音 40；南郊音 38，无 uu、iai）](figures/rhymes.hans.svg)
 
 - **方案代码**：`chengqyu`（西安话城区音）、`nanjiao`（西安话南郊音）；仓库名 `xinganhua-fuvufa` 是「西安话输入法」的旧拼写（西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
-- **字表**：城区音 3,648 条、南郊音 4,350 条；城区 3,345 字头，南郊 4,065 字头（含渭南独有等新增 720 字）
+- **字表**：城区音 3,648 条、南郊音 4,534 条；城区 3,345 字头，南郊 4,065 字头（含渭南独有等新增 720 字）
 - **音系**：两套共用 24 声母、38 韵母、四声（阴平 21、阳平 24、上声 53、去声 44）；城区音另有 `bf`、`pf` 两个声母与 `uu`、`iai` 两个韵母（26 / 40），南郊音另有 `rh` 声母（25 / 38）
 - **适用**：Rime 系输入法（小狼毫 Weasel / 鼠须管 Squirrel / Trime / fcitx-rime 等）
 - **正文用简体**；表格里的例字保持词库的繁体字形（鵝、軍、豬、來、溫……），因为那是要能对上词库的数据
@@ -20,7 +20,7 @@
 | 方案 | 名称 | 声母 | 韵母 | 字表 |
 |---|---|---|---|---|
 | `chengqyu` | 西安话城区音 | 26（含 `bf`、`pf`） | 40（含 `uu`、`iai`） | `chengqyu.word.dict.yaml`，3,648 条 |
-| `nanjiao` | 西安话南郊音 | 25（含 `rh`） | 38 | `nanjiao.word.dict.yaml`，4,350 条 |
+| `nanjiao` | 西安话南郊音 | 25（含 `rh`） | 38 | `nanjiao.word.dict.yaml`，4,534 条 |
 
 ---
 
@@ -49,7 +49,7 @@
 
 ![音节结构图](figures/syllable.hans.svg)
 
-城区音 3,648 条字音由脚本从 MCPDict 的国际音标逐条转写而来，转写后 392 个音节的拼写**两两不同（零同形冲突）**；南郊音 4,350 条折自南郊音字表，389 个音节同样零冲突。也就是说这套罗马字是可逆的：拿拼音能原样还原成音标。
+城区音 3,648 条字音由脚本从 MCPDict 的国际音标逐条转写而来，转写后 392 个音节的拼写**两两不同（零同形冲突）**；南郊音 4,534 条折自南郊音字表，420 个音节同样零冲突。也就是说这套罗马字是可逆的：拿拼音能原样还原成音标。
 
 ---
 
@@ -190,6 +190,11 @@
 
 ![西安话简拼对照图（输入端 8 条缩写规则）](figures/abbrev.hans.svg)
 
+
+![南郊音的变体](figures/variant.hans.svg)
+
+**南郊音变体**：南郊音 z、c、s、rh 四组声母与 u 相接时，分别存在 zhu、chu、shu、ru 的对应翘舌变体；其中 sh 与 u 相拼（shu）另有 f 声母变体。上述变体只在城区音读 bf、pf、f、v 的字上加注，例如「水」南郊音 `suei3` 另有变体 `shuei3`、`fei3`；变体与基本读音同调，字表中另立一行并注明「变体」。
+
 **不允许的简写**（会撞车或造出方案外的码）：
 
 | 想简 | 结果 | 为什么不行 |
@@ -211,7 +216,7 @@
 
 ### 8.3 简拼歧义校验
 
-把 algebra 全部规则分别跑在城区 392 个、南郊 389 个音节上：各衍生 56 与 62 个简拼码（去调形式），**跨音节歧义 0 个**，简拼码与其他音节的全拼同形 0 个。简拼只增加输入宽容度，不会让一个码出两批不相干的字。
+把 algebra 全部规则分别跑在城区 392 个、南郊 420 个音节上：各衍生 56 与 62 个简拼码（去调形式），**跨音节歧义 0 个**，简拼码与其他音节的全拼同形 0 个。简拼只增加输入宽容度，不会让一个码出两批不相干的字。
 
 ---
 
@@ -219,7 +224,7 @@
 
 | 项 | 城区音 | 南郊音 |
 |---|---|---|
-| 字音条目（一字一音一行） | 3,648 | 4,350 |
+| 字音条目（一字一音一行） | 3,648 | 4,534 |
 | 不同汉字 | 3,345 | 4,065（含渭南独有等新增 720 字） |
 | 多音字 | 275 | 256 |
 | 分调条目 1/2/3/4 | 1,148 / 826 / 639 / 1,035 | 1,356 / 995 / 788 / 1,205（另轻声 6） |
@@ -239,7 +244,7 @@ chengqyu.dict.yaml             城区音主词典，导入 chengqyu.word
 chengqyu.word.dict.yaml        城区音字音表 3,648 条（脚本生成，勿手改）
 nanjiao.schema.yaml            西安话南郊音方案（声母 25 含 rh、韵母 38）
 nanjiao.dict.yaml              南郊音主词典，导入 nanjiao.word
-nanjiao.word.dict.yaml         南郊音字音表 4,350 条（脚本生成，勿手改）
+nanjiao.word.dict.yaml         南郊音字音表 4,534 条（脚本生成，勿手改）
 figures/onsets.hans.svg        声母图（另有 .hant / .en / .ja 三版）
 figures/rhymes.hans.svg        韵母图（同上）
 figures/tones.hans.svg         声调图（同上）
@@ -247,7 +252,7 @@ figures/syllable.hans.svg      音节结构图（同上）
 figures/abbrev.hans.svg        简拼对照图（同上）
 tools/ipa2pinyin.mjs           IPA → 城区音拼音转写脚本
 tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
-tools/make-figures.mjs         五张图 × 四种语言的生成脚本
+tools/make-figures.mjs         六张图 × 四种语言的生成脚本
 tools/chengqyu.ipa對照.tsv    城区音逐音对照：IPA / 调名 / 拼音 / 声母 / 韵母 / 辖字
 tools/chengqyu.詳注.tsv       城区音逐字详注，含源表 {} 释义与白读标记
 ```
@@ -290,7 +295,7 @@ tools/chengqyu.詳注.tsv       城区音逐字详注，含源表 {} 释义与�
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-词库与两张对照表一起重生，脚本自报：未映射音节、同形冲突、不含调/含调音节数、字音条目与多音字数。南郊音字表改过之后跑 `python tools/make_nanjiao_dict.py` 重生 `nanjiao.word.dict.yaml`。五张图用 `node tools/make-figures.mjs` 重生，一次写出 `figures/` 下 20 个文件（五张图 × 简 / 繁 / 英 / 日）。algebra 的简拼衍生码另可写个模拟器逐条跑 schema 里的规则，检查歧义（开发时用过，未随仓库发布，需要可以再补进来）。
+词库与两张对照表一起重生，脚本自报：未映射音节、同形冲突、不含调/含调音节数、字音条目与多音字数。南郊音字表改过之后跑 `python tools/make_nanjiao_dict.py` 重生 `nanjiao.word.dict.yaml`。六张图用 `node tools/make-figures.mjs` 重生，一次写出 `figures/` 下 24 个文件（六张图 × 简 / 繁 / 英 / 日）。algebra 的简拼衍生码另可写个模拟器逐条跑 schema 里的规则，检查歧义（开发时用过，未随仓库发布，需要可以再补进来）。
 
 ---
 
@@ -313,7 +318,7 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪萤）——方案架构、词典组织方式与反查写法
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy)（雪萤）——本 README 的排版与配图方式参照
 
-**验证**：城区音字表 3,648 条与原表逐字比对无一缺失，392 个音节拼写两两不同；南郊音字表 4,350 条，389 个音节同样零冲突；algebra 简拼衍生码跨音节歧义 0。
+**验证**：城区音字表 3,648 条与原表逐字比对无一缺失，392 个音节拼写两两不同；南郊音字表 4,534 条，420 个音节同样零冲突；algebra 简拼衍生码跨音节歧义 0。
 
 ---
 

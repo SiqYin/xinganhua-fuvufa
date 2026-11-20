@@ -21,7 +21,7 @@ HEAD = """# Rime dictionary
 # 字音條目 {n} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.0"
+version: "1.1.1"
 sort: by_weight
 use_preset_vocabulary: true
 ...

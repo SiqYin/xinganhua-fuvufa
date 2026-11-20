@@ -82,7 +82,7 @@ const STR = {
     rFoot: [
       'an en ang eng（及各呼变体）读鼻化元音：ã ẽ ɑɣ̃ əɣ̃，不带 -n / -ng 韵尾。',
       '撮呼一律带 y，声母后也不省（jyuen 軍、qyuo 卻、nyu 女）。',
-      '城区音的 uu、iai 在南郊音读 e、ie（胳 guu1→ge1、皆 jiai1→jie1）；南郊音的 yua（髽 zyua4）为南郊特有；其余韵母两音相同。',
+      '城区音的 uu、iai 在南郊音读 e、ie（胳 guu1→ge1、皆 jiai1→jie1）；其余韵母两音相同。',
     ],
     tTitle: '西安话四声：城区音、南郊音相同（五度标记法）',
     tSub: '竖轴 5 最高、1 最低；调号 1/2/3/4 写在音节末尾',
@@ -114,6 +114,7 @@ const STR = {
       '',
       '若连写成 xingan，就能被重新切成 xin（心的简拼）+ gan（干），',
       '所以必须加撇号。仓库名 xinganhua-fuvufa 因此去掉了撇号。',
+      '输入端可用简拼：ien→in、ieng→ing、iou→iu、uei→ui、uen→un、uong→ung、yuen→yun、yuong→yung（词库与注音仍写全拼）。',
     ],
   },
 
@@ -133,13 +134,13 @@ const STR = {
       'rh (z) is southern-only: the urban reading has v (入 vu1→rhu1, 軟 van3→rhuan3, 潤 ven4→rhuen4); the other initials are the same in both.',
     ],
     rTitle: 'Xi’an finals: urban 40 · southern 39',
-    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = one variety only',
+    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = urban-only',
     rLeg: ['Urban-only (red dashed)', 'Southern-only (purple dashed)'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'an en ang eng (and their variants in the other classes) are nasalised vowels — ã ẽ ɑɣ̃ əɣ̃ — with no -n / -ng coda.',
       'The ü-series always keeps y, even after an initial (jyuen 軍, qyuo 卻, nyu 女).',
-      'The urban uu and iai are e and ie in the southern suburb (胳 guu1→ge1, 皆 jiai1→jie1); the southern yua (髽 zyua4) is southern-only; the other finals are the same in both.',
+      'The urban uu and iai are e and ie in the southern suburb (胳 guu1→ge1, 皆 jiai1→jie1); the other finals are the same in both.',
     ],
     tTitle: 'The four Xi’an tones, identical in both varieties (five-level pitch scale)',
     tSub: 'Vertical axis: 5 is highest, 1 is lowest; the tone number 1/2/3/4 follows the syllable',
@@ -171,6 +172,7 @@ const STR = {
       '',
       'Written together, xingan can be re-split into xin (short for 心) + gan (干),',
       'so the apostrophe is required. The repository name therefore drops it.',
+      'Input-side abbreviations: ien→in, ieng→ing, iou→iu, uei→ui, uen→un, uong→ung, yuen→yun, yuong→yung (the dictionary and notation keep the full spelling).',
     ],
   },
 
@@ -196,7 +198,7 @@ const STR = {
     rFoot: [
       'an・en・ang・eng（および各呼の変種）は鼻母音です：ã ẽ ɑɣ̃ əɣ̃。-n / -ng の韻尾を伴いません。',
       '撮口呼はつねに y を伴い、声母の後でも省略しません（jyuen 軍、qyuo 卻、nyu 女）。',
-      '城区音の uu・iai は南郊音で e・ie（胳 guu1→ge1、皆 jiai1→jie1）。南郊音の yua（髽 zyua4）は南郊音特有です。その他の韻母は両系統で同じです。',
+      '城区音の uu・iai は南郊音で e・ie（胳 guu1→ge1、皆 jiai1→jie1）。その他の韻母は両系統で同じです。',
     ],
     tTitle: '西安方言の四声：城区音・南郊音とも同じ（五度式音調表記）',
     tSub: '縦軸は 5 が最高、1 が最低。声調番号 1/2/3/4 は音節の末尾に書きます',
@@ -228,6 +230,7 @@ const STR = {
       '',
       'xingan と続けて書くと xin（心の簡拼）＋ gan（干）に切り直されてしまうため、',
       '撇号が必要です。リポジトリ名 xinganhua-fuvufa はこの理由で撇号を外しています。',
+      '入力側の略式綴り：ien→in、ieng→ing、iou→iu、uei→ui、uen→un、uong→ung、yuen→yun、yuong→yung（辞書と表記は全拼のまま）。',
     ],
   },
 };
@@ -329,7 +332,6 @@ const RH = [
     ['uen', 'uẽ', '溫 wen1'], ['uong', 'uoɣ̃', '翁 wong1'], ['uang', 'uɑɣ̃', '汪 wang1']]],
   ['撮呼', [
     ['yu', 'y', '魚 yu2'], ['yue', 'yɛ', '月 yue1'], ['yuo', 'yɤ', '樂 yuo1'],
-    ['yua', 'ya', '', 'nj', '髽 zyua4'],
     ['yuan', 'yã', '元 yuan2'], ['yuen', 'yẽ', '勻 yuen2'], ['yuong', 'yoɣ̃', '容 yuong2']]],
 ];
 
@@ -338,7 +340,7 @@ function figRhymes(T, lang, font) {
   const LX = lang === 'en' ? 84 : 70;
   const maxLines = RH.reduce((a, [, c]) => a + Math.ceil(c.length / PER), 0);
   const w = LX + PER * CW + PAD * 2;
-  const leg = [['cq', T.rLeg[0]], ['nj', T.rLeg[1]]];
+  const leg = [['cq', T.rLeg[0]]];
   // 图例按行自动流排：英文较长，会占两行，网格跟着下移
   let lx = PAD, ly = 66, legRows = 1;
   const legend = [];

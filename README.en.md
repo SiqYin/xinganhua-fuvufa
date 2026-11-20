@@ -200,7 +200,9 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 | `uen` | `un` | only after an initial | `suen` 孫 → sun, `duen` 墩 → dun |
 | `uong` | `ung` | only after an initial | `duong` 冬 → dung, `huong` 烘 → hung |
 | `yuen` | `yun` | also with the zero initial | `yuen` 勻 → yun, `jyuen` 軍 → jyun |
-| `yuong` | `yung` | also with the zero initial | `yuong` 容 → yung, `qyuong` 瓊 → qyung |
+| `yuong` | `yung` | also with the zero initial |
+
+![Short forms for input: the 8 abbreviations](figures/abbrev.en.svg) `yuong` 容 → yung, `qyuong` 瓊 → qyung |
 
 **Not allowed** (collisions, or codes outside the scheme):
 
@@ -260,9 +262,10 @@ figures/onsets.hans.svg        initials figure (also .hant / .en / .ja)
 figures/rhymes.hans.svg        finals figure (likewise)
 figures/tones.hans.svg         tones figure (likewise)
 figures/syllable.hans.svg      syllable-structure figure (likewise)
+figures/abbrev.hans.svg        abbreviated-spellings figure (likewise)
 tools/ipa2pinyin.mjs           IPA → urban pinyin transliterator
 tools/make_nanjiao_dict.py     southern table → nanjiao.word.dict.yaml
-tools/make-figures.mjs         generates the four figures in all four languages
+tools/make-figures.mjs         generates the five figures in all four languages
 tools/chengqyu.ipa對照.tsv    urban per-sound table: IPA / tone name / pinyin / initial / final / characters
 tools/chengqyu.詳注.tsv       urban per-character notes, including the source table's {} glosses
 ```

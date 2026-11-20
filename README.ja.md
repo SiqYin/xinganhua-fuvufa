@@ -200,7 +200,9 @@
 | `uen` | `un` | 前に声母がある場合のみ | `suen` 孫 → sun、`duen` 墩 → dun |
 | `uong` | `ung` | 前に声母がある場合のみ | `duong` 冬 → dung、`huong` 烘 → hung |
 | `yuen` | `yun` | 零声母も可 | `yuen` 勻 → yun、`jyuen` 軍 → jyun |
-| `yuong` | `yung` | 零声母も可 | `yuong` 容 → yung、`qyuong` 瓊 → qyung |
+| `yuong` | `yung` | 零声母も可 |
+
+![入力側の略式綴り（8 つのルール）](figures/abbrev.ja.svg) `yuong` 容 → yung、`qyuong` 瓊 → qyung |
 
 **許されない省略**（衝突するか、方案にないコードになる）：
 
@@ -260,6 +262,7 @@ figures/onsets.hans.svg        声母図（.hant / .en / .ja 版もあり）
 figures/rhymes.hans.svg        韻母図（同上）
 figures/tones.hans.svg         声調図（同上）
 figures/syllable.hans.svg      音節構造図（同上）
+figures/abbrev.hans.svg        略式綴り対照図（同上）
 tools/ipa2pinyin.mjs           IPA → 西安方言ピンインの転写スクリプト
 tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
 tools/make-figures.mjs         四枚の図を四言語ぶん生成するスクリプト

@@ -186,6 +186,8 @@
 | `yuen` | `yun` | 零聲母也放行 | `yuen 勻 → yun`、`jyuen 軍 → jyun` |
 | `yuong` | `yung` | 零聲母也放行 | `yuong 容 → yung`、`qyuong 瓊 → qyung` |
 
+![西安話簡拼對照圖（輸入端 8 條縮寫規則）](figures/abbrev.hant.svg)
+
 **不允許的簡寫**（會撞車或造出方案外的碼）：
 
 | 想簡 | 結果 | 爲什麼不行 |
@@ -240,9 +242,10 @@ figures/onsets.hant.svg        聲母圖（另有 .hant / .en / .ja 三版）
 figures/rhymes.hant.svg        韻母圖（同上）
 figures/tones.hant.svg         聲調圖（同上）
 figures/syllable.hant.svg      音節結構圖（同上）
+figures/abbrev.hant.svg        簡拼對照圖（同上）
 tools/ipa2pinyin.mjs           IPA → 城區音拼音轉寫腳本
 tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
-tools/make-figures.mjs         四張圖 × 四種語言的生成腳本
+tools/make-figures.mjs         五張圖 × 四種語言的生成腳本
 tools/chengqyu.ipa對照.tsv    城區音逐音對照：IPA / 調名 / 拼音 / 聲母 / 韻母 / 轄字
 tools/chengqyu.詳注.tsv       城區音逐字詳註，含源表 {} 釋義與白讀標記
 ```

@@ -1,8 +1,9 @@
-// 生成 README 用的四张图，简体 / 繁体 / 英文 / 日文各一套：
+// 生成 README 用的五张图，简体 / 繁体 / 英文 / 日文各一套：
 //   onsets.svg   声母    rhymes.svg   韵母
 //   tones.svg    声调    syllable.svg 音节结构
+//   abbrev.svg   简拼对照
 // 用法：node tools/make-figures.mjs [hans|hant|en|ja|all]     默认 all
-// 输出：figures/onsets.hans.svg 等 16 个文件（README 按语言引用）
+// 输出：figures/onsets.hans.svg 等 20 个文件（README 按语言引用）
 //
 // 繁体不手写：hant 由 S2T 字表从 hans 逐字转出；该字表取自 OpenCC 的 s2t，
 // 只收本文件里出现过的字（改文案后如出现新字，需补表，见 tools/README-figures 说明）。
@@ -20,7 +21,7 @@ const FONT = {
 const C = {
   ink: '#1b2a3a', sub: '#6b7b8c', line: '#c9d4de',
   cq: { f: '#fff1e0', s: '#9f363a', dash: true },   // 城区音特有（普通话也没有）
-  nj: { f: '#fff1e0', s: '#7b5fc0', dash: true },    // 南郊音特有（普通话也没有，紫）
+  nj: { f: '#fff1e0', s: '#2f5d8c', dash: true },    // 南郊音特有（普通话也没有，蓝虚线）
   blue: '#2f5d8c',                                   // 南郊音读音
   red: '#9f363a',                                    // 城区音读音
   same: { f: '#f2f7ff', s: '#8fb6e4' },      // 与普通话同字母同音
@@ -65,7 +66,7 @@ const STR = {
     oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
     oLeg1: '与普通话同字母同音',
     oLeg2: '普通话没有的声母',
-    oLegN: '南郊音特有（紫虚线）',
+    oLegN: '南郊音特有（蓝虚线）',
     oLegCq: '城区音特有（红虚线）',
     oRows: ['双唇', '唇齿', '舌尖中', '舌尖前', '舌面前', '舌尖后', '舌根', '零声母'],
     oZero: '（不标）',
@@ -77,7 +78,7 @@ const STR = {
     ],
     rTitle: '西安话韵母：城区音 40 个、南郊音 39 个（开 15 / 齐 10 / 合 9 / 撮 6 为城区音计数）',
     rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
-    rLeg: ['城区音特有（红虚线）', '南郊音特有（紫虚线）'],
+    rLeg: ['城区音特有（红虚线）', '南郊音特有（蓝虚线）'],
     rGroups: ['开呼 15', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
       'an en ang eng（及各呼变体）读鼻化元音：ã ẽ ɑɣ̃ əɣ̃，不带 -n / -ng 韵尾。',
@@ -116,6 +117,11 @@ const STR = {
       '所以必须加撇号。仓库名 xinganhua-fuvufa 因此去掉了撇号。',
       '输入端可用简拼：ien→in、ieng→ing、iou→iu、uei→ui、uen→un、uong→ung、yuen→yun、yuong→yung（词库与注音仍写全拼）。',
     ],
+    aTitle: '西安话简拼对照：8 条缩写规则（输入端专用）',
+    aSub: '格内：全拼 → 简拼；只用于键盘输入，词库与注音仍写全拼',
+    aNew: 'v1.1.2 新增',
+    aZero: '零声母',
+    aFoot: ['uei→ui 为 v1.1.2 新增；零声母只有 yuen→yun、yuong→yung 两条。'],
   },
 
   en: {
@@ -123,7 +129,7 @@ const STR = {
     oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, blue = southern',
     oLeg1: 'Same letter and sound as Mandarin',
     oLeg2: 'Not found in Mandarin',
-    oLegN: 'Southern-only (purple dashed)',
+    oLegN: 'Southern-only (blue dashed)',
     oLegCq: 'Urban-only (red dashed)',
     oRows: ['Bilabial', 'Labiodental', 'Alveolar', 'Dental', 'Alveolo-palatal', 'Retroflex', 'Velar', 'Zero initial'],
     oZero: '(none)',
@@ -135,7 +141,7 @@ const STR = {
     ],
     rTitle: 'Xi’an finals: urban 40 · southern 39',
     rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = urban-only',
-    rLeg: ['Urban-only (red dashed)', 'Southern-only (purple dashed)'],
+    rLeg: ['Urban-only (red dashed)', 'Southern-only (blue dashed)'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'an en ang eng (and their variants in the other classes) are nasalised vowels — ã ẽ ɑɣ̃ əɣ̃ — with no -n / -ng coda.',
@@ -174,6 +180,11 @@ const STR = {
       'so the apostrophe is required. The repository name therefore drops it.',
       'Input-side abbreviations: ien→in, ieng→ing, iou→iu, uei→ui, uen→un, uong→ung, yuen→yun, yuong→yung (the dictionary and notation keep the full spelling).',
     ],
+    aTitle: 'Input-side short forms: the 8 abbreviations',
+    aSub: 'In each cell: full spelling → short form; for keyboard input only — the dictionary and notation keep the full spelling',
+    aNew: 'new in v1.1.2',
+    aZero: 'zero initial',
+    aFoot: ['uei→ui is new in v1.1.2; the zero initials take only yuen→yun and yuong→yung.'],
   },
 
   ja: {
@@ -181,7 +192,7 @@ const STR = {
     oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
     oLeg1: '普通話と字も音も同じ',
     oLeg2: '普通話にない声母',
-    oLegN: '南郊音のみ（紫破線）',
+    oLegN: '南郊音のみ（青破線）',
     oLegCq: '城区音のみ（赤破線）',
     oRows: ['両唇', '唇歯', '舌尖中', '舌尖前', '舌面前', '舌尖後', '舌根', '零声母'],
     oZero: '（表記なし）',
@@ -193,7 +204,7 @@ const STR = {
     ],
     rTitle: '西安方言の韻母：城区音 40、南郊音 39（開 15 / 斉 10 / 合 9 / 撮 6 は城区音の数え方）',
     rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
-    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（紫破線）'],
+    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（青破線）'],
     rGroups: ['開口呼 15', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
       'an・en・ang・eng（および各呼の変種）は鼻母音です：ã ẽ ɑɣ̃ əɣ̃。-n / -ng の韻尾を伴いません。',
@@ -232,6 +243,11 @@ const STR = {
       '撇号が必要です。リポジトリ名 xinganhua-fuvufa はこの理由で撇号を外しています。',
       '入力側の略式綴り：ien→in、ieng→ing、iou→iu、uei→ui、uen→un、uong→ung、yuen→yun、yuong→yung（辞書と表記は全拼のまま）。',
     ],
+    aTitle: '入力側の略式綴り：8 つのルール',
+    aSub: '各枠は 全拼 → 略拼。キーボード入力専用で、辞書と表記は全拼のまま',
+    aNew: 'v1.1.2 で追加',
+    aZero: '零声母',
+    aFoot: ['uei→ui は v1.1.2 で追加。零声母は yuen→yun、yuong→yung の 2 つのみ。'],
   },
 };
 
@@ -246,6 +262,7 @@ const S2T = {
   归: '歸', 并: '併', 这: '這', 数: '數', 构: '構', 边: '邊', 两: '兩', 连: '連', 会: '會',
   错: '錯', 时: '時', 简: '簡', 须: '須', 仓: '倉', 样: '樣', 结: '結',
   区: '區', 虚: '虛', 线: '線', 红: '紅', 蓝: '藍', 计: '計', 猪: '豬',
+  条: '條', 缩: '縮', 规: '規', 则: '則', 输: '輸', 键: '鍵', 盘: '盤', 专: '專',
 };
 const s2t = s => [...s].map(ch => S2T[ch] || ch).join('');
 const conv = o => Array.isArray(o) ? o.map(conv) : (typeof o === 'object' && o ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, conv(v)])) : (typeof o === 'string' ? s2t(o) : o));
@@ -446,6 +463,36 @@ function figSyllable(T, lang, font) {
   return `syllable.${lang}.svg ${w}x${h}（注释 ${noteLines.length} 行）`;
 }
 
+// ── 5. 简拼对照图 ────────────────────────────────────────────
+const ABBR = [
+  ['ien', 'in'], ['ieng', 'ing'], ['iou', 'iu'],
+  ['uei', 'ui'], ['uen', 'un'], ['uong', 'ung'],
+  ['yuen', 'yun'], ['yuong', 'yung'],
+];
+
+function figAbbrev(T, lang, font) {
+  const CW = 196, CH = 66, PAD = 24, PER = 3, TOP = 84;
+  const rows = Math.ceil(ABBR.length / PER);
+  const w = PAD * 2 + PER * CW;
+  const gridBottom = TOP + rows * (CH + 12);
+  const fl = T.aFoot.flatMap(s => wrap(s, w - PAD * 2, 12));
+  const h = gridBottom + 40 + (fl.length - 1) * 19 + 14;
+
+  let b = text(PAD, 30, T.aTitle, { size: 17, weight: 'bold' });
+  b += text(PAD, 52, T.aSub, { size: 12, fill: C.sub });
+  ABBR.forEach(([full, short], i) => {
+    const x = PAD + (i % PER) * CW, y = TOP + Math.floor(i / PER) * (CH + 12);
+    const isNew = full === 'uei', isZero = full === 'yuen' || full === 'yuong';
+    b += `<rect x="${x}" y="${y}" width="${CW - 14}" height="${CH}" rx="6" fill="${isNew ? C.new.f : '#f7fafc'}" stroke="${isNew ? C.new.s : C.line}"/>`;
+    b += text(x + (CW - 14) / 2, y + 30, `${full} → ${short}`, { size: 17, weight: 'bold', anchor: 'middle' });
+    const tag = isNew ? T.aNew : isZero ? T.aZero : '';
+    if (tag) b += text(x + (CW - 14) / 2, y + 52, tag, { size: 11, fill: isNew ? C.new.s : C.sub, anchor: 'middle' });
+  });
+  fl.forEach((s, i) => { b += text(PAD, gridBottom + 40 + i * 19, s, { size: 12, fill: C.sub }); });
+  fs.writeFileSync(`figures/abbrev.${lang}.svg`, svg(w, h, b, font));
+  return `abbrev.${lang}.svg ${w}x${h}（脚注 ${fl.length} 行）`;
+}
+
 // ── 跑 ──────────────────────────────────────────────────────
 fs.mkdirSync('figures', { recursive: true });
 const want = process.argv[2] || 'all';
@@ -455,4 +502,5 @@ for (const lang of LANGS) {
   console.log(figRhymes(STR[lang], lang, FONT[lang]));
   console.log(figTones(STR[lang], lang, FONT[lang]));
   console.log(figSyllable(STR[lang], lang, FONT[lang]));
+  console.log(figAbbrev(STR[lang], lang, FONT[lang]));
 }

@@ -21,8 +21,8 @@ const FONT = {
 const C = {
   ink: '#1b2a3a', sub: '#6b7b8c', line: '#c9d4de',
   cq: { f: '#fff1e0', s: '#9f363a', dash: true },   // 城区音特有（普通话也没有）
-  nj: { f: '#fff1e0', s: '#2f5d8c', dash: true },    // 南郊音特有（普通话也没有，蓝虚线）
-  blue: '#2f5d8c',                                   // 南郊音读音
+  nj: { f: '#fff1e0', s: '#7b5fc0', dash: true },    // 南郊音特有（普通话也没有，紫虚线）
+  blue: '#7b5fc0',                                   // 南郊音读音（紫）
   red: '#9f363a',                                    // 城区音读音
   same: { f: '#f2f7ff', s: '#8fb6e4' },      // 与普通话同字母同音
   new: { f: '#fff1e0', s: '#e0973c' },       // 普通话没有的声母
@@ -63,10 +63,10 @@ function wrap(s, maxW, size) {
 const STR = {
   hans: {
     oTitle: '西安话声母：城区音 26 个、南郊音 25 个（含零声母）',
-    oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
+    oSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、紫字南郊音',
     oLeg1: '与普通话同字母同音',
     oLeg2: '普通话没有的声母',
-    oLegN: '南郊音特有（蓝虚线）',
+    oLegN: '南郊音特有（紫虚线）',
     oLegCq: '城区音特有（红虚线）',
     oRows: ['双唇', '唇齿', '舌尖中', '舌尖前', '舌面前', '舌尖后', '舌根', '零声母'],
     oZero: '（不标）',
@@ -77,8 +77,8 @@ const STR = {
       'rh（z）为南郊音特有：城区音读 v（入 vu1→rhu1、軟 van3→rhuan3、潤 ven4→rhuen4）；其余声母两音相同。',
     ],
     rTitle: '西安话韵母：城区音 40 个、南郊音 39 个（开 15 / 齐 10 / 合 9 / 撮 6 为城区音计数）',
-    rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、蓝字南郊音',
-    rLeg: ['城区音特有（红虚线）', '南郊音特有（蓝虚线）'],
+    rSub: '格内三行：拼写 · 国际音标 · 例字；红字城区音、紫字南郊音',
+    rLeg: ['城区音特有（红虚线）', '南郊音特有（紫虚线）'],
     rGroups: ['开呼 15', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
       'an en ang eng（及各呼变体）读鼻化元音：ã ẽ ɑɣ̃ əɣ̃，不带 -n / -ng 韵尾。',
@@ -91,7 +91,7 @@ const STR = {
     tTag: '调号 {n} · {ex}',
     tFoot: [
       '入声已归并到这四调，归派与普通话不同：立 li1（阴平）、白 bei2（阳平）、藥 yuo1（阴平）、大 duo4（去声）。',
-      '四个调号数字与普通话的 ā á ǎ à 位置一一对应，但音高走向完全不同，母语者按本地调值念即可。',
+      '四个调号数字分别对应的是阴平、阳平、上声、去声。母语者按本地调式念即可。',
     ],
     sTitle: '音节结构：声母 + 韵母 + 调号（城区音、南郊音写法相同）',
     sSub: '韵母含介音；零声母不写字母，齐呼改 y、合呼改 w、撮呼照写 yu-',
@@ -126,10 +126,10 @@ const STR = {
 
   en: {
     oTitle: 'Xi’an initials: urban 26 · southern 25',
-    oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, blue = southern',
+    oSub: 'Incl. the zero initial. spelling · IPA · example; red = urban, purple = southern',
     oLeg1: 'Same letter and sound as Mandarin',
     oLeg2: 'Not found in Mandarin',
-    oLegN: 'Southern-only (blue dashed)',
+    oLegN: 'Southern-only (purple dashed)',
     oLegCq: 'Urban-only (red dashed)',
     oRows: ['Bilabial', 'Labiodental', 'Alveolar', 'Dental', 'Alveolo-palatal', 'Retroflex', 'Velar', 'Zero initial'],
     oZero: '(none)',
@@ -140,8 +140,8 @@ const STR = {
       'rh (z) is southern-only: the urban reading has v (入 vu1→rhu1, 軟 van3→rhuan3, 潤 ven4→rhuen4); the other initials are the same in both.',
     ],
     rTitle: 'Xi’an finals: urban 40 · southern 39',
-    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, blue = southern, dashed = urban-only',
-    rLeg: ['Urban-only (red dashed)', 'Southern-only (blue dashed)'],
+    rSub: 'Open 15 · i-medial 10 · u-medial 9 · ü-medial 6 (urban count); red = urban, purple = southern, dashed = urban-only',
+    rLeg: ['Urban-only (red dashed)', 'Southern-only (purple dashed)'],
     rGroups: ['Open 15', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
       'an en ang eng (and their variants in the other classes) are nasalised vowels — ã ẽ ɑɣ̃ əɣ̃ — with no -n / -ng coda.',
@@ -154,7 +154,7 @@ const STR = {
     tTag: 'Tone {n} · {ex}',
     tFoot: [
       'The entering tone has merged into these four, with a different split from Mandarin: 立 li1 (Yinping), 白 bei2 (Yangping), 藥 yuo1 (Yinping), 大 duo4 (Qusheng).',
-      'Tone numbers 1–4 line up with Mandarin ā á ǎ à, but the pitch contours are entirely different; speakers simply use the local values.',
+      'The tone numbers 1–4 stand for Yinping, Yangping, Shangsheng and Qusheng respectively; speakers simply use the local tone values.',
     ],
     sTitle: 'Syllable structure: initial + final + tone (the same spelling in both varieties)',
     sSub: 'The final includes the medial; the zero initial writes no letter — i becomes y, u becomes w, ü stays yu-',
@@ -189,10 +189,10 @@ const STR = {
 
   ja: {
     oTitle: '西安方言の声母：城区音 26、南郊音 25（零声母を含む）',
-    oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
+    oSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、紫字＝南郊音',
     oLeg1: '普通話と字も音も同じ',
     oLeg2: '普通話にない声母',
-    oLegN: '南郊音のみ（青破線）',
+    oLegN: '南郊音のみ（紫破線）',
     oLegCq: '城区音のみ（赤破線）',
     oRows: ['両唇', '唇歯', '舌尖中', '舌尖前', '舌面前', '舌尖後', '舌根', '零声母'],
     oZero: '（表記なし）',
@@ -203,8 +203,8 @@ const STR = {
       'rh（z）は南郊音特有です。城区音では v で読みます（入 vu1→rhu1、軟 van3→rhuan3、潤 ven4→rhuen4）。その他の声母は両系統で同じです。',
     ],
     rTitle: '西安方言の韻母：城区音 40、南郊音 39（開 15 / 斉 10 / 合 9 / 撮 6 は城区音の数え方）',
-    rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、青字＝南郊音',
-    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（青破線）'],
+    rSub: '各枠は上から 綴り・国際音声記号・例字。赤字＝城区音、紫字＝南郊音',
+    rLeg: ['城区音のみ（赤破線）', '南郊音のみ（紫破線）'],
     rGroups: ['開口呼 15', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
       'an・en・ang・eng（および各呼の変種）は鼻母音です：ã ẽ ɑɣ̃ əɣ̃。-n / -ng の韻尾を伴いません。',
@@ -217,7 +217,7 @@ const STR = {
     tTag: '声調 {n} · {ex}',
     tFoot: [
       '入声はすでにこの四声に統合され、配分は普通話と異なります：立 li1（陰平）、白 bei2（陽平）、藥 yuo1（陰平）、大 duo4（去声）。',
-      '声調番号 1〜4 は普通話の ā á ǎ à と位置が対応しますが、音の高低はまったく異なります。話者は地元の調値で読めば十分です。',
+      '声調番号 1〜4 はそれぞれ陰平・陽平・上声・去声に対応します。話者は地元の調値で読めば十分です。',
     ],
     sTitle: '音節の構造：声母＋韻母＋声調番号（城区音・南郊音とも同じ書き方）',
     sSub: '韻母は介音を含む。零声母は字母を書かず、斉呼は y、合呼は w、撮呼は yu- のまま',
@@ -262,7 +262,7 @@ const S2T = {
   归: '歸', 并: '併', 这: '這', 数: '數', 构: '構', 边: '邊', 两: '兩', 连: '連', 会: '會',
   错: '錯', 时: '時', 简: '簡', 须: '須', 仓: '倉', 样: '樣', 结: '結',
   区: '區', 虚: '虛', 线: '線', 红: '紅', 蓝: '藍', 计: '計', 猪: '豬',
-  条: '條', 缩: '縮', 规: '規', 则: '則', 输: '輸', 键: '鍵', 盘: '盤', 专: '專',
+  条: '條', 缩: '縮', 规: '規', 则: '則', 输: '輸', 键: '鍵', 盘: '盤', 专: '專', 别: '別',
 };
 const s2t = s => [...s].map(ch => S2T[ch] || ch).join('');
 const conv = o => Array.isArray(o) ? o.map(conv) : (typeof o === 'object' && o ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, conv(v)])) : (typeof o === 'string' ? s2t(o) : o));

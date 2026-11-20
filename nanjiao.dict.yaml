@@ -2,11 +2,11 @@
 # encoding: utf-8
 #
 # 西安話南郊音（關中片）輸入方案主詞典
-# 字音表據《西安南郊音.xlsx》的逐字標注、套西安話音標折出
+# 字音表據南郊音字表（2026-11-20 重建：南郊裁定表 + 兩地一致讀音）折出
 #
 ---
 name: nanjiao
-version: "1.0.2"
+version: "1.1.0"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:

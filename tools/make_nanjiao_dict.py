@@ -16,12 +16,12 @@ HEAD = """# Rime dictionary
 # encoding: utf-8
 #
 # 西安話南郊音（關中片）字音表
-# 來源：南郊音字表（據《西安南郊音.xlsx》逐字標注，套西安話音標折出）
+# 來源：南郊音字表（2026-11-20 重建：南郊裁定表 1883 字 + 兩地一致讀音，套西安話音標折出）
 # 本表由 tools/make_nanjiao_dict.py 生成，勿手改；要改讀音請改南郊音字表
 # 字音條目 {n} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "0.1.1"
+version: "1.1.0"
 sort: by_weight
 use_preset_vocabulary: true
 ...

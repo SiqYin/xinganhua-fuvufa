@@ -11,7 +11,7 @@
 ![Xi'an finals (urban 40; southern 38 — no uu, iai)](figures/rhymes.en.svg)
 
 - **Schema code**: `chengqyu` (urban Xi'an) and `nanjiao` (southern-suburb Xi'an); the repository name `xinganhua-fuvufa` is the old spelling of "Xi'an dialect input method" (西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1)
-- **Character table**: urban 3,648 readings, southern 4,534; urban 3,345 characters, southern 3,931 (incl. 586 found only in the southern data)
+- **Character table**: urban 3,648 readings, southern 4,594; urban 3,345 characters, southern 4,065 (incl. 720 found only in the southern data)
 - **Phonology**: 24 initials, 38 finals and 4 tones shared (Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44); the urban variety adds `bf`, `pf` (initials) and `uu`, `iai` (finals) — 26 / 40; the southern variety adds `rh` (initial) — 25 / 38
 - **Works with**: Rime-family IMEs (Weasel, Squirrel, Trime, fcitx-rime, …)
 - **Examples keep the dictionary's traditional glyphs** (鵝, 軍, 豬, 來, 溫 …), because they have to match the data
@@ -20,7 +20,7 @@
 | Schema | Name | Initials | Finals | Dictionary |
 |---|---|---|---|---|
 | `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 40 (incl. `uu`, `iai`) | `chengqyu.word.dict.yaml`, 3,648 |
-| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 38 | `nanjiao.word.dict.yaml`, 4,534 |
+| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 38 | `nanjiao.word.dict.yaml`, 4,594 |
 
 ---
 
@@ -51,7 +51,7 @@ A pinyin input scheme for the Xi'an dialect (Guanzhong group, Shaanxi). The spel
 
 ![Syllable structure](figures/syllable.en.svg)
 
-The urban table (3,648 readings) was transliterated from MCPDict's IPA by script; the southern table (4,534) was folded from the southern adjudication sheet plus the shared readings. After transliteration the 392 urban and 420 southern syllables are each **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
+The urban table (3,648 readings) was transliterated from MCPDict's IPA by script; the southern table (4,594) was folded from the southern adjudication sheet plus the shared readings. After transliteration the 392 urban and 420 southern syllables are each **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
 
 ---
 
@@ -242,7 +242,7 @@ Running all algebra rules over the 392 urban and 420 southern syllables yields 5
 
 | Item | Urban | Southern |
 |---|---|---|
-| Readings (one per line) | 3,648 | 4,534 |
+| Readings (one per line) | 3,648 | 4,594 |
 | Distinct characters | 3,345 | 4,065 (incl. 720 added characters) |
 | Polyphonic characters | 275 | 256 |
 | Readings per tone 1/2/3/4 | 1,148 / 826 / 639 / 1,035 | 1,356 / 995 / 788 / 1,205 (plus 6 neutral) |
@@ -264,7 +264,7 @@ chengqyu.dict.yaml             urban main dictionary, imports chengqyu.word
 chengqyu.word.dict.yaml        urban readings, 3,648 (generated; do not edit by hand)
 nanjiao.schema.yaml            southern-suburb schema (25 initials incl. rh, 38 finals)
 nanjiao.dict.yaml              southern main dictionary, imports nanjiao.word
-nanjiao.word.dict.yaml         southern readings, 4,534 (generated; do not edit by hand)
+nanjiao.word.dict.yaml         southern readings, 4,594 (generated; do not edit by hand)
 figures/onsets.hans.svg        initials figure (also .hant / .en / .ja)
 figures/rhymes.hans.svg        finals figure (likewise)
 figures/tones.hans.svg         tones figure (likewise)
@@ -344,7 +344,7 @@ The dictionary and both cross-reference tables are regenerated together, and the
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu) (雪萤) — schema architecture, dictionary layout, reverse-lookup style
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy) (雪萤) — layout and figure conventions this README follows
 
-**Verified**: all 3,648 urban readings match the source table character by character and the 392 syllables are pairwise distinct; the southern table has 4,534 readings and 420 syllables with the same property; 0 cross-syllable ambiguities among abbreviated codes.
+**Verified**: all 3,648 urban readings match the source table character by character and the 392 syllables are pairwise distinct; the southern table has 4,594 readings and 420 syllables with the same property; 0 cross-syllable ambiguities among abbreviated codes.
 
 ---
 

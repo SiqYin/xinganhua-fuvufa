@@ -5,11 +5,11 @@
 # 來源：南郊音字表（2026-11-20 重建：南郊裁定表 1883 字 + 兩地一致讀音，套西安話音標折出）
 # 本表由 tools/make_nanjiao_dict.py 生成，勿手改；要改讀音請改南郊音字表
 # 2026-11-21 起含「變體」讀音：南郊 z/c/s/rh 遇 u 另有 zh/ch/sh/r 翹舌變體，shu 另有 f 變體
-# （僅城區音讀 bf/pf/f/v 的字加註；變體與基本讀音同調）
-# 字音條目 4534 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
+# （城區音讀 bf/pf/f/v 的字與逐字審定的渭南獨有字加註；變體與基本讀音同調）
+# 字音條目 4594 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.3"
+version: "1.1.4"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -389,9 +389,12 @@ use_preset_vocabulary: true
 臭	chou4
 出	chu1
 畜	chu1
+齣	chu1
 廚	chu2
 櫥	chu2
 除	chu2
+儲	chu3
+杵	chu3
 處	chu3
 褚	chu3
 住	chu4
@@ -403,14 +406,17 @@ use_preset_vocabulary: true
 穿	chuan1
 傳	chuan2
 椽	chuan2
+篅	chuan2
 喘	chuan3
 串	chuan4
 篡	chuan4
 瘡	chuang1
 窗	chuang1
 牀	chuang2
+疃	chuang2
 創	chuang3
 闖	chuang3
+創	chuang4
 撞	chuang4
 吹	chuei1
 炊	chuei1
@@ -419,15 +425,21 @@ use_preset_vocabulary: true
 槌	chuei2
 錘	chuei2
 捶	chuei3
+拽	chuei4
 春	chuen1
 椿	chuen1
 唇	chuen2
 純	chuen2
+醇	chuen2
 蠢	chuen3
 戳	chuo1
+綽	chuo4
 充	chuong1
+沖	chuong1
+舂	chuong1
 衝	chuong1
 崇	chuong2
+虫	chuong2
 蟲	chuong2
 重	chuong2
 寵	chuong3
@@ -789,6 +801,7 @@ use_preset_vocabulary: true
 販	fan4
 飯	fan4
 坊	fang1
+孀	fang1
 方	fang1
 枋	fang1
 雙	fang1
@@ -865,6 +878,7 @@ use_preset_vocabulary: true
 書	fu1
 樞	fu1
 福	fu1
+秫	fu1
 複	fu1
 覆	fu1
 跗	fu1
@@ -886,7 +900,9 @@ use_preset_vocabulary: true
 蝠	fu2
 術	fu2
 訃	fu2
+述	fu2
 俯	fu3
+墅	fu3
 府	fu3
 撫	fu3
 斧	fu3
@@ -897,7 +913,9 @@ use_preset_vocabulary: true
 腑	fu3
 腹	fu3
 膚	fu3
+薯	fu3
 釜	fu3
+黍	fu3
 鼠	fu3
 付	fu4
 傅	fu4
@@ -905,6 +923,9 @@ use_preset_vocabulary: true
 婦	fu4
 富	fu4
 幅	fu4
+庶	fu4
+恕	fu4
+戍	fu4
 樹	fu4
 父	fu4
 縛	fu4
@@ -915,7 +936,7 @@ use_preset_vocabulary: true
 輔	fu4
 阜	fu4
 附	fu4
-縮	fuo1
+朔	fuo1
 佛	fuo2
 勺	fuo2
 彿	fuo2
@@ -2837,12 +2858,16 @@ use_preset_vocabulary: true
 儒	ru2
 如	ru2
 乳	ru3
+孺	ru3
+汝	ru3
 挼	rua2
 婉	ruan3
 惋	ruan3
 綰	ruan3
 軟	ruan3
 阮	ruan3
+芮	ruei4
+蕊	ruei4
 蘂	ruei4
 銳	ruei4
 潤	ruen4
@@ -2853,6 +2878,7 @@ use_preset_vocabulary: true
 戎	ruong2
 絨	ruong2
 茸	ruong2
+冗	ruong3
 仨	sa1
 殺	sa1
 沙	sa1
@@ -3031,15 +3057,23 @@ use_preset_vocabulary: true
 戌	shu1
 書	shu1
 樞	shu1
+秫	shu1
 肅	shu1
 輸	shu1
 俗	shu2
 朮	shu2
 殊	shu2
 術	shu2
+述	shu2
+墅	shu3
 暑	shu3
 署	shu3
+薯	shu3
+黍	shu3
 鼠	shu3
+庶	shu4
+恕	shu4
+戍	shu4
 樹	shu4
 豎	shu4
 刷	shua1
@@ -3052,6 +3086,7 @@ use_preset_vocabulary: true
 閂	shuan1
 船	shuan2
 涮	shuan4
+孀	shuang1
 雙	shuang1
 霜	shuang1
 爽	shuang3
@@ -3063,7 +3098,7 @@ use_preset_vocabulary: true
 唇	shuen2
 舜	shuen4
 順	shuen4
-縮	shuo1
+朔	shuo1
 勺	shuo2
 芍	shuo2
 所	shuo3
@@ -3170,7 +3205,6 @@ use_preset_vocabulary: true
 庶	su4
 恕	su4
 戍	su4
-朮	su4
 樹	su4
 豎	su4
 刷	sua1
@@ -3191,7 +3225,6 @@ use_preset_vocabulary: true
 孀	suang1
 雙	suang1
 霜	suang1
-雙	suang2
 爽	suang3
 雙	suang4
 摔	suei1
@@ -4330,14 +4363,18 @@ use_preset_vocabulary: true
 晝	zhou4
 紂	zhou4
 朱	zhu1
+株	zhu1
 珠	zhu1
 硃	zhu1
 蛛	zhu1
+誅	zhu1
 諸	zhu1
 豬	zhu1
 觸	zhu2
 主	zhu3
 煑	zhu3
+煮	zhu3
+拄	zhu4
 注	zhu4
 炷	zhu4
 箸	zhu4
@@ -4351,6 +4388,7 @@ use_preset_vocabulary: true
 爪	zhua3
 專	zhuan1
 磚	zhuan1
+膞	zhuan1
 轉	zhuan3
 傳	zhuan4
 撰	zhuan4
@@ -4360,21 +4398,43 @@ use_preset_vocabulary: true
 裝	zhuang1
 壯	zhuang4
 狀	zhuang4
+椎	zhuei1
+贅	zhuei1
 追	zhuei1
 錐	zhuei1
 墜	zhuei4
+綴	zhuei4
 衠	zhuen1
 衠	zhuen2
 准	zhuen3
 準	zhuen3
 捉	zhuo1
 桌	zhuo1
+涿	zhuo1
+卓	zhuo2
+啄	zhuo2
+拙	zhuo2
+浞	zhuo2
+濁	zhuo2
+琢	zhuo2
 着	zhuo2
+酌	zhuo2
+中	zhuong1
+忠	zhuong1
+盅	zhuong1
+終	zhuong1
+鈡	zhuong1
+鍾	zhuong1
+鐘	zhuong1
+锺	zhuong1
+冢	zhuong3
+种	zhuong3
 種	zhuong3
 腫	zhuong3
 中	zhuong4
 仲	zhuong4
 眾	zhuong4
+种	zhuong4
 種	zhuong4
 衷	zhuong4
 之	zi1

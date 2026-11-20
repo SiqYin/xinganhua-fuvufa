@@ -18,10 +18,12 @@ HEAD = """# Rime dictionary
 # 西安話南郊音（關中片）字音表
 # 來源：南郊音字表（2026-11-20 重建：南郊裁定表 1883 字 + 兩地一致讀音，套西安話音標折出）
 # 本表由 tools/make_nanjiao_dict.py 生成，勿手改；要改讀音請改南郊音字表
+# 2026-11-21 起含「變體」讀音：南郊 z/c/s/rh 遇 u 另有 zh/ch/sh/r 翹舌變體，shu 另有 f 變體
+# （城區音讀 bf/pf/f/v 的字與逐字審定的渭南獨有字加註；變體與基本讀音同調）
 # 字音條目 {n} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.2"
+version: "1.1.4"
 sort: by_weight
 use_preset_vocabulary: true
 ...

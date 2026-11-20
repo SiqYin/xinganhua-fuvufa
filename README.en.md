@@ -73,7 +73,7 @@ The urban table (3,648 readings) was transliterated from MCPDict's IPA by script
 
 ## 3. Finals
 
-38 finals shared by the two varieties (14 open / 9 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40 (15 / 10 / 9 / 6). Zero-initial spellings are the same in both:
+38 finals shared by the two varieties (15 open / 8 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40 (16 / 9 / 9 / 6). Zero-initial spellings are the same in both:
 
 | Class | Zero-initial rule | Examples |
 |---|---|---|

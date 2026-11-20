@@ -51,7 +51,7 @@ A pinyin input scheme for the Xi'an dialect (Guanzhong group, Shaanxi). The spel
 
 ![Syllable structure](figures/syllable.en.svg)
 
-The urban table (3,648 readings) was transliterated from MCPDict's IPA by script; the southern table (4,175) was folded from the southern adjudication sheet plus the shared readings. After transliteration the 392 urban and 389 southern syllables are each **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
+The urban table (3,648 readings) was transliterated from MCPDict's IPA by script; the southern table (4,350) was folded from the southern adjudication sheet plus the shared readings. After transliteration the 392 urban and 389 southern syllables are each **pairwise distinct (zero homograph conflicts)** — in other words the romanisation is reversible: a spelling maps back to exactly one IPA string.
 
 ---
 
@@ -233,10 +233,10 @@ Running all algebra rules over the 392 urban and 389 southern syllables yields 5
 
 | Item | Urban | Southern |
 |---|---|---|
-| Readings (one per line) | 3,648 | 4,175 |
-| Distinct characters | 3,345 | 3,931 (incl. 586 southern-only) |
-| Polyphonic characters | 275 | 223 |
-| Readings per tone 1/2/3/4 | 1,148 / 826 / 639 / 1,035 | 1,300 / 956 / 759 / 1,154 (plus 6 neutral) |
+| Readings (one per line) | 3,648 | 4,350 |
+| Distinct characters | 3,345 | 4,065 (incl. 720 added characters) |
+| Polyphonic characters | 275 | 256 |
+| Readings per tone 1/2/3/4 | 1,148 / 826 / 639 / 1,035 | 1,356 / 995 / 788 / 1,205 (plus 6 neutral) |
 
 - Each dictionary line is strictly `character<TAB>single syllable`; the code column never contains a space, so Rime does not read it as a multi-syllable phrase.
 - Variant readings carried over from the source table deserve attention when proofreading: `勻 yen2 / yuen2`, `你 ni1 / ni3`, `不 bu1 / bu2`, `來 lai1 / lai2`, `大 da4 / duo4`, `行 hang2 / hang4 / xieng2`.
@@ -255,7 +255,7 @@ chengqyu.dict.yaml             urban main dictionary, imports chengqyu.word
 chengqyu.word.dict.yaml        urban readings, 3,648 (generated; do not edit by hand)
 nanjiao.schema.yaml            southern-suburb schema (25 initials incl. rh, 38 finals)
 nanjiao.dict.yaml              southern main dictionary, imports nanjiao.word
-nanjiao.word.dict.yaml         southern readings, 4,175 (generated; do not edit by hand)
+nanjiao.word.dict.yaml         southern readings, 4,350 (generated; do not edit by hand)
 figures/onsets.hans.svg        initials figure (also .hant / .en / .ja)
 figures/rhymes.hans.svg        finals figure (likewise)
 figures/tones.hans.svg         tones figure (likewise)
@@ -333,7 +333,7 @@ The dictionary and both cross-reference tables are regenerated together, and the
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu) (雪萤) — schema architecture, dictionary layout, reverse-lookup style
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy) (雪萤) — layout and figure conventions this README follows
 
-**Verified**: all 3,648 urban readings match the source table character by character and the 392 syllables are pairwise distinct; the southern table has 4,175 readings and 389 syllables with the same property; 0 cross-syllable ambiguities among abbreviated codes.
+**Verified**: all 3,648 urban readings match the source table character by character and the 392 syllables are pairwise distinct; the southern table has 4,350 readings and 389 syllables with the same property; 0 cross-syllable ambiguities among abbreviated codes.
 
 ---
 

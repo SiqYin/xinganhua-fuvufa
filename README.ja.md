@@ -331,7 +331,8 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 13. データと謝辞
 
-- [osfans/MCPDict](https://github.com/osfans/MCPDict)（`tools/tables/data/西安.tsv`）——城区音の字音データの出所、国際音声記号
+- [西安話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[臨潼話データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[華県データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——いずれも [osfans/MCPDict](https://github.com/osfans/MCPDict) によるもの。西安話データ表は城区音の字音データ源（国際音声記号）、渭南・臨潼・華県の三表は南郊音の整理時の参照資料
+- **南郊話の音档**に既成の字表はない：西安話・渭南話・臨潼話・華県話などのデータ表を下敷きに、南郊音・東郊音の平翘舌（平舌／翘舌声母）の帰属をめぐる知乎（Zhihu）の議論を参照し、筆者自身と家族の発音で一字ずつ照合して整理したものであるため、**参考程度にとどめてください**
 - 西安南郊音の逐字裁定表（1,882 字、2026-11-20 核定）——南郊音の字音の出所。両系統で一致する読みと合わせて `nanjiao.word.dict.yaml` に折り出し
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪萤）——方案の骨組み、辞書の構成、逆引きの書き方
 - [bepemefeve_flypy](https://github.com/SiqYin/bepemefeve_flypy)（雪萤）——本 README の組版と図の作り方の参照元

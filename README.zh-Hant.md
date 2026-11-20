@@ -288,7 +288,7 @@ tools/chengqyu.詳注.tsv       城區音逐字詳註，含源表 {} 釋義與�
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-詞庫與兩張對照表一起重生，腳本自報：未映射音節、同形衝突、不含調/含調音節數、字音條目與多音字數。南郊音字表改過之後跑 `python tools/make_nanjiao_dict.py` 重生 `nanjiao.word.dict.yaml`。四張圖用 `node tools/make-figures.mjs` 重生，一次寫出 `figures/` 下 16 個文件（四張圖 × 簡 / 繁 / 英 / 日）。algebra 的簡拼衍生碼另可寫個模擬器逐條跑 schema 裏的規則，檢查歧義（開發時用過，未隨倉庫發佈，需要可以再補進來）。
+詞庫與兩張對照表一起重生，腳本自報：未映射音節、同形衝突、不含調/含調音節數、字音條目與多音字數。南郊音字表改過之後跑 `python tools/make_nanjiao_dict.py` 重生 `nanjiao.word.dict.yaml`。五張圖用 `node tools/make-figures.mjs` 重生，一次寫出 `figures/` 下 20 個文件（五張圖 × 簡 / 繁 / 英 / 日）。algebra 的簡拼衍生碼另可寫個模擬器逐條跑 schema 裏的規則，檢查歧義（開發時用過，未隨倉庫發佈，需要可以再補進來）。
 
 ---
 

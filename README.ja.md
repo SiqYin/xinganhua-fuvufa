@@ -265,7 +265,7 @@ figures/syllable.hans.svg      音節構造図（同上）
 figures/abbrev.hans.svg        略式綴り対照図（同上）
 tools/ipa2pinyin.mjs           IPA → 西安方言ピンインの転写スクリプト
 tools/make_nanjiao_dict.py     南郊音字表 → nanjiao.word.dict.yaml
-tools/make-figures.mjs         四枚の図を四言語ぶん生成するスクリプト
+tools/make-figures.mjs         五枚の図を四言語ぶん生成するスクリプト
 tools/chengqyu.ipa對照.tsv    城区音の対照表：IPA / 調名 / ピンイン / 声母 / 韻母 / 所属字
 tools/chengqyu.詳注.tsv       城区音の詳注。原表の {} 釈義と白読の印を含む
 ```
@@ -310,7 +310,7 @@ tools/chengqyu.詳注.tsv       城区音の詳注。原表の {} 釈義と白�
 node tools/ipa2pinyin.mjs /path/to/西安.tsv
 ```
 
-辞書と 2 つの対照表がまとめて再生成され、スクリプトが未対応音節、同形衝突、声調なし／声調つき音節数、字音項目と多音字数を報告します。図は `node tools/make-figures.mjs` で再生成し、`figures/` 下の 16 ファイル（4 図 × 簡 / 繁 / 英 / 日）を一度に書き出します。algebra の簡拼コードは、schema の規則を 1 行ずつ走らせる小さなシミュレータでも確認できます（開発時に使用、リポジトリには未収録。必要なら追加できます）。
+辞書と 2 つの対照表がまとめて再生成され、スクリプトが未対応音節、同形衝突、声調なし／声調つき音節数、字音項目と多音字数を報告します。図は `node tools/make-figures.mjs` で再生成し、`figures/` 下の 20 ファイル（5 図 × 簡 / 繁 / 英 / 日）を一度に書き出します。algebra の簡拼コードは、schema の規則を 1 行ずつ走らせる小さなシミュレータでも確認できます（開発時に使用、リポジトリには未収録。必要なら追加できます）。
 
 ---
 

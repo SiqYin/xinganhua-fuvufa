@@ -4,7 +4,7 @@
 
 # Xi'an Dialect Input Method · xinganhua-fuvufa
 
-> Type Xi'an dialect in Rime with **Xi'an pinyin** (full spelling + tone digit 1/2/3/4). Two schemas, one per variety: `chengqyu` for the urban accent, `nanjiao` for the southern-suburb accent. The urban readings come from the [osfans/MCPDict Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv) (IPA); the southern ones are folded from the 1,882-character adjudication sheet (2026-11-20) plus the readings shared with the urban variety.
+> Type Xi'an dialect in Rime with **Xi'an pinyin** (full spelling + tone digit 1/2/3/4). Two schemas, one per variety: `chengqyu` for the urban accent, `nanjiao` for the southern-suburb accent. The urban readings come from the Xi'an sound-data table that records the urban variety; the southern-suburb readings are established character by character with reference to the Xi'an, Weinan, Huaxian and Lintong sound data.
 
 ![Xi'an initials (urban 26; southern 25 — adds rh, no bf, pf)](figures/onsets.en.svg)
 
@@ -96,6 +96,8 @@ The urban `uu` (`guu` 胳) is `e` (`ge`) in the southern suburb, and `iai` (`jia
 ![Xi'an tones](figures/tones.en.svg)
 
 The tone digit follows the syllable with no space. The entering tone has merged into these four, with a different split from Mandarin: `立 li1` (Yinping; Qusheng in Mandarin), `白 bei2` (Yangping; Yangping), `藥 yuo1` (Yinping; Qusheng), `六 liou1` (Yinping; Qusheng), `十 shi2` (Yangping; Yangping), `大 duo4` (Qusheng; Qusheng).
+
+**Tone sandhi**: Xi'an tone sandhi is mainly a change of the first syllable, in two types. When two consecutive syllables are both Tone 1 (Yinping) 21-21, the first Tone 1 syllable changes to Tone 2 (Yangping), giving 24-21; when two consecutive syllables are both Tone 3 (Shangsheng) 53-53, the first Tone 3 syllable changes to Tone 1 (Yinping), giving 21-53.
 
 ---
 
@@ -331,7 +333,7 @@ The dictionary and both cross-reference tables are regenerated together, and the
 
 ## 13. Data and credits
 
-- [Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv), [Weinan table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv), [Lintong table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv), [Huaxian table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv) — all from [osfans/MCPDict](https://github.com/osfans/MCPDict); the Xi'an table is the source of the urban readings (IPA), while the Weinan, Lintong and Huaxian tables served as references for compiling the southern-suburb data
+- [Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv), [Weinan table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv), [Lintong table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv), [Huaxian table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv) — all from [osfans/MCPDict](https://github.com/osfans/MCPDict); the Xi'an table is the source of the urban readings, while the other three tables are the references for the southern-suburb readings
 - **The southern-suburb sound data** has no ready-made table of its own: it was compiled on the basis of the Xi'an, Weinan, Lintong and Huaxian tables, with reference to Zhihu discussions on how the flat and retroflex sibilants merge in the southern- and eastern-suburb accents, and checked character by character against the speech of the author and their family — it is therefore **for reference only**
 - the southern-suburb adjudication sheet (1,882 characters, fixed 2026-11-20) — source of the southern readings, merged with the shared readings into `nanjiao.word.dict.yaml`
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu) (雪萤) — schema architecture, dictionary layout, reverse-lookup style

@@ -4,7 +4,7 @@
 
 # 西安话输入法 · xinganhua-fuvufa
 
-> 用**西安话拼音**（全拼 + 调号 1/2/3/4）在 Rime 里打西安话。**城区音、南郊音各一套方案**：`chengqyu` 与 `nanjiao`。城区音字音逐条来自 [osfans/MCPDict《西安》数据表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国际音标），南郊音据 1,882 字的逐字裁定表（2026-11-20）与两地一致读音折出。
+> 用**西安话拼音**（全拼 + 调号 1/2/3/4）在 Rime 里打西安话。**城区音、南郊音各一套方案**：`chengqyu` 与 `nanjiao`。城区音来自记录城区音的西安话音档，南郊音参照西安话、渭南话、华县话、临潼话等音档逐字厘定。
 
 ![西安话声母图（城区音 26；南郊音 25——多 rh，无 bf、pf）](figures/onsets.hans.svg)
 
@@ -88,6 +88,8 @@
 ![西安话声调图](figures/tones.hans.svg)
 
 调号紧跟在音节后，不另加空格。入声已归并到这四个调里，归派与普通话不同：`立 li1`（阴平，普通话去声）、`白 bei2`（阳平，普通话阳平）、`藥 yuo1`（阴平，普通话去声）、`六 liou1`（阴平，普通话去声）、`十 shi2`（阳平，普通话阳平）、`大 duo4`（去声，普通话去声）。
+
+**连读变调**：西安话的连读变调主要是前字变调，分为两类：连续两字为一声（阴平）21-21 时，第一个一声字改读二声（阳平）24-21；连续两字为三声（上声）53-53 时，第一个三声字改读一声（阴平）21-53。
 
 ---
 
@@ -305,7 +307,7 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 十三、数据与致谢
 
-- [西安话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[临潼话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[华县话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——均出自 [osfans/MCPDict](https://github.com/osfans/MCPDict)；西安话音档即城区音字音数据源（国际音标），渭南、临潼、华县三档用于南郊音的整理参照
+- [西安话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[华县话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)、[临潼话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)——均出自 [osfans/MCPDict](https://github.com/osfans/MCPDict)；西安话音档即城区音字音来源，其余三档为南郊音的参照
 - **南郊话音档**没有现成字表可依：以西安话、渭南话、临潼话、华县话音档等为基底，参照知乎上关于南郊音、东郊音平翘舌归并情况的讨论，并与本人及家人的口音逐字校对整理而成，因此**仅供参考**
 - 《西安南郊音》逐字裁定表（1,882 字，2026-11-20 核定）——南郊音字音来源，与两地一致读音合并折出，见 `nanjiao.word.dict.yaml`
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪萤）——方案架构、词典组织方式与反查写法

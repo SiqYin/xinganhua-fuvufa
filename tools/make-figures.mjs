@@ -93,6 +93,12 @@ const STR = {
       '入声已归并到这四调，归派与普通话不同：立 li1（阴平）、白 bei2（阳平）、藥 yuo1（阴平）、大 duo4（去声）。',
       '四个调号数字分别对应的是阴平、阳平、上声、去声。母语者按本地调式念即可。',
     ],
+    tSandhiTitle: '连读变调：变调落在前字',
+    tSandhiLead: '西安话的连读变调主要是前字变调，分为两类：',
+    tSandhi: [
+      ['阴平 + 阴平', '21-21', '24-21', '前一字改读阳平'],
+      ['上声 + 上声', '53-53', '21-53', '前一字改读阴平'],
+    ],
     sTitle: '音节结构：声母 + 韵母 + 调号（城区音、南郊音写法相同）',
     sSub: '韵母含介音；零声母不写字母，齐呼改 y、合呼改 w、撮呼照写 yu-',
     sHead: ['声母', '韵母', '调号', '例字'],
@@ -119,9 +125,8 @@ const STR = {
     ],
     aTitle: '西安话简拼对照：8 条缩写规则（输入端专用）',
     aSub: '格内：全拼 → 简拼；只用于键盘输入，词库与注音仍写全拼',
-    aNew: 'v1.1.2 新增',
     aZero: '零声母',
-    aFoot: ['uei→ui 为 v1.1.2 新增；零声母只有 yuen→yun、yuong→yung 两条。'],
+    aFoot: [],
   },
 
   en: {
@@ -156,6 +161,12 @@ const STR = {
       'The entering tone has merged into these four, with a different split from Mandarin: 立 li1 (Yinping), 白 bei2 (Yangping), 藥 yuo1 (Yinping), 大 duo4 (Qusheng).',
       'The tone numbers 1–4 stand for Yinping, Yangping, Shangsheng and Qusheng respectively; speakers simply use the local tone values.',
     ],
+    tSandhiTitle: 'Tone sandhi: the change falls on the first syllable',
+    tSandhiLead: 'Xi’an tone sandhi is mainly a change of the first syllable, in two types:',
+    tSandhi: [
+      ['Yinping + Yinping', '21-21', '24-21', 'the first becomes Yangping'],
+      ['Shangsheng + Shangsheng', '53-53', '21-53', 'the first becomes Yinping'],
+    ],
     sTitle: 'Syllable structure: initial + final + tone (the same spelling in both varieties)',
     sSub: 'The final includes the medial; the zero initial writes no letter — i becomes y, u becomes w, ü stays yu-',
     sHead: ['Initial', 'Final', 'Tone', 'Character'],
@@ -182,9 +193,8 @@ const STR = {
     ],
     aTitle: 'Input-side short forms: the 8 abbreviations',
     aSub: 'In each cell: full spelling → short form; for keyboard input only — the dictionary and notation keep the full spelling',
-    aNew: 'new in v1.1.2',
     aZero: 'zero initial',
-    aFoot: ['uei→ui is new in v1.1.2; the zero initials take only yuen→yun and yuong→yung.'],
+    aFoot: [],
   },
 
   ja: {
@@ -219,6 +229,12 @@ const STR = {
       '入声はすでにこの四声に統合され、配分は普通話と異なります：立 li1（陰平）、白 bei2（陽平）、藥 yuo1（陰平）、大 duo4（去声）。',
       '声調番号 1〜4 はそれぞれ陰平・陽平・上声・去声に対応します。話者は地元の調値で読めば十分です。',
     ],
+    tSandhiTitle: '連続変調：変わるのは前の字',
+    tSandhiLead: '西安方言の連続変調は主に前の字が変わるもので、二種類あります：',
+    tSandhi: [
+      ['陰平＋陰平', '21-21', '24-21', '前の字が陽平に変わる'],
+      ['上声＋上声', '53-53', '21-53', '前の字が陰平に変わる'],
+    ],
     sTitle: '音節の構造：声母＋韻母＋声調番号（城区音・南郊音とも同じ書き方）',
     sSub: '韻母は介音を含む。零声母は字母を書かず、斉呼は y、合呼は w、撮呼は yu- のまま',
     sHead: ['声母', '韻母', '声調番号', '例字'],
@@ -245,9 +261,8 @@ const STR = {
     ],
     aTitle: '入力側の略式綴り：8 つのルール',
     aSub: '各枠は 全拼 → 略拼。キーボード入力専用で、辞書と表記は全拼のまま',
-    aNew: 'v1.1.2 で追加',
     aZero: '零声母',
-    aFoot: ['uei→ui は v1.1.2 で追加。零声母は yuen→yun、yuong→yung の 2 つのみ。'],
+    aFoot: [],
   },
 };
 
@@ -403,7 +418,13 @@ function figTones(T, lang, font) {
   const w = PAD * 2 + TONES.length * PW;
   const gridBottom = TOP + PH + 46;
   const fl = T.tFoot.flatMap(s => wrap(s, w - PAD * 2, 12));
-  const h = gridBottom + 30 + (fl.length - 1) * 19 + 18;
+
+  // 连读变调面板
+  const SW = w - PAD * 2;
+  const sTop = gridBottom + 22 + fl.length * 19;
+  const sRows = T.tSandhi.length;
+  const sH = 22 + 24 + 10 + sRows * 30 + 12;
+  const h = sTop + sH + 16;
 
   let b = text(PAD, 30, T.tTitle, { size: 17, weight: 'bold' });
   b += text(PAD, 52, T.tSub, { size: 12, fill: C.sub });
@@ -422,8 +443,25 @@ function figTones(T, lang, font) {
     b += text(x0 + PW / 2 - 10, TOP + PH + 46, T.tTag.replace('{n}', num).replace('{ex}', ex), { size: 12, fill: C.sub, anchor: 'middle' });
   });
   fl.forEach((s, i) => { b += text(PAD, gridBottom + 30 + i * 19, s, { size: 12, fill: C.sub }); });
+
+  // 连读变调：标题一行、说明一行，下面两行是「原调 → 变调」与注释
+  b += `<rect x="${PAD}" y="${sTop}" width="${SW}" height="${sH}" rx="8" fill="#fffbe6" stroke="${C.diff.s}"/>`;
+  b += text(PAD + 14, sTop + 22, T.tSandhiTitle, { size: 14, weight: 'bold' });
+  b += text(PAD + 14, sTop + 22 + 22, T.tSandhiLead, { size: 12, fill: C.sub });
+
+  const colX = [PAD + 18 + Math.round(SW * 0.33), PAD + 18 + Math.round(SW * 0.46), PAD + 18 + Math.round(SW * 0.62)];
+  const rowsTop = sTop + 22 + 24 + 10;
+  T.tSandhi.forEach(([label, before, after, note], i) => {
+    const y = rowsTop + i * 30 + 6;
+    b += text(colX[0], y, label, { size: 13, fill: C.sub, anchor: 'end' });
+    b += text(colX[1], y, before, { size: 13, fill: C.sub });
+    b += text(colX[1] + tw(before, 13) + 10, y, '→', { size: 13, fill: C.sub });
+    b += text(colX[2], y, after, { size: 13, weight: 'bold', fill: C.diff.s });
+    b += text(colX[2] + tw(after, 13) + 16, y, note, { size: 12, fill: C.sub });
+  });
+
   fs.writeFileSync(`figures/tones.${lang}.svg`, svg(w, h, b, font));
-  return `tones.${lang}.svg ${w}x${h}（脚注 ${fl.length} 行）`;
+  return `tones.${lang}.svg ${w}x${h}（脚注 ${fl.length} 行 + 连读变调 ${sRows} 条）`;
 }
 
 // ── 4. 音节结构图 ────────────────────────────────────────────
@@ -476,17 +514,16 @@ function figAbbrev(T, lang, font) {
   const w = PAD * 2 + PER * CW;
   const gridBottom = TOP + rows * (CH + 12);
   const fl = T.aFoot.flatMap(s => wrap(s, w - PAD * 2, 12));
-  const h = gridBottom + 40 + (fl.length - 1) * 19 + 14;
+  const h = gridBottom + 18 + (fl.length ? 40 + (fl.length - 1) * 19 : 0) + 14;
 
   let b = text(PAD, 30, T.aTitle, { size: 17, weight: 'bold' });
   b += text(PAD, 52, T.aSub, { size: 12, fill: C.sub });
   ABBR.forEach(([full, short], i) => {
     const x = PAD + (i % PER) * CW, y = TOP + Math.floor(i / PER) * (CH + 12);
-    const isNew = full === 'uei', isZero = full === 'yuen' || full === 'yuong';
-    b += `<rect x="${x}" y="${y}" width="${CW - 14}" height="${CH}" rx="6" fill="${isNew ? C.new.f : '#f7fafc'}" stroke="${isNew ? C.new.s : C.line}"/>`;
+    const isZero = full === 'yuen' || full === 'yuong';
+    b += `<rect x="${x}" y="${y}" width="${CW - 14}" height="${CH}" rx="6" fill="#f7fafc" stroke="${C.line}"/>`;
     b += text(x + (CW - 14) / 2, y + 30, `${full} → ${short}`, { size: 17, weight: 'bold', anchor: 'middle' });
-    const tag = isNew ? T.aNew : isZero ? T.aZero : '';
-    if (tag) b += text(x + (CW - 14) / 2, y + 52, tag, { size: 11, fill: isNew ? C.new.s : C.sub, anchor: 'middle' });
+    if (isZero) b += text(x + (CW - 14) / 2, y + 52, T.aZero, { size: 11, fill: C.sub, anchor: 'middle' });
   });
   fl.forEach((s, i) => { b += text(PAD, gridBottom + 40 + i * 19, s, { size: 12, fill: C.sub }); });
   fs.writeFileSync(`figures/abbrev.${lang}.svg`, svg(w, h, b, font));

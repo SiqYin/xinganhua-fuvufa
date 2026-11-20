@@ -4,7 +4,7 @@
 
 # 西安方言入力法 · xinganhua-fuvufa
 
-> **西安方言ピンイン**（全拼＋声調番号 1/2/3/4）で Rime に西安方言を打ち込む方案です。**城区音・南郊音それぞれ一套**：`chengqyu` と `nanjiao`。城区音の字音は [osfans/MCPDict「西安」データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)（国際音声記号）から一字ずつ転写し、南郊音は 1,882 字の逐字裁定表（2026-11-20）と両系統で一致する読みから折り出しています。
+> **西安方言ピンイン**（全拼＋声調番号 1/2/3/4）で Rime に西安方言を打ち込む方案です。**城区音・南郊音それぞれ一套**：`chengqyu` と `nanjiao`。城区音は城区音を記録した西安方言の音声資料によります。南郊音は西安話・渭南話・華県話・臨潼話などの音声資料を参照して一字ずつ定めました。
 
 ![西安方言の声母図（城区音 26；南郊音 25——rh あり、bf・pf なし）](figures/onsets.ja.svg)
 
@@ -96,6 +96,8 @@
 ![西安方言の声調図](figures/tones.ja.svg)
 
 声調番号は音節の直後に、空白を入れずに書きます。入声はすでにこの四声に統合されており、その配分は普通話と異なります：`立 li1`（陰平、普通話では去声）、`白 bei2`（陽平、陽平）、`藥 yuo1`（陰平、去声）、`六 liou1`（陰平、去声）、`十 shi2`（陽平、陽平）、`大 duo4`（去声、去声）。
+
+**連続変調**：西安方言の連続変調は主に前の字が変わるもので、二種類あります。二つの字が続けてともに一声（陰平）21-21 のとき、前の一声の字は二声（陽平）に変わって 24-21 になります。二つの字が続けてともに三声（上声）53-53 のとき、前の三声の字は一声（陰平）に変わって 21-53 になります。
 
 ---
 
@@ -331,7 +333,7 @@ node tools/ipa2pinyin.mjs /path/to/西安.tsv
 
 ## 13. データと謝辞
 
-- [西安話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[臨潼話データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[華県データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——いずれも [osfans/MCPDict](https://github.com/osfans/MCPDict) によるもの。西安話データ表は城区音の字音データ源（国際音声記号）、渭南・臨潼・華県の三表は南郊音の整理時の参照資料
+- [西安話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[臨潼話データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[華県データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——いずれも [osfans/MCPDict](https://github.com/osfans/MCPDict) によるもの。西安話データ表は城区音の字音の出所で、残る三表は南郊音を整理する際の参照資料です
 - **南郊話の音档**に既成の字表はない：西安話・渭南話・臨潼話・華県話などのデータ表を下敷きに、南郊音・東郊音の平翘舌（平舌／翘舌声母）の帰属をめぐる知乎（Zhihu）の議論を参照し、筆者自身と家族の発音で一字ずつ照合して整理したものであるため、**参考程度にとどめてください**
 - 西安南郊音の逐字裁定表（1,882 字、2026-11-20 核定）——南郊音の字音の出所。両系統で一致する読みと合わせて `nanjiao.word.dict.yaml` に折り出し
 - [wugniu_suwu](https://github.com/SiqYin/wugniu_suwu)（雪萤）——方案の骨組み、辞書の構成、逆引きの書き方

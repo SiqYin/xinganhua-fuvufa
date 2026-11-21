@@ -57,7 +57,7 @@ const dictHdr = `# Rime dictionary
 # 字音條目 ${arr.length} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: chengqyu.word
-version: "0.1-draft"
+version: "1.1.6"
 sort: by_weight
 use_preset_vocabulary: true
 ...

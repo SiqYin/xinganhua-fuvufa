@@ -106,6 +106,7 @@ translator:
 # 前綴用反引號 `，寫法同 rime-cantonese 的 jyut6ping3（prefix: "`"，suffix: ";"）。
 # 不能像吳語方案那樣用 Q：西安話拼音本身就有 qi qia qian qiang qiao qie qien qieng qiou qyu…
 # 若 Q 被佔作反查前綴，這些音節打頭就會被切成反查段，屬實打不出字。
+# 完整清單（城區音 15 個）：qi qia qian qiang qiao qie qien qieng qiou qyu qyuan qyue qyuen qyuo qyuong
 luna_pinyin:
   tag: luna_pinyin
   dictionary: luna_pinyin
@@ -118,7 +119,7 @@ luna_pinyin:
     - xform/([jqxy])v/$1u/
 
 # 筆畫反查（原 X 起頭）已撤除：
-# X 是西安話拼音的正式聲母（xi xia xian xiang xiao xie xien xieng xiou xyue…），
+# X 是西安話拼音的正式聲母（xi xia xian xiang xiao xie xien xieng xiou xyu xyuan xyue xyuen xyuo xyuong），
 # 不能拿去做反查前綴；本方案也不再依賴 stroke 詞典與 table_translator@stroke。
 
 # 反查濾鏡：反查結果顯示西安話南郊音拼音

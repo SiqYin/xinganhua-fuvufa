@@ -8,18 +8,18 @@
 
 ![西安话声母图（城区音 26；南郊音 25——多 rh，无 bf、pf）](figures/onsets.hans.svg)
 
-![西安话韵母图（城区音 40；南郊音 38，无 uu、iai）](figures/rhymes.hans.svg)
+![西安话韵母图（城区音 40；南郊音 38，无 uu、iae）](figures/rhymes.hans.svg)
 
 - **方案代码**：`chengqyu`（西安话城区音）、`nanjiao`（西安话南郊音）；仓库名 `xinganhua-fuvufa` 是「西安话输入法」的旧拼写（西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
 - **字表**：城区音 3,648 条、南郊音 4,594 条；城区 3,345 字头，南郊 4,065 字头（含渭南独有等新增 720 字）
-- **音系**：两套共用 24 声母、38 韵母、四声（阴平 21、阳平 24、上声 53、去声 44）；城区音另有 `bf`、`pf` 两个声母与 `uu`、`iai` 两个韵母（26 / 40），南郊音另有 `rh` 声母（25 / 38）
+- **音系**：两套共用 24 声母、38 韵母、四声（阴平 21、阳平 24、上声 53、去声 44）；城区音另有 `bf`、`pf` 两个声母与 `uu`、`iae` 两个韵母（26 / 40），南郊音另有 `rh` 声母（25 / 38）
 - **适用**：Rime 系输入法（小狼毫 Weasel / 鼠须管 Squirrel / Trime / fcitx-rime 等）
 - **正文用简体**；表格里的例字保持词库的繁体字形（鵝、軍、豬、來、溫……），因为那是要能对上词库的数据
 - **四种语言**：简体 / 繁体 / English / 日本語，顶部的链接可直接切换；四版内容一致，以简体版为准
 
 | 方案 | 名称 | 声母 | 韵母 | 字表 |
 |---|---|---|---|---|
-| `chengqyu` | 西安话城区音 | 26（含 `bf`、`pf`） | 40（含 `uu`、`iai`） | `chengqyu.word.dict.yaml`，3,648 条 |
+| `chengqyu` | 西安话城区音 | 26（含 `bf`、`pf`） | 40（含 `uu`、`iae`） | `chengqyu.word.dict.yaml`，3,648 条 |
 | `nanjiao` | 西安话南郊音 | 25（含 `rh`） | 38 | `nanjiao.word.dict.yaml`，4,594 条 |
 
 ---
@@ -59,7 +59,7 @@
 
 - `z c s`（ʦ ʦʰ s）只接 `ɿ` 和洪音韵母；细音（i、y 起头）一律 `j q x`（ʨ ʨʰ ɕ）。这一点跟普通话一样：z c s 后面本来也不会跟 i、y 打头的韵母。
 - `bf pf`（pf pfʰ）只出现在合口/洪音韵母前：`bfu 豬`、`bfuo 捉`、`bfan 磚`、`pfang 窗`。南郊音没有这两个声母，读 z／c，韵母同时增生 u 介音：`zu 豬`、`zuo 捉`、`zuan 磚`、`cuang 窗`。
-- `rh`（z）为南郊音独有，只配合口韵母（u ua uo uai uei uan uen uong），对应的城区音读 v：`入 vu1→rhu1`、`若 vo1→rhuo1`、`軟 van3→rhuan3`、`潤 ven4→rhuen4`、`戎 veng2→rhuong2`。
+- `rh`（z）为南郊音独有，只配合口韵母（u ua uo uae uei uan uen uong），对应的城区音读 v：`入 vu1→rhu1`、`若 vo1→rhuo1`、`軟 van3→rhuan3`、`潤 ven4→rhuen4`、`戎 veng2→rhuong2`。
 - `r`（ʐ）只配 7 个洪音韵母：`re 熱`、`rao 饒`、`ren 人`、`rou 揉`、`ran 然`、`rang 瓤`、`reng 扔`；「日 而 兒 耳 二」不读 r-，读零声母 `er`。
 - `ng`（ŋ）只配洪音：`nge 我`、`ngan 安`、`ngen 恩`、`ngang 昂`、`ngai 哀`、`ngei 額`、`ngao 熬`、`ngou 歐`。
 - `v` 与 `f` 对立：`ven 文` ⟂ `fen 分`、`va 襪` ⟂ `fa 法`。
@@ -68,18 +68,18 @@
 
 ## 三、韵母
 
-两套共用 **38 个韵母**（开 15 / 齐 8 / 合 9 / 撮 6）；城区音另有 `uu`、`iai` 两个，共 40 个。零声母写法两套相同：
+两套共用 **38 个韵母**（开 15 / 齐 8 / 合 9 / 撮 6）；城区音另有 `uu`、`iae` 两个，共 40 个。零声母写法两套相同：
 
 | 呼 | 零声母规则 | 例 |
 |---|---|---|
-| 开呼 | 不加字母 | `a 阿 a1`、`er 日 er1`、`ai`、`ao`、`an`、`ei`、`en`、`ou`、`ang`、`eng` |
+| 开呼 | 不加字母 | `a 阿 a1`、`er 日 er1`、`ae`、`ao`、`an`、`ei`、`en`、`ou`、`ang`、`eng` |
 | 齐呼 | `i` 改 `y` | `i→yi 衣`、`ia→ya 丫`、`ie→ye 也`、`ian→yan 煙`、`ien→yen 音`、`ieng→yeng 英`、`iou→you 有`、`iang→yang 央` |
-| 合呼 | `u` 改 `w` | `u→wu 烏`、`ua→wa 挖`、`uo→wo 窩`、`uai→wai 外`、`uan→wan 彎`、`uei→wei 威`、`uen→wen 溫`、`uong→wong 翁`、`uang→wang 汪` |
+| 合呼 | `u` 改 `w` | `u→wu 烏`、`ua→wa 挖`、`uo→wo 窩`、`uae→wae 外`、`uan→wan 彎`、`uei→wei 威`、`uen→wen 溫`、`uong→wong 翁`、`uang→wang 汪` |
 | 撮呼 | 照写 `yu-` | `yu 魚`、`yue 月`、`yuo 樂`、`yuan 冤`、`yuen 勻`、`yuong 容` |
 
 撮呼一律带 `y`，声母后也不省：`jyu 居`、`qyuo 卻`、`xyuen 熏`、`nyu 女`、`lyu 律`。
 
-城区音的 `uu`（`guu 胳`）在南郊音读 `e`（`ge`），`iai`（`jiai 皆`）读 `ie`（`jie`）。
+城区音的 `uu`（`guu 胳`）在南郊音读 `e`（`ge`），`iae`（`jiae 皆`）读 `ie`（`jie`）。
 
 ---
 
@@ -108,7 +108,7 @@
 
 **① 完全一样的（直接照打）**
 
-`b p m f d t n l g k h z c s zh ch sh r j q x` 这些声母字母与读音跟普通话一致（不送气/送气关系也一致）；`a i u e er ai ei ao ou ia ie iao ian iang ua uo uai uan uang` 这些韵母拼写也一致。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。零声母的 y/w 规则与普通话完全相同。
+`b p m f d t n l g k h z c s zh ch sh r j q x` 这些声母字母与读音跟普通话一致（不送气/送气关系也一致）；`a i u e er ae ei ao ou ia ie iao ian iang ua uo uae uan uang` 这些韵母拼写也一致。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。零声母的 y/w 规则与普通话完全相同。
 
 **② 字母相同、音值不同（形同音异）**
 
@@ -130,7 +130,7 @@
 **④ 城区音多出来的（南郊音没有）**
 
 - 声母：`bf pf`（豬 bfu1、窗 pfang1）。南郊音没有这两个声母，读 z、c：豬 zu1、窗 cuang1；南郊音另有一个 rh，城区音没有（见本节②的声母分布）。
-- 韵母：`uu`（胳 guu1）、`iai`（皆 jiai1）。其中 uu、iai 南郊音读 e、ie：胳 ge1、皆 jie1。
+- 韵母：`uu`（胳 guu1）、`iae`（皆 jiae1）。其中 uu、iae 南郊音读 e、ie：胳 ge1、皆 jie1。
 
 **⑤ 声母对不上的字（记例不记规则）**
 

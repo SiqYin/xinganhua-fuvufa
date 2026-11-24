@@ -84,7 +84,7 @@ const STR = {
     rFoot: [
       'an en ang eng（及各呼变体）读鼻化元音：ã ẽ ɑɣ̃ əɣ̃，不带 -n / -ng 韵尾。',
       '撮呼一律带 y，声母后也不省（jyuen 軍、qyuo 卻、nyu 女）。',
-      '城区音的 uu、iai 在南郊音读 e、ie（胳 guu1→ge1、皆 jiai1→jie1）；其余韵母两音相同。',
+      '城区音的 uu、iae 在南郊音读 e、ie（胳 guu1→ge1、皆 jiae1→jie1）；其余韵母两音相同。',
     ],
     tTitle: '西安话四声：城区音、南郊音相同（五度标记法）',
     tSub: '竖轴 5 最高、1 最低；调号 1/2/3/4 写在音节末尾',
@@ -168,7 +168,7 @@ const STR = {
     rFoot: [
       'an en ang eng (and their variants in the other classes) are nasalised vowels — ã ẽ ɑɣ̃ əɣ̃ — with no -n / -ng coda.',
       'The ü-series always keeps y, even after an initial (jyuen 軍, qyuo 卻, nyu 女).',
-      'The urban uu and iai are e and ie in the southern suburb (胳 guu1→ge1, 皆 jiai1→jie1); the other finals are the same in both.',
+      'The urban uu and iae are e and ie in the southern suburb (胳 guu1→ge1, 皆 jiae1→jie1); the other finals are the same in both.',
     ],
     tTitle: 'The four Xi’an tones, identical in both varieties (five-level pitch scale)',
     tSub: 'Vertical axis: 5 is highest, 1 is lowest; the tone number 1/2/3/4 follows the syllable',
@@ -252,7 +252,7 @@ const STR = {
     rFoot: [
       'an・en・ang・eng（および各呼の変種）は鼻母音です：ã ẽ ɑɣ̃ əɣ̃。-n / -ng の韻尾を伴いません。',
       '撮口呼はつねに y を伴い、声母の後でも省略しません（jyuen 軍、qyuo 卻、nyu 女）。',
-      '城区音の uu・iai は南郊音で e・ie（胳 guu1→ge1、皆 jiai1→jie1）。その他の韻母は両系統で同じです。',
+      '城区音の uu・iae は南郊音で e・ie（胳 guu1→ge1、皆 jiae1→jie1）。その他の韻母は両系統で同じです。',
     ],
     tTitle: '西安方言の四声：城区音・南郊音とも同じ（五度式音調表記）',
     tSub: '縦軸は 5 が最高、1 が最低。声調番号 1/2/3/4 は音節の末尾に書きます',
@@ -398,18 +398,18 @@ const RH = [
   ['开呼', [
     ['a', 'a', '巴 ba1'], ['o', 'o', '若 vo1', 'rhuo1'], ['er', 'ɚ', '兒 er2'],
     ['e', 'ɤ', '鵝 nge2'], ['uu', 'ɯ', '胳 guu1', 'cq', 'ge1'], ['i', 'ɿ', '字 zi4'],
-    ['i', 'ʅ', '吃 chi1'], ['ai', 'ai', '菜 cai4'],
+    ['i', 'ʅ', '吃 chi1'], ['ae', 'ai', '菜 cae4'],
     ['ao', 'au', '到 dao4'], ['an', 'ã', '山 san1'], ['ei', 'ei', '水 fei3', 'suei3'],
     ['en', 'ẽ', '人 ren2'], ['ou', 'ɤu', '狗 gou3'], ['ang', 'ɑɣ̃', '上 shang4'],
     ['eng', 'əɣ̃', '中 bfeng4', 'zuong4']]],
   ['齐呼', [
     ['i', 'i', '衣 yi1'], ['ia', 'ia', '家 jia1'], ['ie', 'iɛ', '姐 jie3'],
-    ['iai', 'iai', '皆 jiai1', 'cq', 'jie1'], ['iao', 'iau', '小 xiao3'], ['ian', 'iã', '煙 yan1'],
+    ['iae', 'iai', '皆 jiae1', 'cq', 'jie1'], ['iao', 'iau', '小 xiao3'], ['ian', 'iã', '煙 yan1'],
     ['ien', 'iẽ', '音 yen1'], ['ieng', 'iɣ̃', '英 yeng1'], ['iou', 'iɤu', '有 you1'],
     ['iang', 'iɑɣ̃', '央 yang1']]],
   ['合呼', [
     ['u', 'u', '烏 wu1'], ['ua', 'ua', '花 hua1'], ['uo', 'uɤ', '窩 wo1'],
-    ['uai', 'uai', '快 kuai4'], ['uan', 'uã', '彎 wan1'], ['uei', 'uei', '回 huei2'],
+    ['uae', 'uai', '快 kuae4'], ['uan', 'uã', '彎 wan1'], ['uei', 'uei', '回 huei2'],
     ['uen', 'uẽ', '溫 wen1'], ['uong', 'uoɣ̃', '翁 wong1'], ['uang', 'uɑɣ̃', '汪 wang1']]],
   ['撮呼', [
     ['yu', 'y', '魚 yu2'], ['yue', 'yɛ', '月 yue1'], ['yuo', 'yɤ', '樂 yuo1'],

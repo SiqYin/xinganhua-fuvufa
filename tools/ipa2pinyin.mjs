@@ -9,8 +9,8 @@ const O=['pfʰ','pʰ','tʂʰ','tʰ','ʦʰ','ʨʰ','kʰ','pf','tʂ','ʦ','ʨ','ʂ
 const sp=s=>{for(const o of O) if(s.startsWith(o)&&s.length>o.length) return [o,s.slice(o.length)]; return ['Ø',s];};
 
 const MR={'p':'b','pʰ':'p','m':'m','f':'f','v':'v','pf':'bf','pfʰ':'pf','t':'d','tʰ':'t','n':'n','l':'l','ʦ':'z','ʦʰ':'c','s':'s','ʨ':'j','ʨʰ':'q','ɕ':'x','tʂ':'zh','tʂʰ':'ch','ʂ':'sh','ʐ':'r','k':'g','kʰ':'k','x':'h','ŋ':'ng','Ø':''};
-const FR={'a':'a','o':'o','ɚ':'er','ɤ':'e','ɯ':'uu','ɿ':'i','ʅ':'i','ai':'ai','au':'ao','ã':'an','ei':'ei','ẽ':'en','ɤu':'ou','ɑɣ̃':'ang','əɣ̃':'eng','i':'i','ia':'ia','iɛ':'ie','iai':'iai','iau':'iao','iã':'ian','iẽ':'ien','iɣ̃':'ieng','iɤu':'iou','iɑɣ̃':'iang','u':'u','ua':'ua','uɤ':'uo','uai':'uai','uã':'uan','uei':'uei','uẽ':'uen','uoɣ̃':'uong','uɑɣ̃':'uang','y':'yu','yɛ':'yue','yɤ':'yuo','yã':'yuan','yẽ':'yuen','yoɣ̃':'yuong'};
-const ZR={'i':'yi','ia':'ya','iɛ':'ye','iai':'yai','iau':'yao','iã':'yan','iẽ':'yen','iɣ̃':'yeng','iɤu':'you','iɑɣ̃':'yang','u':'wu','ua':'wa','uɤ':'wo','uai':'wai','uã':'wan','uei':'wei','uẽ':'wen','uoɣ̃':'wong','uɑɣ̃':'wang'};
+const FR={'a':'a','o':'o','ɚ':'er','ɤ':'e','ɯ':'uu','ɿ':'i','ʅ':'i','ai':'ae','au':'ao','ã':'an','ei':'ei','ẽ':'en','ɤu':'ou','ɑɣ̃':'ang','əɣ̃':'eng','i':'i','ia':'ia','iɛ':'ie','iai':'iae','iau':'iao','iã':'ian','iẽ':'ien','iɣ̃':'ieng','iɤu':'iou','iɑɣ̃':'iang','u':'u','ua':'ua','uɤ':'uo','uai':'uae','uã':'uan','uei':'uei','uẽ':'uen','uoɣ̃':'uong','uɑɣ̃':'uang','y':'yu','yɛ':'yue','yɤ':'yuo','yã':'yuan','yẽ':'yuen','yoɣ̃':'yuong'};
+const ZR={'i':'yi','ia':'ya','iɛ':'ye','iai':'yae','iau':'yao','iã':'yan','iẽ':'yen','iɣ̃':'yeng','iɤu':'you','iɑɣ̃':'yang','u':'wu','ua':'wa','uɤ':'wo','uai':'wae','uã':'wan','uei':'wei','uẽ':'wen','uoɣ̃':'wong','uɑɣ̃':'wang'};
 const M={},F={},Z={}; for(const k in MR)M[n(k)]=MR[k]; for(const k in FR)F[n(k)]=FR[k]; for(const k in ZR)Z[n(k)]=ZR[k];
 const TR={'陰平21':'1','陽平24':'2','上聲53':'3','去聲44':'4'};
 
@@ -57,7 +57,7 @@ const dictHdr = `# Rime dictionary
 # 字音條目 ${arr.length} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: chengqyu.word
-version: "1.1.8"
+version: "1.1.9"
 sort: by_weight
 use_preset_vocabulary: true
 ...

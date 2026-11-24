@@ -8,18 +8,18 @@
 
 ![Xi'an initials (urban 26; southern 25 — adds rh, no bf, pf)](figures/onsets.en.svg)
 
-![Xi'an finals (urban 40; southern 38 — no uu, iai)](figures/rhymes.en.svg)
+![Xi'an finals (urban 40; southern 38 — no uu, iae)](figures/rhymes.en.svg)
 
 - **Schema code**: `chengqyu` (urban Xi'an) and `nanjiao` (southern-suburb Xi'an); the repository name `xinganhua-fuvufa` is the old spelling of "Xi'an dialect input method" (西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1)
 - **Character table**: urban 3,648 readings, southern 4,594; urban 3,345 characters, southern 4,065 (incl. 720 found only in the southern data)
-- **Phonology**: 24 initials, 38 finals and 4 tones shared (Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44); the urban variety adds `bf`, `pf` (initials) and `uu`, `iai` (finals) — 26 / 40; the southern variety adds `rh` (initial) — 25 / 38
+- **Phonology**: 24 initials, 38 finals and 4 tones shared (Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44); the urban variety adds `bf`, `pf` (initials) and `uu`, `iae` (finals) — 26 / 40; the southern variety adds `rh` (initial) — 25 / 38
 - **Works with**: Rime-family IMEs (Weasel, Squirrel, Trime, fcitx-rime, …)
 - **Examples keep the dictionary's traditional glyphs** (鵝, 軍, 豬, 來, 溫 …), because they have to match the data
 - **Four languages**: Simplified Chinese / Traditional Chinese / English / 日本語 — switch with the links above; all four say the same thing, and the Simplified version is authoritative
 
 | Schema | Name | Initials | Finals | Dictionary |
 |---|---|---|---|---|
-| `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 40 (incl. `uu`, `iai`) | `chengqyu.word.dict.yaml`, 3,648 |
+| `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 40 (incl. `uu`, `iae`) | `chengqyu.word.dict.yaml`, 3,648 |
 | `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 38 | `nanjiao.word.dict.yaml`, 4,594 |
 
 ---
@@ -63,7 +63,7 @@ The urban table (3,648 readings) was transliterated from MCPDict's IPA by script
 
 - `z c s` (ʦ ʦʰ s) take only `ɿ` and broad finals; narrow finals (starting with i or y) always take `j q x` (ʨ ʨʰ ɕ). Mandarin behaves the same way: z c s are never followed by i- or y- finals.
 - `bf pf` (pf pfʰ) appear only before u-medial or broad finals: `bfu` 豬, `bfuo` 捉, `bfan` 磚, `pfang` 窗. The southern suburb has no such initials: they are read z and c with a u medial added — `zu` 豬, `zuo` 捉, `zuan` 磚, `cuang` 窗.
-- `rh` (z) is southern-only and combines only with u-medial/broad finals (u ua uo uai uei uan uen uong); the urban counterpart is v: `入 vu1→rhu1`, `若 vo1→rhuo1`, `軟 van3→rhuan3`, `潤 ven4→rhuen4`, `戎 veng2→rhuong2`.
+- `rh` (z) is southern-only and combines only with u-medial/broad finals (u ua uo uae uei uan uen uong); the urban counterpart is v: `入 vu1→rhu1`, `若 vo1→rhuo1`, `軟 van3→rhuan3`, `潤 ven4→rhuen4`, `戎 veng2→rhuong2`.
 - `r` (ʐ) combines with just 7 broad finals: `re` 熱, `rao` 饒, `ren` 人, `rou` 揉, `ran` 然, `rang` 瓤, `reng` 扔; 日 而 兒 耳 二 are not r- but the zero initial `er`.
 - `ng` (ŋ) takes broad finals only: `nge` 我, `ngan` 安, `ngen` 恩, `ngang` 昂, `ngai` 哀, `ngei` 額, `ngao` 熬, `ngou` 歐.
 - `v` contrasts with `f`: `ven` 文 ⟂ `fen` 分, `va` 襪 ⟂ `fa` 法.
@@ -74,18 +74,18 @@ The urban table (3,648 readings) was transliterated from MCPDict's IPA by script
 
 ## 3. Finals
 
-38 finals shared by the two varieties (15 open / 8 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iai`, making 40 (16 / 9 / 9 / 6). Zero-initial spellings are the same in both:
+38 finals shared by the two varieties (15 open / 8 i-medial / 9 u-medial / 6 ü-medial); the urban variety adds `uu`, `iae`, making 40 (16 / 9 / 9 / 6). Zero-initial spellings are the same in both:
 
 | Class | Zero-initial rule | Examples |
 |---|---|---|
-| Open | no letter added | `a` 阿 a1, `er` 日 er1, `ai`, `ao`, `an`, `ei`, `en`, `ou`, `ang`, `eng` |
+| Open | no letter added | `a` 阿 a1, `er` 日 er1, `ae`, `ao`, `an`, `ei`, `en`, `ou`, `ang`, `eng` |
 | i-medial | `i` → `y` | `i→yi` 衣, `ia→ya` 丫, `ie→ye` 也, `ian→yan` 煙, `ien→yen` 音, `ieng→yeng` 英, `iou→you` 有, `iang→yang` 央 |
-| u-medial | `u` → `w` | `u→wu` 烏, `ua→wa` 挖, `uo→wo` 窩, `uai→wai` 外, `uan→wan` 彎, `uei→wei` 威, `uen→wen` 溫, `uong→wong` 翁, `uang→wang` 汪 |
+| u-medial | `u` → `w` | `u→wu` 烏, `ua→wa` 挖, `uo→wo` 窩, `uae→wae` 外, `uan→wan` 彎, `uei→wei` 威, `uen→wen` 溫, `uong→wong` 翁, `uang→wang` 汪 |
 | ü-medial | write `yu-` as is | `yu` 魚, `yue` 月, `yuo` 樂, `yuan` 冤, `yuen` 勻, `yuong` 容 |
 
 The ü-series always keeps `y`, even after an initial: `jyu` 居, `qyuo` 卻, `xyuen` 熏, `nyu` 女, `lyu` 律.
 
-The urban `uu` (`guu` 胳) is `e` (`ge`) in the southern suburb, and `iai` (`jiai` 皆) is `ie` (`jie`).
+The urban `uu` (`guu` 胳) is `e` (`ge`) in the southern suburb, and `iae` (`jiae` 皆) is `ie` (`jie`).
 
 ---
 
@@ -120,7 +120,7 @@ For anyone who already types Mandarin pinyin: the letter system is largely the s
 
 **① Identical (type it as is)**
 
-The initials `b p m f d t n l g k h z c s zh ch sh r j q x` stand for the same sounds as in Mandarin (including the aspirated/unaspirated pairs); the finals `a i u e er ai ei ao ou ia ie iao ian iang ua uo uai uan uang` are spelled the same. Examples: `巴 ba1`, `天 tian1`, `小 xiao3`, `到 dao4`, `走 zou3`, `家 jia1`, `花 hua1`, `快 kuai4`, `光 guang1`, `窩 wo1`, `烏 wu1`, `衣 yi1`, `兒 er2`. The y/w rules for zero-initial syllables are exactly Mandarin's.
+The initials `b p m f d t n l g k h z c s zh ch sh r j q x` stand for the same sounds as in Mandarin (including the aspirated/unaspirated pairs); the finals `a i u e er ae ei ao ou ia ie iao ian iang ua uo uae uan uang` are spelled the same. Examples: `巴 ba1`, `天 tian1`, `小 xiao3`, `到 dao4`, `走 zou3`, `家 jia1`, `花 hua1`, `快 kuai4`, `光 guang1`, `窩 wo1`, `烏 wu1`, `衣 yi1`, `兒 er2`. The y/w rules for zero-initial syllables are exactly Mandarin's.
 
 **② Same letters, different sound**
 
@@ -142,7 +142,7 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 **④ Extras in the urban variety (absent from the southern suburb)**
 
 - Initials: `bf pf` (豬 bfu1, 窗 pfang1). bf and pf are z and c in the south: 豬 zu1, 窗 cuang1; the south has `rh` instead, absent in the urban variety (see §2).
-- Finals: `uu` (胳 guu1), `iai` (皆 jiai1). uu and iai are e and ie in the south: 胳 ge1, 皆 jie1.
+- Finals: `uu` (胳 guu1), `iae` (皆 jiae1). uu and iae are e and ie in the south: 胳 ge1, 皆 jie1.
 
 **⑤ Characters whose initial does not match (memorise examples, not rules)**
 

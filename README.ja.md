@@ -8,18 +8,18 @@
 
 ![西安方言の声母図（城区音 26；南郊音 25——rh あり、bf・pf なし）](figures/onsets.ja.svg)
 
-![西安方言の韻母図（城区音 40；南郊音 38、uu・iai なし）](figures/rhymes.ja.svg)
+![西安方言の韻母図（城区音 40；南郊音 38、uu・iae なし）](figures/rhymes.ja.svg)
 
 - **方案コード**：`chengqyu`（西安方言城区音）、`nanjiao`（西安方言南郊音）。リポジトリ名 `xinganhua-fuvufa` は「西安話入力法」の旧綴り（西 xi1 安 ngan1 话 hua4 ｜ 输 fu1 入 vu1 法 fa1）
 - **字表**：城区音 3,648 件、南郊音 4,594 件；城区 3,345 字、南郊 4,065 字（渭南のみの 720 字を含む）
-- **音韻**：両系統に共通する声母 24・韻母 38・四声（陰平 21、陽平 24、上声 53、去声 44）。城区音だけ `bf`・`pf` 二声母と `uu`・`iai` 二韻母が加わり（26 / 40）、南郊音だけ `rh` 声母が加わる（25 / 38）
+- **音韻**：両系統に共通する声母 24・韻母 38・四声（陰平 21、陽平 24、上声 53、去声 44）。城区音だけ `bf`・`pf` 二声母と `uu`・`iae` 二韻母が加わり（26 / 40）、南郊音だけ `rh` 声母が加わる（25 / 38）
 - **対応**：Rime 系入力（Weasel / Squirrel / Trime / fcitx-rime など）
 - **例字は字表の繁体字のまま**（鵝、軍、豬、來、溫 …）。データと突き合わせる必要があるためです
 - **四言語**：簡体中文 / 繁體中文 / English / 日本語。上のリンクで切り替えられます。内容は四版とも同じで、簡体版を正とします
 
 | 方案 | 名称 | 声母 | 韻母 | 字表 |
 |---|---|---|---|---|
-| `chengqyu` | 西安方言城区音 | 26（`bf`・`pf` を含む） | 40（`uu`・`iai` を含む） | `chengqyu.word.dict.yaml`、3,648 件 |
+| `chengqyu` | 西安方言城区音 | 26（`bf`・`pf` を含む） | 40（`uu`・`iae` を含む） | `chengqyu.word.dict.yaml`、3,648 件 |
 | `nanjiao` | 西安方言南郊音 | 25（`rh` を含む） | 38 | `nanjiao.word.dict.yaml`、4,594 件 |
 
 ---
@@ -63,7 +63,7 @@
 
 - `z c s`（ʦ ʦʰ s）は `ɿ` と洪音の韻母にのみ付き、細音（i・y で始まるもの）には必ず `j q x`（ʨ ʨʰ ɕ）を用います。普通話も同じで、z c s の後に i・y で始まる韻母は来ません。
 - `bf pf`（pf pfʰ）は合口・洪音の韻母の前にのみ現れます：`bfu` 豬、`bfuo` 捉、`bfan` 磚、`pfang` 窗。南郊音にはこの二声母がなく、z・c に韻母の u 介音が加わります：`zu` 豬、`zuo` 捉、`zuan` 磚、`cuang` 窗。
-- `rh`（z）は南郊音だけで、合口の韻母（u ua uo uai uei uan uen uong）にのみ付き、城区音では v で読みます：`入 vu1→rhu1`、`若 vo1→rhuo1`、`軟 van3→rhuan3`、`潤 ven4→rhuen4`、`戎 veng2→rhuong2`。
+- `rh`（z）は南郊音だけで、合口の韻母（u ua uo uae uei uan uen uong）にのみ付き、城区音では v で読みます：`入 vu1→rhu1`、`若 vo1→rhuo1`、`軟 van3→rhuan3`、`潤 ven4→rhuen4`、`戎 veng2→rhuong2`。
 - `r`（ʐ）は洪音韻母 7 つだけと結びつきます：`re` 熱、`rao` 饒、`ren` 人、`rou` 揉、`ran` 然、`rang` 瓤、`reng` 扔。日 而 兒 耳 二 は r- ではなく、零声母の `er` で読みます。
 - `ng`（ŋ）は洪音とのみ結びつきます：`nge` 我、`ngan` 安、`ngen` 恩、`ngang` 昂、`ngai` 哀、`ngei` 額、`ngao` 熬、`ngou` 歐。
 - `v` は `f` と対立します：`ven` 文 ⟂ `fen` 分、`va` 襪 ⟂ `fa` 法。
@@ -74,18 +74,18 @@
 
 ## 3. 韻母
 
-両系統に共通する韻母は **38 個**（開 15 / 斉 8 / 合 9 / 撮 6）。城区音はこれに `uu`・`iai` を加えて 40 個（開 16 / 斉 9 / 合 9 / 撮 6）になります。零声母の書き方は両系統で同じです：
+両系統に共通する韻母は **38 個**（開 15 / 斉 8 / 合 9 / 撮 6）。城区音はこれに `uu`・`iae` を加えて 40 個（開 16 / 斉 9 / 合 9 / 撮 6）になります。零声母の書き方は両系統で同じです：
 
 | 呼 | 零声母の規則 | 例 |
 |---|---|---|
-| 開口呼 | 字母を加えない | `a` 阿 a1、`er` 日 er1、`ai`、`ao`、`an`、`ei`、`en`、`ou`、`ang`、`eng` |
+| 開口呼 | 字母を加えない | `a` 阿 a1、`er` 日 er1、`ae`、`ao`、`an`、`ei`、`en`、`ou`、`ang`、`eng` |
 | 斉歯呼 | `i` を `y` に | `i→yi` 衣、`ia→ya` 丫、`ie→ye` 也、`ian→yan` 煙、`ien→yen` 音、`ieng→yeng` 英、`iou→you` 有、`iang→yang` 央 |
-| 合口呼 | `u` を `w` に | `u→wu` 烏、`ua→wa` 挖、`uo→wo` 窩、`uai→wai` 外、`uan→wan` 彎、`uei→wei` 威、`uen→wen` 溫、`uong→wong` 翁、`uang→wang` 汪 |
+| 合口呼 | `u` を `w` に | `u→wu` 烏、`ua→wa` 挖、`uo→wo` 窩、`uae→wae` 外、`uan→wan` 彎、`uei→wei` 威、`uen→wen` 溫、`uong→wong` 翁、`uang→wang` 汪 |
 | 撮口呼 | `yu-` のまま | `yu` 魚、`yue` 月、`yuo` 樂、`yuan` 冤、`yuen` 勻、`yuong` 容 |
 
 撮口呼はつねに `y` を伴い、声母の後でも省略しません：`jyu` 居、`qyuo` 卻、`xyuen` 熏、`nyu` 女、`lyu` 律。
 
-城区音の `uu`（`guu` 胳）は南郊音では `e`（`ge`）、`iai`（`jiai` 皆）は `ie`（`jie`）です。
+城区音の `uu`（`guu` 胳）は南郊音では `e`（`ge`）、`iae`（`jiae` 皆）は `ie`（`jie`）です。
 
 ---
 
@@ -120,7 +120,7 @@
 
 **① まったく同じ（そのまま打てる）**
 
-声母 `b p m f d t n l g k h z c s zh ch sh r j q x` は字も音も普通話と一致します（無気／有気の関係も同じ）。韻母 `a i u e er ai ei ao ou ia ie iao ian iang ua uo uai uan uang` の綴りも同じです。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。零声母の y/w の規則も普通話とまったく同じです。
+声母 `b p m f d t n l g k h z c s zh ch sh r j q x` は字も音も普通話と一致します（無気／有気の関係も同じ）。韻母 `a i u e er ae ei ao ou ia ie iao ian iang ua uo uae uan uang` の綴りも同じです。例：`巴 ba1`、`天 tian1`、`小 xiao3`、`到 dao4`、`走 zou3`、`家 jia1`、`花 hua1`、`快 kuai4`、`光 guang1`、`窩 wo1`、`烏 wu1`、`衣 yi1`、`兒 er2`。零声母の y/w の規則も普通話とまったく同じです。
 
 **② 綴りは同じで音価が異なる**
 
@@ -142,7 +142,7 @@
 **④ 城区音だけにあるもの（南郊音にはない）**
 
 - 声母：`bf pf`（豬 bfu1、窗 pfang1）。bf・pf は南郊音で z・c：豬 zu1、窗 cuang1。南郊音には代わりに `rh` があり、城区音にはありません（§2 参照）。
-- 韻母：`uu`（胳 guu1）、`iai`（皆 jiai1）。uu・iai は南郊音で e・ie：胳 ge1、皆 jie1。
+- 韻母：`uu`（胳 guu1）、`iae`（皆 jiae1）。uu・iae は南郊音で e・ie：胳 ge1、皆 jie1。
 
 **⑤ 声母が対応しない字（規則ではなく例で覚える）**
 

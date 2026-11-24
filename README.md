@@ -169,7 +169,8 @@
 - 表中是城区音码；`水 fei3` 南郊作 `suei3`、`中 bfeng4` 作 `zuong4`，其余字两套同码。
 - 调号可省：打 `ba` 出四个调的候选，打 `ba1` 只出阴平。
 - 常用简拼：`in / ing / iu / ui / un / ung / yun / yung` 分别对应 `ien / ieng / iou / uei / uen / uong / yuen / yuong`（零声母的 `you 有`、`wen 溫`、`wei 威` 不简）。
-- 反查：`q` + 普通话拼音、`x` + 笔画，候选注释会显示西安话读音（城区音、南郊音）。
+- 反查：`` ` `` + 普通话拼音（例：`` `zhong ``，末缀 `;` 可省），候选注释会显示西安话读音（城区音、南郊音）。
+- 笔画反查已撤除：`x` 是西安话拼音的正式声母（`xien 心`、`xi 西`、`xiang 相`…），`q` 也是（`qi 七`、`qyu 區`…），二者不能当反查前缀。
 
 ---
 
@@ -239,7 +240,7 @@
 ## 十、文件与安装
 
 ```
-chengqyu.schema.yaml           西安话城区音方案：字母表、简拼演算、反查 Q/X
+chengqyu.schema.yaml           西安话城区音方案：字母表、简拼演算、反查 ` 起头
 chengqyu.dict.yaml             城区音主词典，导入 chengqyu.word
 chengqyu.word.dict.yaml        城区音字音表 3,648 条（脚本生成，勿手改）
 nanjiao.schema.yaml            西安话南郊音方案（声母 25 含 rh、韵母 38）

@@ -183,7 +183,8 @@ Every final ending in `-n / -ng` is a **nasalised vowel** in Xi'an, not a nasal 
 - The table shows urban codes; `水 fei3` is `suei3` in the south and `中 bfeng4` is `zuong4`, all other characters are identical.
 - The tone digit is optional: `ba` offers all four tones, while `ba1` gives only Yinping.
 - Common abbreviations: `in / ing / iu / ui / un / ung / yun / yung` stand for `ien / ieng / iou / uei / uen / uong / yuen / yuong` (zero-initial `you` 有, `wen` 溫 and `wei` 威 are not shortened).
-- Reverse lookup: `q` + Mandarin pinyin, or `x` + strokes; the candidate comment shows the Xi'an readings (urban and southern).
+- Reverse lookup: `` ` `` + Mandarin pinyin (e.g. `` `zhong ``; the trailing `;` is optional); the candidate comment shows the Xi'an readings (urban and southern).
+- Stroke lookup has been removed: `x` is a real Xi'an initial (`xien` 心, `xi` 西, `xiang` 相 …) and so is `q` (`qi` 七, `qyu` 區 …), so neither can serve as a reverse-lookup prefix.
 
 ---
 
@@ -259,7 +260,7 @@ Running all algebra rules over the 392 urban and 420 southern syllables yields 5
 ## 10. Files and installation
 
 ```
-chengqyu.schema.yaml           urban schema: alphabet, abbreviation algebra, Q/X reverse lookup
+chengqyu.schema.yaml           urban schema: alphabet, abbreviation algebra, backtick reverse lookup
 chengqyu.dict.yaml             urban main dictionary, imports chengqyu.word
 chengqyu.word.dict.yaml        urban readings, 3,648 (generated; do not edit by hand)
 nanjiao.schema.yaml            southern-suburb schema (25 initials incl. rh, 38 finals)

@@ -23,7 +23,7 @@ HEAD = """# Rime dictionary
 # 字音條目 {n} 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.7"
+version: "1.1.8"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -39,8 +39,9 @@ def main() -> None:
         ch, py = line.split("\t")[:2]
         rows.append((ch, py))
     rows = sorted(set(rows), key=lambda x: (x[1], x[0]))
+    # newline="\n"：Windows 上預設會把 \n 翻成 CRLF，破壞 .gitattributes 的 eol=lf 約定
     OUT.write_text(HEAD.format(n=len(rows)) + "".join(f"{c}\t{p}\n" for c, p in rows),
-                   encoding="utf-8")
+                   encoding="utf-8", newline="\n")
     print(f"nanjiao.word.dict.yaml：{len(rows)} 條")
 
 

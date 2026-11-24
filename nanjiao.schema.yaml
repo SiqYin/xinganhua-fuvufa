@@ -4,7 +4,7 @@
 schema:
   schema_id: nanjiao
   name: 西安話南郊音
-  version: "1.1.7"
+  version: "1.1.8"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：南郊音字表（2026-11-20 重建：南郊裁定表 + 兩地一致讀音，套西安話音標折出）
@@ -15,10 +15,9 @@ schema:
     同倉庫另有西安話城區音方案 chengqyu（聲母 26、韻母 40），兩套並行。
     拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調不輸入，故輸入碼不含數字。
     詞庫字頭為繁體（同 Rime 社區慣例），默認按繁→簡表輸出簡體；切到「繁體」才原樣輸出。
-    反查：Q 起頭用普通話拼音，X 起頭用筆畫。
+    反查：`（反引號）起頭用普通話拼音，末綴 ; 可省；西安話拼音本身要用 q、x，故不再拿 Q、X 做反查前綴。
   dependencies:
     - luna_pinyin
-    - stroke
 
 switches:
   - name: ascii_mode
@@ -47,7 +46,6 @@ engine:
     - ascii_segmentor
     - matcher
     - affix_segmentor@luna_pinyin
-    - affix_segmentor@stroke
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
@@ -56,7 +54,6 @@ engine:
     - script_translator
     - reverse_lookup_translator
     - script_translator@luna_pinyin
-    - table_translator@stroke
   filters:
     - simplifier
     - uniquifier
@@ -105,29 +102,28 @@ translator:
   # comment_format:
   #   - xform/\d//
 
-# 副翻譯器 1：普通話拼音反查
+# 副翻譯器：普通話拼音反查
+# 前綴用反引號 `，寫法同 rime-cantonese 的 jyut6ping3（prefix: "`"，suffix: ";"）。
+# 不能像吳語方案那樣用 Q：西安話拼音本身就有 qi qia qian qiang qiao qie qien qieng qiou qyu…
+# 若 Q 被佔作反查前綴，這些音節打頭就會被切成反查段，屬實打不出字。
 luna_pinyin:
   tag: luna_pinyin
   dictionary: luna_pinyin
-  prefix: "q"
+  prefix: "`"
+  suffix: ";"
   tips: 〔普通話〕
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
 
-# 副翻譯器 2：筆畫反查
-stroke:
-  tag: stroke
-  dictionary: stroke
-  prefix: "x"
-  tips: 〔筆畫〕
-  preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
+# 筆畫反查（原 X 起頭）已撤除：
+# X 是西安話拼音的正式聲母（xi xia xian xiang xiao xie xien xieng xiou xyue…），
+# 不能拿去做反查前綴；本方案也不再依賴 stroke 詞典與 table_translator@stroke。
 
 # 反查濾鏡：反查結果顯示西安話南郊音拼音
 nanjiao_reverse_lookup:
-  tags: [luna_pinyin, stroke]
+  tags: [luna_pinyin]
   overwrite_comment: true
   dictionary: nanjiao
   comment_format:
@@ -142,5 +138,4 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    luna_pinyin: "^q[a-z']*$"
-    stroke: "^x[hspnz]*$"
+    luna_pinyin: "^`[a-z']*;?$"

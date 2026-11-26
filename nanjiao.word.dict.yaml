@@ -9,7 +9,7 @@
 # 字音條目 4594 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.9"
+version: "1.1.10"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -3335,7 +3335,7 @@ use_preset_vocabulary: true
 討	tao3
 套	tao4
 特	tei2
-吞	teng1
+吞	ten1
 疼	teng2
 藤	teng2
 謄	teng2

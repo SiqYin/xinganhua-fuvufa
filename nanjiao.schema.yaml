@@ -4,15 +4,15 @@
 schema:
   schema_id: nanjiao
   name: 西安話南郊音
-  version: "1.1.10"
+  version: "1.1.11"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：南郊音字表（2026-11-20 重建：南郊裁定表 + 兩地一致讀音，套西安話音標折出）
   description: |
     西安話南郊音（關中片）拼音輸入方案。
-    音系：聲母 25（含 rh；無 bf、pf——此二者為城區音獨有）、韻母 38（無 uu、iae）、
-    聲調四類——陰平 21、陽平 24、上聲 53、去聲 44。
-    同倉庫另有西安話城區音方案 chengqyu（聲母 26、韻母 40），兩套並行。
+    音系：聲母 25（含 rh；無 bf、pf——此二者為城區音獨有）、韻母 37（無 uu、iae）、
+    聲調四類——陰平 31、陽平 24、上聲 53、去聲 55。
+    同倉庫另有西安話城區音方案 chengqyu（聲母 26、韻母 39），兩套並行。
     拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調不輸入，故輸入碼不含數字。
     詞庫字頭為繁體（同 Rime 社區慣例），默認按繁→簡表輸出簡體；切到「繁體」才原樣輸出。
     反查：`（反引號）起頭用普通話拼音，末綴 ; 可省；西安話拼音本身要用 q、x，故不再拿 Q、X 做反查前綴。
@@ -67,16 +67,16 @@ speller:
     # 聲調數碼去掉，不參與輸入
     - xform/\d//
 
-    # ── 簡拼（零聲母只放行撮呼 yuen=>yun、yuong=>yung，其餘不簡）──
-    #    不能寫成裸的 derive/uen/un/ 之類：那样 "yuong 容" 裏含 uong、"yuen 勻" 裏含 uen，會錯簡成 yung 以外的碼
+    # ── 簡拼（零聲母只放行撮呼 yuo=>yo、yuen=>yun，其餘不簡）──
+    #    不能寫成裸的 derive/uen/un/ 之類：那樣 "yuen 勻" 裏含 uen 或 "wo 窩" 會誤簡；必須用聲母錨點或撮呼限定
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])ien(?=\d?$)/$1in/       # 今 jien => jin
-    - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])ieng(?=\d?$)/$1ing/     # 明 mieng => ming
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])iou(?=\d?$)/$1iu/        # 究 jiou => jiu
+    - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uo(?=\d?$)/$1o/          # 多 duo => do、剝 buo => bo、勿 vuo => vo
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uei(?=\d?$)/$1ui/       # 回 huei => hui
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uen(?=\d?$)/$1un/        # 孫 suen => sun
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uong(?=\d?$)/$1ung/      # 東 duong => dung
-    - derive/yuen(?=\d?$)/yun/                                                 # 勻 yuen => yun、軍 jyuen => jyun
-    - derive/yuong(?=\d?$)/yung/                                               # 容 yuong => yung、瓊 qyuong => qyung
+    - derive/yuo(?=\d?$)/yo/                                                # 藥 yuo => yo、覺 jyuo => jyo
+    - derive/yuen(?=\d?$)/yun/                                              # 勻 yuen => yun、軍 jyuen => jyun
 
     # ── 撮呼 ü 的普通話式兼容寫法（默認關；等你定稿再開）──
     # - derive/^([jqx])yu(?=\d?$)/$1u/
@@ -84,7 +84,7 @@ speller:
     # - derive/^([jqx])yuo(?=\d?$)/$1uo/
     # - derive/^([jqx])yuan(?=\d?$)/$1uan/
     # - derive/^([jqx])yuen(?=\d?$)/$1un/
-    # - derive/^([jqx])yuong(?=\d?$)/$1ong/
+    # - derive/^([jqx])yung(?=\d?$)/$1ong/
     # - derive/^([nl])yu(?=\d?$)/$1v/
     # - derive/^([nl])yuen(?=\d?$)/$1vn/
 
@@ -104,9 +104,9 @@ translator:
 
 # 副翻譯器：普通話拼音反查
 # 前綴用反引號 `，寫法同 rime-cantonese 的 jyut6ping3（prefix: "`"，suffix: ";"）。
-# 不能像吳語方案那樣用 Q：西安話拼音本身就有 qi qia qian qiang qiao qie qien qieng qiou qyu…
+# 不能像吳語方案那樣用 Q：西安話拼音本身就有 qi qia qian qiang qiao qie qien qing qiou qyu…
 # 若 Q 被佔作反查前綴，這些音節打頭就會被切成反查段，屬實打不出字。
-# 完整清單（城區音 15 個）：qi qia qian qiang qiao qie qien qieng qiou qyu qyuan qyue qyuen qyuo qyuong
+# 完整清單（南郊音 14 個，無 qyue）：qi qia qian qiang qiao qie qien qing qiou qyu qyuan qyuen qyuo qyung
 luna_pinyin:
   tag: luna_pinyin
   dictionary: luna_pinyin
@@ -119,7 +119,7 @@ luna_pinyin:
     - xform/([jqxy])v/$1u/
 
 # 筆畫反查（原 X 起頭）已撤除：
-# X 是西安話拼音的正式聲母（xi xia xian xiang xiao xie xien xieng xiou xyu xyuan xyue xyuen xyuo xyuong），
+# X 是西安話拼音的正式聲母（xi xia xian xiang xiao xie xien xing xiou xyu xyuan xyue xyuen xyuo xyung），
 # 不能拿去做反查前綴；本方案也不再依賴 stroke 詞典與 table_translator@stroke。
 
 # 反查濾鏡：反查結果顯示西安話南郊音拼音

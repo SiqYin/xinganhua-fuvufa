@@ -4,7 +4,7 @@
 schema:
   schema_id: chengqyu
   name: 西安話城區音
-  version: "1.1.11"
+  version: "1.1.12"
   author:
     - 雪螢 SiqYin <siqyin@qq.com>（方案、詞庫轉換）
     - 字音來源：osfans/MCPDict《西安》數據表（國際音標）
@@ -67,7 +67,7 @@ speller:
     # 聲調數碼去掉，不參與輸入
     - xform/\d//
 
-    # ── 簡拼（零聲母只放行撮呼 yuo=>yo、yuen=>yun，其餘不簡）──
+    # ── 簡拼（yuo：j q x 後簡作 o，零聲母與 n 後簡作 yo；yuen=>yun；其餘須前有輔音聲母）──
     #    不能寫成裸的 derive/uen/un/ 之類：那樣 "yuen 勻" 裏含 uen 或 "wo 窩" 會誤簡；必須用聲母錨點或撮呼限定
     - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])ien(?=\d?$)/$1in/       # 今 jien => jin
     - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])iou(?=\d?$)/$1iu/        # 究 jiou => jiu
@@ -75,7 +75,8 @@ speller:
     - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])uei(?=\d?$)/$1ui/       # 回 huei => hui
     - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])uen(?=\d?$)/$1un/        # 孫 suen => sun
     - derive/^(bf|pf|zh|ch|sh|ng|[bpmfvdtnlzcsjqxrgh])uong(?=\d?$)/$1ung/      # 東 duong => dung
-    - derive/yuo(?=\d?$)/yo/                                                   # 藥 yuo => yo、覺 jyuo => jyo
+    - derive/^([jqx])yuo(?=\d?$)/$1o/                                       # 覺 jyuo => jo、卻 qyuo => qo、學 xyuo => xo（j q x 不與 uo 相拼，不構成對立）
+    - derive/^(n?)yuo(?=\d?$)/$1yo/                                         # 藥 yuo => yo、握 nyuo => nyo（n 有 nuo 對立，故不簡作 no）
     - derive/yuen(?=\d?$)/yun/                                                 # 勻 yuen => yun、軍 jyuen => jyun
 
     # ── 撮呼 ü 的普通話式兼容寫法（默認關；等你定稿再開）──

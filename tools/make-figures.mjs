@@ -126,9 +126,9 @@ const STR = {
       '',
       '若连写成 xingan，就能被重新切成 xin（心的简拼）+ gan（干），',
       '所以必须加撇号。仓库名 xinganhua-fuvufa 因此去掉了撇号。',
-      '输入端可用简拼：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuo→yo、yuen→yun；城区音 uong 也可简打 ung（南郊音本来的拼写就是 ung）。',
+      '输入端可用简拼：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuen→yun；j q x 后的 yuo 简作 o（jyuo→jo），零声母与 n 后简作 yo；城区音 uong 也可简打 ung（南郊音本来的拼写就是 ung）。',
     ],
-    aTitle: '西安话简拼对照：输入端缩写规则（城区 8 条 · 南郊 7 条）',
+    aTitle: '西安话简拼对照：输入端缩写规则（城区 9 条 · 南郊 8 条）',
     aSub: '格内：全拼 → 简拼；只用于键盘输入，词库与注音仍写全拼',
     vTitle: '南郊音的变体：z c s rh 遇 u 的翘舌变体，shu 还有 f 变体',
     vSub: '每条南郊读音下另列变体（四声相同）；变体只在城区音读 bf、pf、f、v 的字与审定字上加注',
@@ -147,10 +147,12 @@ const STR = {
       '变体与基本读音同调；字表与输入法均保留两读，卡片上以「变体」标出。',
     ],
     aZero: '含零声母',
+    aJqx: 'j q x 后',
+    aZeroN: '零声母 · n 后',
     aCqOnly: '城区简拼 · 南郊本即 ung',
     aFoot: [
       'uong → ung：城区音中拼音可以这样简化，南郊音本来的拼写就是后者（ung）。',
-      '除 yuo→yo、yuen→yun 含零声母外，其余仅限前有辅音声母时简拼（wo、wei、wen、城区 wong 与南郊 wung 保持全拼）。',
+      'yuo：j q x 后简作 o（jyuo→jo、qyuo→qo、xyuo→xo，j q x 不与 uo 相拼，不构成对立），零声母与 n 后简作 yo（n 有 nuo 与 nyuo 对立，故不简作 no）；yuen→yun 含零声母，其余仅限前有辅音声母时简拼（wo、wei、wen、城区 wong 与南郊 wung 保持全拼）。',
     ],
   },
 
@@ -214,9 +216,9 @@ const STR = {
       '',
       'Written together, xingan can be re-split into xin (short for 心) + gan (干),',
       'so the apostrophe is required. The repository name therefore drops it.',
-      'Input shortcuts: ien→in, iou→iu, uo→o, uei→ui, uen→un, yuo→yo, yuen→yun; urban uong also shortens to ung (native spelling in southern).',
+      'Input shortcuts: ien→in, iou→iu, uo→o, uei→ui, uen→un, yuen→yun; yuo→o after j q x (jyuo→jo), yo with zero initial or after n; urban uong also shortens to ung (native spelling in southern).',
     ],
-    aTitle: 'Input-side short forms (8 in urban · 7 in southern)',
+    aTitle: 'Input-side short forms (9 in urban · 8 in southern)',
     aSub: 'In each cell: full spelling → short form; keyboard input only — dictionary keeps full spelling',
     vTitle: 'Southern-suburb variants: zh ch sh r before u, plus f for shu',
     vSub: 'Variants share the base tone; marked for urban bf/pf/f/v characters and reviewed Weinan-only entries',
@@ -235,10 +237,12 @@ const STR = {
       'Variants keep the base tone; both forms remain in the table and IME, tagged “variant” on cards.',
     ],
     aZero: 'incl. zero initial',
+    aJqx: 'after j q x',
+    aZeroN: 'zero initial · after n',
     aCqOnly: 'urban only · native ung in south',
     aFoot: [
       'uong → ung: urban Xi’an pinyin can be simplified this way, whereas ung is already the original spelling in the southern suburb.',
-      'Except yuo→yo and yuen→yun (incl. zero initial), shortcuts apply only after a consonant initial (wo, wei, wen, urban wong, southern wung stay full).',
+      'yuo: after j q x it shortens to o (jyuo→jo, qyuo→qo, xyuo→xo; j q x never combine with uo, so there is no contrast); with zero initial or after n it is yo (n has both nuo and nyuo, so no is not used). yuen→yun includes zero initial; other shortcuts apply only after a consonant initial (wo, wei, wen, urban wong, southern wung stay full).',
     ],
   },
 
@@ -302,9 +306,9 @@ const STR = {
       '',
       'xingan と続けて書くと xin（心の簡拼）＋ gan（干）に切り直されてしまうため、',
       '撇号が必要です。リポジトリ名 xinganhua-fuvufa はこの理由で撇号を外しています。',
-      '入力側の略式綴り：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuo→yo、yuen→yun。城区音 uong は ung と略せますが、南郊音は元々 ung です。',
+      '入力側の略式綴り：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuen→yun。j q x の後の yuo は o（jyuo→jo）、零声母と n の後は yo。城区音 uong は ung と略せますが、南郊音は元々 ung です。',
     ],
-    aTitle: '入力側の略式綴り（城区音 8 種・南郊音 7 種）',
+    aTitle: '入力側の略式綴り（城区音 9 種・南郊音 8 種）',
     aSub: '各枠は 全拼 → 略拼。キーボード入力専用で、辞書と表記は全拼のまま',
     vTitle: '南郊音の変体：z c s rh が u と結合するときのそり舌変体、shu には f 変体も',
     vSub: '各南郊音の下に変体も並べます（声調は同じ）。城区音が bf・pf・f・v の字および審定済みの字にのみ付与',
@@ -323,10 +327,12 @@ const STR = {
       '変体は基本の読みと同じ声調です。字表と入力方案はいずれも両方を残し、カードでは「変体」と表示します。',
     ],
     aZero: '零声母も可',
+    aJqx: 'j q x の後',
+    aZeroN: '零声母・n の後',
     aCqOnly: '城区のみ・南郊は元々 ung',
     aFoot: [
       'uong → ung：城区音のピンインはこのように簡略化できますが、南郊音は本来の綴りそのものが後者（ung）です。',
-      'yuo→yo・yuen→yun（零声母を含む）以外は子音声母の後に限ります（wo・wei・wen・城区 wong・南郊 wung は全拼のまま）。',
+      'yuo：j q x の後は o に略します（jyuo→jo・qyuo→qo・xyuo→xo。j q x は uo と結合しないため対立しません）。零声母と n の後は yo です（n には nuo と nyuo の対立があるため no とは略しません）。yuen→yun は零声母を含み、他は子音声母の後に限ります（wo・wei・wen・城区 wong・南郊 wung は全拼のまま）。',
     ],
   },
 };
@@ -642,8 +648,8 @@ function figSyllable(T, lang, font) {
 // ── 5. 简拼对照图 ────────────────────────────────────────────
 const ABBR = [
   ['ien', 'in'], ['iou', 'iu'], ['uo', 'o'],
-  ['uei', 'ui'], ['uen', 'un'], ['uong', 'ung'],
-  ['yuo', 'yo'], ['yuen', 'yun'],
+  ['uei', 'ui'], ['uen', 'un'], ['uong', 'ung', 'aCqOnly'],
+  ['yuo', 'o', 'aJqx'], ['yuo', 'yo', 'aZeroN'], ['yuen', 'yun', 'aZero'],
 ];
 
 function figAbbrev(T, lang, font) {
@@ -656,13 +662,11 @@ function figAbbrev(T, lang, font) {
 
   let b = text(PAD, 30, T.aTitle, { size: 17, weight: 'bold' });
   b += text(PAD, 52, T.aSub, { size: 12, fill: C.sub });
-  ABBR.forEach(([full, short], i) => {
+  ABBR.forEach(([full, short, tagKey], i) => {
     const x = PAD + (i % PER) * CW, y = TOP + Math.floor(i / PER) * (CH + 12);
-    const isZero = full === 'yuo' || full === 'yuen';
     b += `<rect x="${x}" y="${y}" width="${CW - 14}" height="${CH}" rx="6" fill="#f7fafc" stroke="${C.line}"/>`;
     b += text(x + (CW - 14) / 2, y + 30, `${full} → ${short}`, { size: 17, weight: 'bold', anchor: 'middle' });
-    if (isZero) b += text(x + (CW - 14) / 2, y + 52, T.aZero, { size: 11, fill: C.sub, anchor: 'middle' });
-    else if (full === 'uong') b += text(x + (CW - 14) / 2, y + 52, T.aCqOnly, { size: 10.5, fill: C.sub, anchor: 'middle' });
+    if (tagKey) b += text(x + (CW - 14) / 2, y + 52, T[tagKey], { size: 10.5, fill: C.sub, anchor: 'middle' });
   });
   fl.forEach((s, i) => { b += text(PAD, gridBottom + 22 + i * 19, s, { size: 12, fill: C.sub }); });
   fs.writeFileSync(`figures/abbrev.${lang}.svg`, svg(w, h, b, font), { encoding: 'utf8' });

@@ -197,9 +197,9 @@ The codes above follow the urban table (`水 suei3`, `中 zung4`, and `東 dung1
 
 ## 8. Input-side abbreviations
 
-### 8.1 Short spellings (8 in urban · 7 in southern)
+### 8.1 Short spellings (9 in urban · 8 in southern)
 
-Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` after an initial and `yuo` to `yo`; meanwhile `ing` and `yung` are full spellings directly. For `uong → ung`: **urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb** (so `nanjiao` needs no `uong→ung` rule):
+Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` after an initial; `yuo` also shortens to `o` after `j q x` (these never combine with `uo`, so there is no contrast) and to `yo` with a zero initial or after `n`; meanwhile `ing` and `yung` are full spellings directly. For `uong → ung`: **urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb** (so `nanjiao` needs no `uong→ung` rule):
 
 | Full | Short | Condition | Examples |
 |---|---|---|---|
@@ -209,7 +209,8 @@ Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` afte
 | `uei` | `ui` | after an initial consonant | `huei` 回 → `hui`, `duei` 對 → `dui` |
 | `uen` | `un` | after an initial consonant | `suen` 孫 → `sun`, `duen` 墩 → `dun` |
 | `uong` | `ung` | **urban only** (after an initial consonant) | urban `duong` 冬 → `dung` (south natively `dung`) |
-| `yuo` | `yo` | including zero initial | `yuo` 藥 → `yo`, `jyuo` 覺 → `jyo` |
+| `yuo` | `o` | after `j q x` only | `jyuo` 覺 → `jo`, `qyuo` 卻 → `qo`, `xyuo` 學 → `xo` |
+| `yuo` | `yo` | zero initial, or after `n` (`nuo` and `nyuo` contrast, so not `no`) | `yuo` 藥 → `yo`, `nyuo` 握 → `nyo` |
 | `yuen` | `yun` | including zero initial | `yuen` 勻 → `yun`, `jyuen` 軍 → `jyun` |
 
 ![Input-side short forms](figures/abbrev.en.svg)
@@ -217,6 +218,8 @@ Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` afte
 ![Southern-suburb variants](figures/variant.en.svg)
 
 **Southern-suburb variants**: Before `u`-series finals, southern `z`, `c`, `s`, `rh` also have retroflex variants `zh`, `ch`, `sh`, `r`, and `sh+u` has an `f` variant. These appear on characters whose urban reading starts with `bf`, `pf`, `f`, or `v`, plus reviewed Weinan-only characters (e.g. 水 `suei3` with variants `shuei3`, `fei3`).
+
+**Retired shortcuts**: `qyo`, `jyo`, `xyo` are replaced by `qo`, `jo`, `xo` (`nyo` stays).
 
 **Disallowed shortcuts**: `you` → `yu` (collides with `魚 yu`), zero-initial `yen`/`wo`/`wei`/`wen` and urban `wong` / southern `wung` (kept full to prevent collisions), and `yue`/`yuan`/`yu`/`yung`.
 

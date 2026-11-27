@@ -10,7 +10,7 @@ schema:
     - 字音來源：南郊音字表（2026-11-20 重建：南郊裁定表 + 兩地一致讀音，套西安話音標折出）
   description: |
     西安話南郊音（關中片）拼音輸入方案。
-    音系：聲母 25（含 rh；無 bf、pf——此二者為城區音獨有）、韻母 37（無 uu、iae）、
+    音系：聲母 25（含 rh；無 bf、pf——此二者為城區音獨有）、韻母 37（無 uu、iae；城區音 uong 在南郊音依實際音值作 ung）、
     聲調四類——陰平 31、陽平 24、上聲 53、去聲 55。
     同倉庫另有西安話城區音方案 chengqyu（聲母 26、韻母 39），兩套並行。
     拼寫以全拼為準，簡拼只在輸入端兼容（注音、詞庫仍寫全拼）；聲調不輸入，故輸入碼不含數字。
@@ -74,7 +74,7 @@ speller:
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uo(?=\d?$)/$1o/          # 多 duo => do、剝 buo => bo、勿 vuo => vo
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uei(?=\d?$)/$1ui/       # 回 huei => hui
     - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uen(?=\d?$)/$1un/        # 孫 suen => sun
-    - derive/^(zh|ch|sh|ng|rh|[bpmfvdtnlzcsjqxrgh])uong(?=\d?$)/$1ung/      # 東 duong => dung
+    # 城區音有 uong=>ung 簡拼；南郊音全拼本身即作 ung（東 dung、中 zung），無需再衍生
     - derive/yuo(?=\d?$)/yo/                                                # 藥 yuo => yo、覺 jyuo => jyo
     - derive/yuen(?=\d?$)/yun/                                              # 勻 yuen => yun、軍 jyuen => jyun
 

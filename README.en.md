@@ -12,14 +12,14 @@ A Rime pinyin input scheme for the Xi'an dialect (Guanzhong subgroup of Central 
 
 - **Schema IDs**: `chengqyu` (urban) and `nanjiao` (southern suburb). The repository name `xinganhua-fuvufa` preserves an earlier spelling of "Xi'an dialect input method" (西 `xi1` 安 `ngan1` 话 `hua4` | 输 `fu1` 入 `vu1` 法 `fa1`).
 - **Dictionary size**: 3,649 urban readings (3,346 characters) and 4,594 southern readings (4,065 characters, including 720 additions from Weinan-only and reviewed entries).
-- **Phonology overview**: 24 initials, 37 finals, and 4 tones (Yinping 31, Yangping 24, Shangsheng 53, Qusheng 55) are shared. Urban Xi'an retains `bf`, `pf` and `uu`, `iae` (26 initials, 39 finals); the southern suburb adds `rh` (25 initials, 37 finals).
+- **Phonology overview**: 24 initials and 4 tones (Yinping 31, Yangping 24, Shangsheng 53, Qusheng 55) are shared. Urban Xi'an has 26 initials and 39 finals (`bf`, `pf`, `uu`, `iae`, and `uong`); the southern suburb has 25 initials and 37 finals (`rh`, no `uu`/`iae`, spelling `uong` directly as `ung`).
 - **Supported frontends**: Rime clients including Weasel, Squirrel, Trime, and fcitx-rime.
 - **Conventions**: Character examples keep the dictionary's traditional glyphs (`鵝`, `軍`, `豬`, `來`, `溫`, etc.) so they match the tables verbatim. Use the top bar to switch between Simplified Chinese, Traditional Chinese, English, and Japanese.
 
 | Schema | Variety | Initials | Finals | Dictionary |
 |---|---|---|---|---|
-| `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 39 (incl. `uu`, `iae`) | `chengqyu.word.dict.yaml` (3,649) |
-| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 37 | `nanjiao.word.dict.yaml` (4,594) |
+| `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 39 (`uu`, `iae`, `uong`) | `chengqyu.word.dict.yaml` (3,649) |
+| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 37 (`ung`) | `nanjiao.word.dict.yaml` (4,594) |
 
 ---
 
@@ -46,7 +46,7 @@ A Rime pinyin input scheme for the Xi'an dialect (Guanzhong subgroup of Central 
 
 ## 1. Overview and design
 
-The romanisation is called **Xi'an pinyin** and serves both varieties with one unified spelling system. Each syllable is written as `initial + final + tone digit`, such as `ba1` 巴 and `jyuen1` 軍 (`bfeng4` 中 in urban speech, `zuong4` in the southern suburb).
+The romanisation is called **Xi'an pinyin** and serves both varieties with one unified phonological convention. Each syllable is written as `initial + final + tone digit`, such as `ba1` 巴 and `jyuen1` 軍 (`bfeng4` 中 in urban speech, `zung4` in the southern suburb).
 
 ![Syllable structure](figures/syllable.en.svg)
 
@@ -72,7 +72,7 @@ Distributional rules:
 - **Palatalized `n`**: Before narrow finals starting with `i` or `y`, `n` is realised as `[ȵ]` (`你 ni3`, `女 nyu3`); before open or `u`-medial finals it remains `[n]` (`南 nan2`, `挪 nuo2`).
 - **Sibilant split**: `z c s` (`[ts tsʰ s]`) combine only with `[ɿ]` and broad finals; narrow `i`/`y` finals always take `j q x` (`[tɕ tɕʰ ɕ]`).
 - **Labiodental affricates `bf`, `pf`**: Urban-only before broad or `u`-medial finals (`bfu` 豬, `bfuo` 捉, `bfan` 磚, `pfang` 窗). Southern Xi'an merges them into `z`, `c` with a `u` medial (`zu` 豬, `zuo` 捉, `zuan` 磚, `cuang` 窗).
-- **Southern `rh`**: Realised as `[z]`, occurring only before `u`-series finals (`u ua uo uae uei uan uen uong`) where urban speech has `v` (`入 vu1→rhu1`, `若 vuo1→rhuo1`, `軟 van3→rhuan3`, `潤 ven4→rhuen4`).
+- **Southern `rh`**: Realised as `[z]`, occurring only before `u`-series finals (`u ua uo uae uei uan uen ung`) where urban speech has `v` (`入 vu1→rhu1`, `若 vuo1→rhuo1`, `軟 van3→rhuan3`, `潤 ven4→rhuen4`).
 - **Retroflex `r`**: Combines with 7 broad finals only (`re` 熱, `rao` 饒, `ren` 人, `rou` 揉, `ran` 然, `rang` 瓤, `reng` 扔); characters such as 日 而 兒 耳 二 take zero-initial `er`.
 - **Velar nasal `ng`**: Occurs before broad finals only (`nge` 鵝, `ngan` 安, `ngen` 恩, `ngang` 昂, `ngae` 哀, `ngei` 額, `ngao` 熬, `ngou` 歐).
 - **`v` vs. `f`**: Contrastive, e.g. `ven` 文 vs. `fen` 分, `va` 襪 vs. `fa` 法.
@@ -83,11 +83,11 @@ Distributional rules:
 
 ## 3. Finals
 
-37 finals are shared (13 open / 9 `i`-medial / 9 `u`-medial / 6 `ü`-medial); urban Xi'an retains `uu [ɯ]` and `iae [iæ]`, giving 39 (14 / 10 / 9 / 6):
+Urban Xi'an has 39 finals (14 open / 10 `i`-medial / 9 `u`-medial / 6 `ü`-medial), and southern Xi'an has 37 (13 / 9 / 9 / 6; no `uu [ɯ]` or `iae [iæ]`, and `ung [uŋ]` in place of `uong`):
 
 - **Open (14)**: `a [a]`, `e [ɤ]`, `uu [ɯ]` (urban), `i [ɿ]` (`zi ci si rhi`), `i [ʅ]` (`zhi chi shi ri`), `ae [æ]`, `ei [ei]`, `ao [au]`, `ou [ɤu]`, `an [ã]`, `en [ẽ]`, `ang [aŋ]`, `eng [əŋ]`, `er [ɚ]`
 - **Medial `i` (10)**: `i [i]`, `ia [ia]`, `ie [iɛ]`, `iae [iæ]` (urban), `iao [iau]`, `iou [iɤu]`, `ian [iã]`, `ien [iɛ̃]`, `iang [iaŋ]`, `ing [iŋ]`
-- **Medial `u` (9)**: `u [u]`, `ua [ua]`, `uo [uɤ]`, `uae [uæ]`, `uei [uei]`, `uan [uã]`, `uen [uẽ]`, `uang [uaŋ]`, `uong` (urban `[uɤŋ]` / southern `[uŋ]`)
+- **Medial `u` (9)**: `u [u]`, `ua [ua]`, `uo [uɤ]`, `uae [uæ]`, `uei [uei]`, `uan [uã]`, `uen [uẽ]`, `uang [uaŋ]`, `uong [uɤŋ]` (urban) / `ung [uŋ]` (southern)
 - **Medial `ü` (6)**: `yu [y]`, `yuo [yɤ]`, `yue [yɛ]`, `yuan [yã]`, `yuen [yɛ̃]`, `yung [yŋ]`
 
 Zero-initial spellings:
@@ -96,7 +96,7 @@ Zero-initial spellings:
 |---|---|---|
 | Open | no onset letter | `a` 阿, `er` 日, `ae`, `ao`, `an`, `ei`, `en`, `ou`, `ang`, `eng` |
 | Medial `i` | `i` → `y` | `yi` 衣, `ya` 丫, `ye` 也, `yae` 涯, `yao` 耀, `you` 有, `yan` 煙, `yen` 音, `yang` 央, `ying` 英 |
-| Medial `u` | `u` → `w` | `wu` 烏, `wa` 挖, `wo` 窩, `wae` 外, `wei` 威, `wan` 彎, `wen` 溫, `wang` 汪, `wong` 翁 |
+| Medial `u` | `u` → `w` | `wu` 烏, `wa` 挖, `wo` 窩, `wae` 外, `wei` 威, `wan` 彎, `wen` 溫, `wang` 汪, `wong` 翁 (urban) / `wung` 翁 (southern) |
 | Medial `ü` | keep `yu-` | `yu` 魚, `yuo` 樂, `yue` 月, `yuan` 冤, `yuen` 勻, `yung` 容 |
 
 The `ü`-series keeps `y` even after initials (`jyu` 居, `qyuo` 卻, `xyuen` 熏, `nyu` 女, `lyu` 律). Urban `uu` (`guu` 胳) and `iae` (`jiae` 皆) merge into `e` (`ge`) and `ie` (`jie`) in the southern suburb.
@@ -120,7 +120,7 @@ Tone digits `1`–`4` follow the syllable without a space. Historical entering-t
 ## 5. Orthographic notes
 
 1. **Apical vowels**: Both `[ɿ]` (after `z c s rh`) and `[ʅ]` (after `zh ch sh r`) are written `i` (`zi` 指, `chi` 吃), disambiguated by the initial.
-2. **Nasalised vs. velar-coda finals**: Finals ending in `-n` (`an en ian ien uan uen yuan yuen`) are nasalised vowels `[ã ẽ iã iɛ̃ uã uẽ yã yɛ̃]` with no alveolar closure; finals ending in `-ng` (`ang eng iang ing uang uong yung`) close with velar `[-ŋ]`. `uong` is `[uɤŋ]` in urban Xi'an and `[uŋ]` in the southern suburb.
+2. **Nasalised vs. velar-coda finals**: Finals ending in `-n` (`an en ian ien uan uen yuan yuen`) are nasalised vowels `[ã ẽ iã iɛ̃ uã uẽ yã yɛ̃]` with no alveolar closure; finals ending in `-ng` (`ang eng iang ing uang`, urban `uong` / southern `ung`, `yung`) close with velar `[-ŋ]`. Urban Xi'an keeps a `[ɤ]` glide as `uong [uɤŋ]`, while southern Xi'an pronounces `[uŋ]` directly and spells it `ung`.
 3. **Apostrophe boundary**: Insert `'` where concatenation would cause mis-segmentation, notably `xi'ngan1` 西安 (without `'`, `xingan` would split as `xin` + `gan`).
 4. **Full spelling in notation**: Dictionaries and canonical citations always keep full toned spellings (`vuo1`, `ying1`, `yung2`); abbreviations and toneless input apply only while typing (see §8).
 
@@ -146,7 +146,7 @@ The 21 initials `b p m f d t n l g k h z c s zh ch sh r j q x` share Mandarin's 
 | iu | `iou` | 牛 `niou2` | full spelling keeps `o`; `iu` allowed on input |
 | ui | `uei` | 回 `huei2` | full spelling keeps `e`; `ui` allowed on input |
 | un | `uen` | 溫 `wen1` | zero initial matches Mandarin `wen` |
-| ong | `uong` | 東 `duong1` | urban `[uɤŋ]`, southern `[uŋ]`; zero initial `wong` |
+| ong | urban `uong` / southern `ung` | 東 `duong1` / `dung1` | urban `[uɤŋ]` (`wong`), southern `[uŋ]` (`wung`) |
 | iong | `yung` | 容 `yung2` | keeps `y` |
 | ü / üe / üan / ün | `yu / yue / yuan / yuen` | 魚 `yu2`, 月 `yue1`, 元 `yuan2`, 軍 `jyuen1` | `y` never dropped |
 
@@ -164,7 +164,7 @@ The 21 initials `b p m f d t n l g k h z c s zh ch sh r j q x` share Mandarin's 
 | shuō | `she1` | `she1` | 說 |
 | shān / shì | `san1 / si4` | `san1 / si4` | 山 / 是 |
 | zhū / chū | `bfu1 / pfu1` | `zu1 / cu1` | 豬 / 出 |
-| zhōng / chūn | `bfeng4 / pfen1` | `zuong4 / cuen1` | 中 / 春 |
+| zhōng / chūn | `bfeng4 / pfen1` | `zung4 / cuen1` | 中 / 春 |
 | wén | `ven2` | `ven2` | 文 |
 | é / ān | `nge2 / ngan1` | `nge2 / ngan1` | 鵝 / 安 |
 | rì | `er1` | `er1` | 日 |
@@ -189,7 +189,7 @@ The 21 initials `b p m f d t n l g k h z c s zh ch sh r j q x` share Mandarin's 
 | 家 | jiā | `jia1` | | 立 | lì | `li1` |
 | 日 | rì | `er1` | | 大 | dà | `da4` |
 
-The codes above follow the urban table (`水 suei3` and `中 zuong4` in the south). Tone digits are omitted while typing (`ba` offers all tones). Reverse lookup by Mandarin pinyin starts with `` ` `` (e.g. `` `zhong ``, optional trailing `;`). Stroke lookup was removed so `x` and `q` serve normally as initials.
+The codes above follow the urban table (`水 suei3`, `中 zung4`, and `東 dung1` in the south). Tone digits are omitted while typing (`ba` offers all tones). Reverse lookup by Mandarin pinyin starts with `` ` `` (e.g. `` `zhong ``, optional trailing `;`). Stroke lookup was removed so `x` and `q` serve normally as initials.
 
 ---
 
@@ -197,9 +197,9 @@ The codes above follow the urban table (`水 suei3` and `中 zuong4` in the sout
 
 ## 8. Input-side abbreviations
 
-### 8.1 Eight short spellings
+### 8.1 Short spellings (8 in urban · 7 in southern)
 
-Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` after an initial and `yuo` to `yo`; meanwhile `ing` and `yung` are full spellings directly:
+Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` after an initial and `yuo` to `yo`; meanwhile `ing` and `yung` are full spellings directly. For `uong → ung`: **urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb** (so `nanjiao` needs no `uong→ung` rule):
 
 | Full | Short | Condition | Examples |
 |---|---|---|---|
@@ -208,7 +208,7 @@ Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` afte
 | `uo` | `o` | after an initial consonant | `duo` 多 → `do`, `vuo` 勿 → `vo` |
 | `uei` | `ui` | after an initial consonant | `huei` 回 → `hui`, `duei` 對 → `dui` |
 | `uen` | `un` | after an initial consonant | `suen` 孫 → `sun`, `duen` 墩 → `dun` |
-| `uong` | `ung` | after an initial consonant | `duong` 冬 → `dung`, `huong` 烘 → `hung` |
+| `uong` | `ung` | **urban only** (after an initial consonant) | urban `duong` 冬 → `dung` (south natively `dung`) |
 | `yuo` | `yo` | including zero initial | `yuo` 藥 → `yo`, `jyuo` 覺 → `jyo` |
 | `yuen` | `yun` | including zero initial | `yuen` 勻 → `yun`, `jyuen` 軍 → `jyun` |
 
@@ -218,7 +218,7 @@ Now that the `o` final has merged into `uo`, `uo` may be abbreviated to `o` afte
 
 **Southern-suburb variants**: Before `u`-series finals, southern `z`, `c`, `s`, `rh` also have retroflex variants `zh`, `ch`, `sh`, `r`, and `sh+u` has an `f` variant. These appear on characters whose urban reading starts with `bf`, `pf`, `f`, or `v`, plus reviewed Weinan-only characters (e.g. 水 `suei3` with variants `shuei3`, `fei3`).
 
-**Disallowed shortcuts**: `you` → `yu` (collides with `魚 yu`), zero-initial `yen`/`wo`/`wei`/`wen`/`wong` (kept full to prevent collisions), and `yue`/`yuan`/`yu`/`yung`.
+**Disallowed shortcuts**: `you` → `yu` (collides with `魚 yu`), zero-initial `yen`/`wo`/`wei`/`wen` and urban `wong` / southern `wung` (kept full to prevent collisions), and `yue`/`yuan`/`yu`/`yung`.
 
 ### 8.2 Tone-free typing
 
@@ -226,7 +226,7 @@ Keys `1`–`9` select candidates in Rime, so `speller/algebra` strips tone digit
 
 ### 8.3 Ambiguity check
 
-Verified via `librime` across all 392 urban and 420 southern syllables: all 8 abbreviation rules yield **0 cross-syllable ambiguities** and **0 collisions** with full spellings.
+Verified via `librime` across all 392 urban and 420 southern syllables: each scheme's abbreviation rules yield **0 cross-syllable ambiguities** and **0 collisions** with full spellings.
 
 ---
 

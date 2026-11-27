@@ -78,7 +78,7 @@ const STR = {
     oFoot: [
       '¹ 音节内 n 与 i、y 起头的细音韵母相拼时音值为 [ȵ]（如 南 nan2 为 [n]，你 ni3、女 nyu3 为 [ȵ]）。',
       'z c s 只接 ɿ 和洪音韵母，细音一律 j q x；r 只配 7 个洪音韵母（日 而 兒 耳 二 读零声母 er）；ng 只配洪音。',
-      'bf、pf 为城区音特有：南郊音读 z、c，韵母同时增生 u 介音（中 bfeng4/zuong4、窗 pfang1/cuang1）。',
+      'bf、pf 为城区音特有：南郊音读 z、c，韵母同时增生 u 介音（中 bfeng4/zung4、窗 pfang1/cuang1）。',
       'rh（[z]）为南郊音特有：城区音读 v（入 vu1→rhu1、若 vuo1→rhuo1、軟 van3→rhuan3、潤 ven4→rhuen4）。',
     ],
     rTitle: '西安话韵母：城区音 39 个、南郊音 37 个',
@@ -86,7 +86,7 @@ const STR = {
     rLeg: ['城区音特有（红虚线）'],
     rGroups: ['开呼 14', '齐呼 10', '合呼 9', '撮呼 6'],
     rFoot: [
-      '¹ ɿ 用于 zi ci si rhi；² ʅ 用于 zhi chi shi ri；³ uong（含 wong）在城区音为 [uɤŋ]、南郊音为 [uŋ]。',
+      '¹ ɿ 用于 zi ci si rhi；² ʅ 用于 zhi chi shi ri；³ 城区音写作 uong [uɤŋ]（零声母 wong），南郊音写作 ung [uŋ]（零声母 wung）。',
       '-n 尾韵母（an en ian ien uan uen yuan yuen）读鼻化元音 [ã ẽ iã iɛ̃ uã uẽ yã yɛ̃]；-ng 尾韵母收舌根鼻音 [-ŋ]。',
       '撮呼一律带 y，声母后也不省（jyuen 軍、qyuo 卻、nyu 女）；城区音的 uu、iae 在南郊音读 e、ie（胳 guu1→ge1、皆 jiae1→jie1）。',
     ],
@@ -104,14 +104,14 @@ const STR = {
       ['阴平 + 阴平', '31-31', '24-31', '前一字改读阳平'],
       ['上声 + 上声', '53-53', '31-53', '前一字改读阴平'],
     ],
-    sTitle: '音节结构：声母 + 韵母 + 调号（城区音、南郊音写法相同）',
+    sTitle: '音节结构：声母 + 韵母 + 调号（城区音、南郊音结构相同）',
     sSub: '韵母含介音；零声母不写字母，齐呼改 y、合呼改 w、撮呼照写 yu-',
     sHead: ['声母', '韵母', '调号', '例字'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
       ['bfeng4', ['bf', 'eng', '4'], '中（城区音）'],
-      ['zuong4', ['z', 'uong', '4'], '中（南郊音）'],
+      ['zung4', ['z', 'ung', '4'], '中（南郊音）'],
       ['rhu1', ['rh', 'u', '1'], '入（南郊音）'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿（零声母）'],
@@ -126,9 +126,9 @@ const STR = {
       '',
       '若连写成 xingan，就能被重新切成 xin（心的简拼）+ gan（干），',
       '所以必须加撇号。仓库名 xinganhua-fuvufa 因此去掉了撇号。',
-      '输入端可用简拼：ien→in、iou→iu、uo→o、uei→ui、uen→un、uong→ung、yuo→yo、yuen→yun（词库与注音仍写全拼）。',
+      '输入端可用简拼：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuo→yo、yuen→yun；城区音 uong 也可简打 ung（南郊音本来的拼写就是 ung）。',
     ],
-    aTitle: '西安话简拼对照：8 条缩写规则（输入端专用）',
+    aTitle: '西安话简拼对照：输入端缩写规则（城区 8 条 · 南郊 7 条）',
     aSub: '格内：全拼 → 简拼；只用于键盘输入，词库与注音仍写全拼',
     vTitle: '南郊音的变体：z c s rh 遇 u 的翘舌变体，shu 还有 f 变体',
     vSub: '每条南郊读音下另列变体（四声相同）；变体只在城区音读 bf、pf、f、v 的字与审定字上加注',
@@ -139,7 +139,7 @@ const STR = {
       ['書', 'su1', 'shu1 · fu1', 'fu1'],
       ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
       ['入', 'rhu1', 'ru1', 'vu1'],
-      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+      ['中', 'zung4', 'zhung4', 'bfeng4'],
     ],
     vFoot: [
       '南郊音 z、c、s、rh 四组声母与 u 相接时，分别存在 zhu、chu、shu、ru 的对应翘舌变体；',
@@ -147,7 +147,11 @@ const STR = {
       '变体与基本读音同调；字表与输入法均保留两读，卡片上以「变体」标出。',
     ],
     aZero: '含零声母',
-    aFoot: ['其余 6 条仅限前有辅音声母时简拼（wo、wei、wen、wong 保持全拼）。'],
+    aCqOnly: '城区简拼 · 南郊本即 ung',
+    aFoot: [
+      'uong → ung：城区音中拼音可以这样简化，南郊音本来的拼写就是后者（ung）。',
+      '除 yuo→yo、yuen→yun 含零声母外，其余仅限前有辅音声母时简拼（wo、wei、wen、城区 wong 与南郊 wung 保持全拼）。',
+    ],
   },
 
   en: {
@@ -162,7 +166,7 @@ const STR = {
     oFoot: [
       '¹ Initial n is realised as [ȵ] before narrow finals starting with i or y (e.g. 南 nan2 [n], 你 ni3 / 女 nyu3 [ȵ]).',
       'z c s take only ɿ and broad finals; narrow (i / y) finals always take j q x. r takes 7 broad finals (日 而 兒 耳 二 take zero initial er); ng takes broad finals only.',
-      'bf and pf are urban-only: southern Xi’an reads z and c with a u medial (中 bfeng4/zuong4, 窗 pfang1/cuang1).',
+      'bf and pf are urban-only: southern Xi’an reads z and c with a u medial (中 bfeng4/zung4, 窗 pfang1/cuang1).',
       'rh ([z]) is southern-only: the urban reading has v (入 vu1→rhu1, 若 vuo1→rhuo1, 軟 van3→rhuan3, 潤 ven4→rhuen4).',
     ],
     rTitle: 'Xi’an finals: urban 39 · southern 37',
@@ -170,7 +174,7 @@ const STR = {
     rLeg: ['Urban-only (red dashed)'],
     rGroups: ['Open 14', 'i-medial 10', 'u-medial 9', 'ü-medial 6'],
     rFoot: [
-      '¹ ɿ after z c s rh; ² ʅ after zh ch sh r; ³ uong (incl. wong) is [uɤŋ] in urban Xi’an and [uŋ] in the southern suburb.',
+      '¹ ɿ after z c s rh; ² ʅ after zh ch sh r; ³ spelled uong [uɤŋ] (zero-initial wong) in urban Xi’an, and ung [uŋ] (zero-initial wung) in the southern suburb.',
       'Finals written with -n (an en ian ien uan uen yuan yuen) are nasalised vowels [ã ẽ iã iɛ̃ uã uẽ yã yɛ̃]; -ng finals end in [-ŋ].',
       'The ü-series always keeps y, even after an initial (jyuen 軍, qyuo 卻, nyu 女); urban uu and iae are e and ie in the southern suburb.',
     ],
@@ -188,14 +192,14 @@ const STR = {
       ['Yinping + Yinping', '31-31', '24-31', 'first syllable becomes Yangping'],
       ['Shangsheng + Shangsheng', '53-53', '31-53', 'first syllable becomes Yinping'],
     ],
-    sTitle: 'Syllable structure: initial + final + tone (same spelling in both varieties)',
+    sTitle: 'Syllable structure: initial + final + tone (same structure in both varieties)',
     sSub: 'The final includes the medial; zero initial writes no letter — i→y, u→w, ü→yu-',
     sHead: ['Initial', 'Final', 'Tone', 'Character'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
       ['bfeng4', ['bf', 'eng', '4'], '中 (urban)'],
-      ['zuong4', ['z', 'uong', '4'], '中 (southern)'],
+      ['zung4', ['z', 'ung', '4'], '中 (southern)'],
       ['rhu1', ['rh', 'u', '1'], '入 (southern)'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿 (zero initial)'],
@@ -210,9 +214,9 @@ const STR = {
       '',
       'Written together, xingan can be re-split into xin (short for 心) + gan (干),',
       'so the apostrophe is required. The repository name therefore drops it.',
-      'Input-side abbreviations: ien→in, iou→iu, uo→o, uei→ui, uen→un, uong→ung, yuo→yo, yuen→yun (dictionary and notation keep full spelling).',
+      'Input shortcuts: ien→in, iou→iu, uo→o, uei→ui, uen→un, yuo→yo, yuen→yun; urban uong also shortens to ung (native spelling in southern).',
     ],
-    aTitle: 'Input-side short forms: the 8 abbreviations',
+    aTitle: 'Input-side short forms (8 in urban · 7 in southern)',
     aSub: 'In each cell: full spelling → short form; keyboard input only — dictionary keeps full spelling',
     vTitle: 'Southern-suburb variants: zh ch sh r before u, plus f for shu',
     vSub: 'Variants share the base tone; marked for urban bf/pf/f/v characters and reviewed Weinan-only entries',
@@ -223,7 +227,7 @@ const STR = {
       ['書', 'su1', 'shu1 · fu1', 'fu1'],
       ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
       ['入', 'rhu1', 'ru1', 'vu1'],
-      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+      ['中', 'zung4', 'zhung4', 'bfeng4'],
     ],
     vFoot: [
       'Where southern z, c, s and rh combine with u, retroflex zh, ch, sh and r variants also exist;',
@@ -231,7 +235,11 @@ const STR = {
       'Variants keep the base tone; both forms remain in the table and IME, tagged “variant” on cards.',
     ],
     aZero: 'incl. zero initial',
-    aFoot: ['The other 6 apply only after an initial consonant (wo, wei, wen, wong keep full spelling).'],
+    aCqOnly: 'urban only · native ung in south',
+    aFoot: [
+      'uong → ung: urban Xi’an pinyin can be simplified this way, whereas ung is already the original spelling in the southern suburb.',
+      'Except yuo→yo and yuen→yun (incl. zero initial), shortcuts apply only after a consonant initial (wo, wei, wen, urban wong, southern wung stay full).',
+    ],
   },
 
   ja: {
@@ -246,7 +254,7 @@ const STR = {
     oFoot: [
       '¹ n は i・y で始まる細音の韻母と結合するとき [ȵ] となります（南 nan2 は [n]、你 ni3・女 nyu3 は [ȵ]）。',
       'z c s は ɿ と洪音のみ、細音は必ず j q x。r は洪音 7 種のみ（日 而 兒 耳 二 は零声母 er）、ng も洪音のみ。',
-      'bf・pf は城区音特有です。南郊音では z・c となり、韻母に u 介音が加わります（中 bfeng4/zuong4、窗 pfang1/cuang1）。',
+      'bf・pf は城区音特有です。南郊音では z・c となり、韻母に u 介音が加わります（中 bfeng4/zung4、窗 pfang1/cuang1）。',
       'rh（[z]）は南郊音特有です。城区音では v で読みます（入 vu1→rhu1、若 vuo1→rhuo1、軟 van3→rhuan3、潤 ven4→rhuen4）。',
     ],
     rTitle: '西安方言の韻母：城区音 39・南郊音 37',
@@ -254,7 +262,7 @@ const STR = {
     rLeg: ['城区音のみ（赤破線）'],
     rGroups: ['開口呼 14', '斉歯呼 10', '合口呼 9', '撮口呼 6'],
     rFoot: [
-      '¹ ɿ は zi ci si rhi に、² ʅ は zhi chi shi ri に用います；³ uong（wong を含む）は城区音 [uɤŋ]、南郊音 [uŋ]。',
+      '¹ ɿ は zi ci si rhi に、² ʅ は zhi chi shi ri に用います；³ 城区音は uong [uɤŋ]（零声母 wong）、南郊音は ung [uŋ]（零声母 wung）と綴ります。',
       '-n で終わる韻母（an en ian ien uan uen yuan yuen）は鼻母音 [ã ẽ iã iɛ̃ uã uẽ yã yɛ̃]、-ng 韻母は [-ŋ] です。',
       '撮口呼はつねに y を保ちます（jyuen 軍、qyuo 卻、nyu 女）。城区音の uu・iae は南郊音で e・ie となります。',
     ],
@@ -272,14 +280,14 @@ const STR = {
       ['陰平＋陰平', '31-31', '24-31', '前の字が陽平に変わる'],
       ['上声＋上声', '53-53', '31-53', '前の字が陰平に変わる'],
     ],
-    sTitle: '音節の構造：声母＋韻母＋声調番号（城区音・南郊音とも同じ書き方）',
+    sTitle: '音節の構造：声母＋韻母＋声調番号（城区音・南郊音とも同じ構造）',
     sSub: '韻母は介音を含む。零声母は字母を書かず、斉呼は y、合呼は w、撮呼は yu- のまま',
     sHead: ['声母', '韻母', '声調番号', '例字'],
     sEx: [
       ['ba1', ['b', 'a', '1'], '巴'],
       ['tian1', ['t', 'ian', '1'], '天'],
       ['bfeng4', ['bf', 'eng', '4'], '中（城区音）'],
-      ['zuong4', ['z', 'uong', '4'], '中（南郊音）'],
+      ['zung4', ['z', 'ung', '4'], '中（南郊音）'],
       ['rhu1', ['rh', 'u', '1'], '入（南郊音）'],
       ['jyuen1', ['j', 'yuen', '1'], '軍'],
       ['a1', ['—', 'a', '1'], '阿（零声母）'],
@@ -294,9 +302,9 @@ const STR = {
       '',
       'xingan と続けて書くと xin（心の簡拼）＋ gan（干）に切り直されてしまうため、',
       '撇号が必要です。リポジトリ名 xinganhua-fuvufa はこの理由で撇号を外しています。',
-      '入力側の略式綴り：ien→in、iou→iu、uo→o、uei→ui、uen→un、uong→ung、yuo→yo、yuen→yun（辞書と表記は全拼のまま）。',
+      '入力側の略式綴り：ien→in、iou→iu、uo→o、uei→ui、uen→un、yuo→yo、yuen→yun。城区音 uong は ung と略せますが、南郊音は元々 ung です。',
     ],
-    aTitle: '入力側の略式綴り：8 つのルール',
+    aTitle: '入力側の略式綴り（城区音 8 種・南郊音 7 種）',
     aSub: '各枠は 全拼 → 略拼。キーボード入力専用で、辞書と表記は全拼のまま',
     vTitle: '南郊音の変体：z c s rh が u と結合するときのそり舌変体、shu には f 変体も',
     vSub: '各南郊音の下に変体も並べます（声調は同じ）。城区音が bf・pf・f・v の字および審定済みの字にのみ付与',
@@ -307,7 +315,7 @@ const STR = {
       ['書', 'su1', 'shu1 · fu1', 'fu1'],
       ['水', 'suei3', 'shuei3 · fei3', 'fei3'],
       ['入', 'rhu1', 'ru1', 'vu1'],
-      ['中', 'zuong4', 'zhuong4', 'bfeng4'],
+      ['中', 'zung4', 'zhung4', 'bfeng4'],
     ],
     vFoot: [
       '南郊音の z・c・s・rh の四組の声母が u と結合するとき、zh・ch・sh・r のそり舌の変体もあります。',
@@ -315,12 +323,16 @@ const STR = {
       '変体は基本の読みと同じ声調です。字表と入力方案はいずれも両方を残し、カードでは「変体」と表示します。',
     ],
     aZero: '零声母も可',
-    aFoot: ['残る 6 種は前に子音声母がある場合に限ります（wo・wei・wen・wong は全拼のまま）。'],
+    aCqOnly: '城区のみ・南郊は元々 ung',
+    aFoot: [
+      'uong → ung：城区音のピンインはこのように簡略化できますが、南郊音は本来の綴りそのものが後者（ung）です。',
+      'yuo→yo・yuen→yun（零声母を含む）以外は子音声母の後に限ります（wo・wei・wen・城区 wong・南郊 wung は全拼のまま）。',
+    ],
   },
 };
 
 const S2T = {
-  话: '話', 个: '個', 内: '內', 写: '寫', 国: '國', 际: '際', 标: '標', 词: '詞', 库: '庫', 体: '體',
+  来: '來', 除: '除', 话: '話', 个: '個', 内: '內', 写: '寫', 国: '國', 际: '際', 标: '標', 词: '詞', 库: '庫', 体: '體',
   与: '與', 语: '語', 没: '沒', 双: '雙', 齿: '齒', 后: '後', 细: '細', 韵: '韻', 读: '讀',
   开: '開', 齐: '齊', 为: '爲', 实: '實', 变: '變', 里: '裏', 对: '對', 应: '應', 带: '帶',
   声: '聲', 记: '記', 竖: '豎', 轴: '軸', 调: '調', 号: '號', 节: '節', 阴: '陰', 阳: '陽',
@@ -377,7 +389,7 @@ const ON = [
     ['b', 'p', '巴 ba1', 'same'],
     ['p', 'pʰ', '朋 peng2', 'same'],
     ['m', 'm', '明 ming2', 'same'],
-    ['bf', 'pf', '中 bfeng4', 'cq', 'zuong4'],
+    ['bf', 'pf', '中 bfeng4', 'cq', 'zung4'],
     ['pf', 'pfʰ', '窗 pfang1', 'cq', 'cuang1'],
     ['f', 'f', '夫 fu1', 'same'],
     ['v', 'v', '文 ven2', 'new'],
@@ -468,7 +480,7 @@ const RH = [
     ['i', 'ɿ¹', '字 zi4'], ['i', 'ʅ²', '吃 chi1'], ['ae', 'æ', '菜 cae4'],
     ['ei', 'ei', '水 fei3', 'plain', 'suei3'], ['ao', 'au', '到 dao4'], ['ou', 'ɤu', '狗 gou3'],
     ['an', 'ã', '山 san1'], ['en', 'ẽ', '人 ren2'], ['ang', 'aŋ', '上 shang4'],
-    ['eng', 'əŋ', '中 bfeng4', 'plain', 'zuong4'], ['er', 'ɚ', '兒 er2'],
+    ['eng', 'əŋ', '中 bfeng4', 'plain', 'zung4'], ['er', 'ɚ', '兒 er2'],
   ]],
   ['齐呼', [
     ['i', 'i', '衣 yi1'], ['ia', 'ia', '家 jia1'], ['ie', 'iɛ', '姐 jie3'],
@@ -479,7 +491,7 @@ const RH = [
   ['合呼', [
     ['u', 'u', '烏 wu1'], ['ua', 'ua', '花 hua1'], ['uo', 'uɤ', '窩 wo1'],
     ['uae', 'uæ', '快 kuae4'], ['uei', 'uei', '回 huei2'], ['uan', 'uã', '彎 wan1'],
-    ['uen', 'uẽ', '溫 wen1'], ['uang', 'uaŋ', '汪 wang1'], ['uong', 'uɤŋ/uŋ³', '翁 wong1'],
+    ['uen', 'uẽ', '溫 wen1'], ['uang', 'uaŋ', '汪 wang1'], ['uong / ung', 'uɤŋ/uŋ³', '東 duong1', 'plain', 'dung1'],
   ]],
   ['撮呼', [
     ['yu', 'y', '魚 yu2'], ['yuo', 'yɤ', '樂 yuo1'], ['yue', 'yɛ', '月 yue1'],
@@ -519,8 +531,9 @@ function figRhymes(T, lang, font) {
       const cx = LX + (i % PER) * CW, cy = y + Math.floor(i / PER) * (CH + 10), col = C[kind] || C.plain;
       const ipaTxt = fmtIpa(ipa);
       const ipaSize = ipaTxt.length > 9 ? 10 : 11.5;
+      const latSize = lat.length > 5 ? 12.5 : 14.5;
       b += `<rect x="${cx}" y="${cy}" width="${CW - 8}" height="${CH}" rx="6" fill="${col.f}" stroke="${col.s}"${dashAttr(kind)}/>`;
-      b += text(cx + 9, cy + 20, lat, { size: 14.5, weight: 'bold' });
+      b += text(cx + 9, cy + 20, lat, { size: latSize, weight: 'bold' });
       b += text(cx + 9, cy + 35, ipaTxt, { size: ipaSize, fill: C.sub });
       b += renderCellExamples(cx + 9, cy + 49, ex, njEx, 10.5);
     });
@@ -649,6 +662,7 @@ function figAbbrev(T, lang, font) {
     b += `<rect x="${x}" y="${y}" width="${CW - 14}" height="${CH}" rx="6" fill="#f7fafc" stroke="${C.line}"/>`;
     b += text(x + (CW - 14) / 2, y + 30, `${full} → ${short}`, { size: 17, weight: 'bold', anchor: 'middle' });
     if (isZero) b += text(x + (CW - 14) / 2, y + 52, T.aZero, { size: 11, fill: C.sub, anchor: 'middle' });
+    else if (full === 'uong') b += text(x + (CW - 14) / 2, y + 52, T.aCqOnly, { size: 10.5, fill: C.sub, anchor: 'middle' });
   });
   fl.forEach((s, i) => { b += text(PAD, gridBottom + 22 + i * 19, s, { size: 12, fill: C.sub }); });
   fs.writeFileSync(`figures/abbrev.${lang}.svg`, svg(w, h, b, font), { encoding: 'utf8' });

@@ -11,7 +11,7 @@ A Rime pinyin input scheme for the Xi'an dialect (Guanzhong subgroup of Central 
 ![Xi'an finals (urban 39; southern 37 — no uu, iae)](figures/rhymes.en.svg)
 
 - **Schema IDs**: `chengqyu` (urban) and `nanjiao` (southern suburb). The repository name `xinganhua-fuvufa` preserves an earlier spelling of "Xi'an dialect input method" (西 `xi1` 安 `ngan1` 话 `hua4` | 输 `fu1` 入 `vu1` 法 `fa1`).
-- **Dictionary size**: 3,649 urban readings (3,346 characters) and 4,594 southern readings (4,065 characters, including 720 additions from Weinan-only and reviewed entries).
+- **Dictionary size**: 3,649 urban readings (3,346 characters) and 4,596 southern readings (4,065 characters, including 720 additions from Weinan-only and reviewed entries).
 - **Phonology overview**: 24 initials and 4 tones (Yinping 31, Yangping 24, Shangsheng 53, Qusheng 55) are shared. Urban Xi'an has 26 initials and 39 finals (`bf`, `pf`, `uu`, `iae`, and `uong`); the southern suburb has 25 initials and 37 finals (`rh`, no `uu`/`iae`, spelling `uong` directly as `ung`).
 - **Supported frontends**: Rime clients including Weasel, Squirrel, Trime, and fcitx-rime.
 - **Conventions**: Character examples keep the dictionary's traditional glyphs (`鵝`, `軍`, `豬`, `來`, `溫`, etc.) so they match the tables verbatim. Use the top bar to switch between Simplified Chinese, Traditional Chinese, English, and Japanese.
@@ -19,7 +19,7 @@ A Rime pinyin input scheme for the Xi'an dialect (Guanzhong subgroup of Central 
 | Schema | Variety | Initials | Finals | Dictionary |
 |---|---|---|---|---|
 | `chengqyu` | Urban Xi'an | 26 (incl. `bf`, `pf`) | 39 (`uu`, `iae`, `uong`) | `chengqyu.word.dict.yaml` (3,649) |
-| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 37 (`ung`) | `nanjiao.word.dict.yaml` (4,594) |
+| `nanjiao` | Southern-suburb Xi'an | 25 (incl. `rh`) | 37 (`ung`) | `nanjiao.word.dict.yaml` (4,596) |
 
 ---
 
@@ -50,7 +50,7 @@ The romanisation is called **Xi'an pinyin** and serves both varieties with one u
 
 ![Syllable structure](figures/syllable.en.svg)
 
-All 392 urban toneless syllables and 420 southern toneless syllables are pairwise distinct. Every spelling maps unambiguously back to a single IPA representation.
+All 392 urban toneless syllables and 421 southern toneless syllables are pairwise distinct. Every spelling maps unambiguously back to a single IPA representation.
 
 ---
 
@@ -229,7 +229,7 @@ Keys `1`–`9` select candidates in Rime, so `speller/algebra` strips tone digit
 
 ### 8.3 Ambiguity check
 
-Verified via `librime` across all 392 urban and 420 southern syllables: each scheme's abbreviation rules yield **0 cross-syllable ambiguities** and **0 collisions** with full spellings.
+Verified via `librime` across all 392 urban and 421 southern syllables: each scheme's abbreviation rules yield **0 cross-syllable ambiguities** and **0 collisions** with full spellings.
 
 ---
 
@@ -239,10 +239,10 @@ Verified via `librime` across all 392 urban and 420 southern syllables: each sch
 
 | Metric | Urban (`chengqyu`) | Southern (`nanjiao`) |
 |---|---|---|
-| Entries (one reading per line) | 3,649 | 4,594 |
+| Entries (one reading per line) | 3,649 | 4,596 |
 | Distinct characters | 3,346 | 4,065 (incl. 720 added characters) |
 | Polyphonic characters | 275 | 428 (256 excluding variants) |
-| Tone distribution 1/2/3/4 | 1,149 / 826 / 639 / 1,035 | 1,431 / 1,044 / 842 / 1,271 (plus 6 neutral) |
+| Tone distribution 1/2/3/4 | 1,149 / 826 / 639 / 1,035 | 1,433 / 1,044 / 842 / 1,271 (plus 6 neutral) |
 
 Every dictionary row follows `char<TAB>syllable+tone`. Noteworthy source doublets include `勻 yen2 / yuen2`, `你 ni1 / ni3`, `不 bu1 / bu2`, `來 lae1 / lae2`, `大 da4 / duo4`, `行 hang2 / hang4 / xing2`. Three characterless (`□`) syllables remain excluded: `zou2`, `tae3`, `sao2`.
 

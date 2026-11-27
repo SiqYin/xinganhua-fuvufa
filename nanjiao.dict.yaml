@@ -6,7 +6,7 @@
 #
 ---
 name: nanjiao
-version: "1.1.12"
+version: "1.1.13"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:

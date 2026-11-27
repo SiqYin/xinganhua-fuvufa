@@ -6,10 +6,10 @@
 # 本表由 tools/make_nanjiao_dict.py 生成，勿手改；要改讀音請改南郊音字表
 # 2026-11-21 起含「變體」讀音：南郊 z/c/s/rh 遇 u 另有 zh/ch/sh/r 翹舌變體，shu 另有 f 變體
 # （城區音讀 bf/pf/f/v 的字與逐字審定的渭南獨有字加註；變體與基本讀音同調）
-# 字音條目 4594 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
+# 字音條目 4596 條；注音一律全拼，簡拼只在方案 speller/algebra 裏衍生
 ---
 name: nanjiao.word
-version: "1.1.12"
+version: "1.1.13"
 sort: by_weight
 use_preset_vocabulary: true
 ...
@@ -4213,6 +4213,7 @@ use_preset_vocabulary: true
 竃	zao4
 笊	zao4
 罩	zao4
+着	ze1
 仄	zei1
 則	zei1
 摘	zei1
@@ -4281,6 +4282,7 @@ use_preset_vocabulary: true
 折	zhe1
 摺	zhe1
 浙	zhe1
+着	zhe1
 者	zhe1
 蜇	zhe1
 褶	zhe1
